@@ -34,14 +34,16 @@ function getBlogsFileNames() {
 
 async function main() {
   const blogFileNames = getBlogsFileNames();
-  console.log(blogFileNames);
+
   for (let filename of blogFileNames) {
     const fileNameWithoutExtension = filename.split(".")[0];
     const blogExists = (await firestore.collection("blogs").doc(fileNameWithoutExtension).get())
       .exists;
+
     const blog = fs.readFileSync(path.resolve(process.cwd(), "blogs", filename), "utf-8");
 
     const blogMatter = matter(blog);
+
     const source = await serialize(blog, {
       mdxOptions: {
         remarkPlugins: [
