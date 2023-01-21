@@ -37,10 +37,14 @@ async function main() {
 
   for (let filename of blogFileNames) {
     const fileNameWithoutExtension = filename.split(".")[0];
-    const blogExists = (await firestore.collection("blogs").doc(fileNameWithoutExtension).get())
-      .exists;
+    const blogExists = (
+      await firestore.collection("blogs").doc(fileNameWithoutExtension).get()
+    ).exists;
 
-    const blog = fs.readFileSync(path.resolve(process.cwd(), "blogs", filename), "utf-8");
+    const blog = fs.readFileSync(
+      path.resolve(process.cwd(), "blogs", filename),
+      "utf-8"
+    );
 
     const blogMatter = matter(blog);
 
@@ -67,7 +71,7 @@ async function main() {
             dateCreated: blogMatter.data.dateCreated.toUTCString(),
             dateUpdated: new Date().toUTCString(),
             likes: 0,
-            link: fileNameWithoutExtension
+            link: fileNameWithoutExtension,
           },
           { merge: true }
         );
@@ -82,6 +86,7 @@ async function main() {
             ...blogMatter.data,
             dateCreated: blogMatter.data.dateCreated.toUTCString(),
             dateUpdated: new Date().toUTCString(),
+            link: fileNameWithoutExtension,
           },
           { merge: true }
         );
