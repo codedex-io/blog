@@ -67,6 +67,7 @@ async function main() {
             dateCreated: blogMatter.data.dateCreated.toUTCString(),
             dateUpdated: new Date().toUTCString(),
             likes: 0,
+            link: fileNameWithoutExtension
           },
           { merge: true }
         );
