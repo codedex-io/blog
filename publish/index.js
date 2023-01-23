@@ -48,7 +48,7 @@ async function main() {
 
     const blogMatter = matter(blog);
 
-    const source = await serialize(blog, {
+    const source = await serialize(blogMatter.content, {
       mdxOptions: {
         remarkPlugins: [
           remarkPresetLintConsistent,
