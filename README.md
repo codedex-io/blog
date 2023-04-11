@@ -1,4 +1,4 @@
-# Codédex Blog
+# 📰 Codédex Blog
 
 This repository contains all the Codédex blog posts.
 
