@@ -1,6 +1,8 @@
-# blogs
+# Codédex Blog
 
-This repository contains all the Codédex blogs.
+This repository contains all the Codédex blog posts.
+
+www.codedex.io/blog
 
 The supported tags in the frontmatter for the blogs are:
 
