@@ -56,7 +56,14 @@ async function main() {
           remarkBreaks,
           remarkGfm,
         ],
-        rehypePlugins: [rehypeSlug, rehypeHighlight, rehypeExternalLinks],
+        rehypePlugins: [
+          rehypeSlug,
+          rehypeHighlight,
+          [
+            rehypeExternalLinks,
+            { target: "_blank", rel: ["nofollow", "noreferrer", "noopener"] },
+          ],
+        ],
       },
     });
     if (!blogExists) {
