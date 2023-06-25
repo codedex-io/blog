@@ -14,3 +14,5 @@ The supported tags in the frontmatter for the blogs are:
 - Product
 - Community
 - Other
+
+Blog images should be 1,600 x 900 px ratio.
