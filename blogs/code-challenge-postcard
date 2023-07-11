@@ -1,0 +1,51 @@
+---
+title: "Monthly Challenge: Design a Travel Postcard with HTML & CSS 📬"
+description: Use HTML and CSS to create a postcard site of your dream vacation spot!
+author: Brandon Dusch
+dateCreated: 2023-07-11
+published: true
+tags:
+  - Challenges
+---
+
+The summer is in full swing, which means it's vacation season and time to get in the sun! 🧳
+
+For this month’s challenge, use HTML and CSS to create a postcard site of your dream vacation spot!
+
+## Challenge Rules 📌
+
+Be as creative as you want, but make sure to include the following tags:
+
+- A defined height and width for the postcard.
+- At least one `<img>` image element.
+- At least one heading element (`<h1>` through `<h6>`).
+- At least one `<p>` paragraph element.
+
+## Inspiration ✨
+
+Some ways to make the postcard unique include:
+
+- Captivating and visually appealing design.
+- Suitable typography and color scheme.
+- A personalized message area.
+
+We encourage you to look at places like [Pinterest](https://www.pinterest.com/akw518/postcard-design-inspiration) and Google for some cool postcard ideas.
+
+## Submission 📩
+
+Post your postcard code + rendered code in the [#monthly-challenge](https://codedex.slack.com/archives/C048LPYF806) channel on Discord.
+
+Take a screenshot of your site like so:
+
+
+You can either post to social media and tag #codedex or email it to us via team@codedex.io (with “July Monthly Challenge Submission” in the subject line).
+
+Submit your completed postcard site by Tuesday July 25th, 2023 and it will be voted on by our Discord community! The postcard with the most votes wins an IRL postcard mailed to you from Team Codédex! 💌
+
+# Resources 💻
+
+[Learn HTML](https://www.codedex.io/html)
+[Learn CSS](https://www.codedex.io/css)
+[HTML/CSS Editor](https://www.codedex.io/editor/html-css) (for those that are not using or are not familiar with GitHub - you can use our on-platform full screen editor). 
+
+Happy coding!🌞
