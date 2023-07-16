@@ -1,6 +1,6 @@
 ---
-title: "Monthly Challenge: Travel Postcard"
-description: Welcome to our latest monthly challenge! In this challenge, we invite you to showcase your HTML and CSS skills by designing a visually appealing postcard. It’s a great opportunity to sharpen your frontend web development abilities while testing your creativity.
+title: "Monthly Challenge: Postcard"
+description: July's challenge is here! We invite you to showcase your HTML/CSS skills by designing a visually appealing postcard. It’s a great opportunity to sharpen your frontend web dev abilities while testing your creativity.
 author: Brandon Dusch
 dateCreated: 2023-07-11
 published: true
@@ -8,39 +8,32 @@ tags:
   - Challenges
 ---
 
-The summer is in full swing, which means it's vacation season and time to get in the sun! For this month’s challenge, use HTML and CSS to create a postcard site of your dream vacation spot. 🏝️
-
-Take a look at places like [Pinterest](https://www.pinterest.com/akw518/postcard-design-inspiration) and Google for some cool postcard ideas.
+The summer is in full swing, which means it's vacation season and time to get in the sun! For this month’s challenge, use HTML/CSS/JavaScript or Python to create a postcard of your dream vacation spot. 🏝️
 
 Some ways to make the postcard unique include: captivating and visually appealing design, a suitable typography and color scheme, and a personalized message area.
 
+Take a look at places like [Dribbble](https://dribbble.com/search/postcard) or [Pinterest](https://www.pinterest.com/akw518/postcard-design-inspiration) for some cool postcard ideas!
 
-#### Challenge Rules 📌
+#### Challenge Rules
 
-Be as creative as you want, but make sure to include the following tags:
+Be as creative as you want, but make sure to include the following tags (for HTML):
 
 - A defined height and width for the postcard.
 - At least one `<img>` image element.
-- At least one heading element (`<h1>` through `<h6>`).
 - At least one `<p>` paragraph element.
 
+#### Submission
 
-#### Submission 📩
-
-Post your postcard code + rendered code in the [#monthly-challenge](https://codedex.slack.com/archives/C048LPYF806) channel on Discord.
+Post your code + screenshot in the Twitter thread.
 
 Take a screenshot of your site like so:
 
+Submit your completed postcard by **Sunday, July 30th, 2023** and it will be voted on by our Discord community! The postcard with the most votes wins an IRL postcard mailed to you from the team! 💌
 
-You can either post to social media and tag #codedex or email it to us via team@codedex.io (with “Monthly Challenge: July Submission” in the subject line).
-
-Submit your completed postcard site by **Tuesday July 25th, 2023** and it will be voted on by our Discord community! The postcard with the most votes wins an IRL postcard mailed to you from the team! 💌
-
-
-#### Resources 💻
+#### Resources
 
 - [Learn HTML](https://www.codedex.io/html)
 - [Learn CSS](https://www.codedex.io/css)
-- [Code Editor](https://www.codedex.io/editor/html-css) (for those that are not using or are not familiar with GitHub - you can use our on-platform full screen editor). 
+- [Code Editor](https://www.codedex.io/editor/html-css)
 
 Happy coding!
