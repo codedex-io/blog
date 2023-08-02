@@ -1,0 +1,103 @@
+---
+title: "A Day in the Life: Software Engineer Intern at NASA"
+description: Welcome to our first edition of Learner Projects Showcase. Here are some of last month's most liked projects in the Codédex community!
+author: Lillian McVeigh
+seoImageLink: https://imgur.com/T97dSzp.png
+dateCreated: 2023-08-01
+published: true
+tags:
+  - Community
+---
+
+Our _A Day in the Life_ series is about getting an inside view into what it’s like working in tech. From college interns getting their first peek into tech to professionals who’ve been on the scene for over a decade, they’ll share their inspiration, challenges, advice, and more! We hope you love this!
+
+If you’ve got a story and want to share it with our community, let us know. We’d love to feature your tech journey.
+
+In Brandon L. (he/him), a SWE intern at NASA, Glenn Research Center, ISS and Human Research Office.
+
+#### 1. Hello! Tell us a little about yourself.
+
+Hey I’m Brandon! I’m currently a Software Engineering Intern at NASA. I’m currently a Junior at the University of Minnesota studying Computer Science. In my free time, I like to play strategy games like [Teamfight Tactics](https://en.wikipedia.org/wiki/Teamfight_Tactics) (TFT) and [Hearthstone](https://en.wikipedia.org/wiki/Hearthstone). I met the Codédex team at HackNYU and loved their site. Nice to meet you guys!
+
+Fun fact: I’ve peaked top 100 in North America in both games.
+
+#### 2. What do you do at NASA?
+
+I’m currently a SWE Intern at NASA’s [Glenn Research Center](https://en.wikipedia.org/wiki/Glenn_Research_Center) in Cleveland, Ohio updating and testing an inventory management site for NASA this summer. I’m mainly doing full-stack web development right now using Spring Boot, JavaScript, Node.js, and MySQL.
+
+The internship is from June 5th to August 11th.
+
+ADD A PICTURE HERE FROM FACILITY
+
+#### 3. How did you end up working for NASA as an intern?
+
+I applied last December 2022 to an opportunity on the [intern.nasa.gov](intern.nasa.gov) site and ended up getting a call one day in March 2023 from my current mentor, Nancy. She said that she was interested in my background and that I would be a good fit for the position. She also mentioned she was judging for a NASA high school competition in my area and wondered if I’d like to help judge the competition the next day. It was an opportunity to talk more about the position.
+
+So the next day, I skipped school and went to help judge the competition. Upon arriving, I felt terrified seeing that the other judges were three NASA employees plus myself. However, the competition turned out to be fantastic, and I received valuable advice from those NASA employees. Moreover, I had the opportunity to network with them, and as a result of that experience, I was later accepted into my internship.
+
+#### 4. What are the best aspects of working as a NASA intern?
+
+As a NASA intern, the best part about my experience here has been the incredible people I work with on a daily basis. The diversity of expertise and backgrounds of all the workers here is unlike anywhere else! I’ve had the privilege to meet people working on all types of projects, such as sending a plant to the moon, improving satellite communications, researching aerogels, and creating a newsletter.
+
+In addition, you can get lots of tours at the NASA facility. Some of my favorite places have been:
+
+- Exercise Countermeasure Lab: Astronauts lose 1% bone mass every month in space, so NASA has special workout equipment created to make sure they stay in shape while they’re on the ISS. Astronauts in space have to work out for 4 hours each day!
+- My roommate’s chemistry lab: The microscope they use is ~20 years old so the only way for them to retrieve data from it is to use a computer running Windows 98. When I asked why they haven’t upgraded they just said, “It still works, why upgrade?”
+
+#### 5. What does a typical day look like for you?
+
+A typical work day for me is no different than any other typical SWE. I get to the office every morning and check my emails, after that I check to see if I have any meetings for the day and then get to work.
+
+Work consists of coding, attending meetings, demoing the site, and writing documentation. 
+
+There’s also lots of workshops and tours offered onsite that I try to attend and my mentor really encourages networking and attending these since that’s really what the internship is about.
+
+#### 6. Do you have any advice for high school and college students trying to get an internship in tech, whether that’s at NASA or elsewhere?
+
+Get out there and get involved! This can be anything from joining a student organization, attending hackathons, or creating your own personal projects. NASA Glenn received 12,000 applicants this year and only 162 interns got accepted. Every intern I've met here has been insanely talented, sharing one common trait: the ability to apply their knowledge beyond the classroom in the real world.
+
+If you’re interested in attending a hackathon, try signing up for [NASA’s Space Apps Challenge](https://www.spaceappschallenge.org).
+
+#### 7. What’s a personal project or achievement that you are really proud of?
+
+The personal project that I’m the proudest of would have to be my TFT Simulator. In TFT, there are lots of variables of luck and chance involved within the game. At the time, there was a debate that was rather 50/50 on what the correct decision was in the game. So I decided to try and solve it by using code.
+
+After spending three days researching the math behind it, and learning how to write the code for it, since my numbers kept hitting integer overflow. Behind my program, there were 12 different variables and calculations up to 120! (factorial). By the end of the project, I was able to form a conclusion on what the correct play was (it ended up being that both options were correct, it just depends on the certain circumstances in your game).
+ 
+This was my first ever personal project and this was really when CS clicked for me. Having the ability to apply my knowledge from school and create something applicable and useful to me was so cool!
+
+#### 8. What’s your dream job?
+
+It’s hard to say what my dream job is. I’m 19 and in my first two years of college, I changed my major 4 times. So I’m a rather indecisive person. That being said, I’m just gonna go with the flow and hopefully I’ll end up at my dream job one day!
+
+#### 9. Who or what inspired you to go for a NASA internship?
+
+My parents are by far my biggest inspiration for me dreaming big. Growing up, my parents both worked 6 days a week, 10 hours a day to provide for me and my sister, and I am very thankful for them. Their hard work is what motivates me to work so hard. 
+
+As for NASA, I mean, who doesn’t want to work for NASA, it’s NASA!!! 
+
+#### 10. What's been your biggest challenge in getting to where you are today?
+
+By far the biggest challenge I’ve faced would just be imposter syndrome. I wrote my first line of code two years ago, and I remember during the second week of class, some guy scoffed at me when I asked a question, and said, “This is so easy, how come you can’t do this?”
+
+When it comes to class, I’m not the smartest guy. I’ve dropped physics 3 times, I almost failed one of my core CS classes, and I always feel behind compared to my peers.
+
+Despite that, after gaining some work experience, and getting better at coding. What I have to say is that you’re only really applying about 15% of the content you learn in class at work. In addition, comparison is the thief of joy, and as long as I’m enjoying my time learning how to code and creating projects, why should anyone else's opinion matter? 
+
+### 11. Any final words?
+ 
+Me and other NASA interns after barbenheimer !!
+
+https://www.nasa.gov/sites/default/files/atoms/files/ps-03787-07_af_july_2023_508v2.pdf
+
+I’m also a NASA supermodel.
+I’m on the cover of NASA Glenn’s monthly magazine, Aerospace Frontiers.
+
+
+Learning how to code is so unbelievably intimidating. Personally, I believe that the best way to learn how to code is to get out there and make something you’re interested in. Codédex is an amazing site to start your coding journey, and I love the work that they are doing to gamify and ease beginners into programming.
+
+If your goal one day is to work at NASA or as a software engineer, my one piece of advice is to never stop dreaming. Growing up, NASA has always been a dream of mine to work at and as a result, I pursued my interests and honed my skills to get me to where I am today. The experience of working at NASA has truly been out of this world.
+
+---
+
+Check out Brandon’s personal portfolio site: [​​​​www.blam.dev](​​​​https://www.blam.dev) and 
