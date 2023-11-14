@@ -6,7 +6,7 @@ www.codedex.io/blog
 
 The supported tags in the frontmatter for the blogs are:
 
-- `News` (Deleted, don't use for now)
+- `News`
 - `Changelog`
 - `Events`
 - `Challenges`
