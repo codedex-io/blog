@@ -1,0 +1,187 @@
+---
+title: "Summer Hackathon 2023 Winners 🏆"
+description: On July 11-12th, we hosted our first 24-hour Summer Hackathon!  What better way to wrap up the year than get together for some fun and friendly competition? 🚀
+author: Sonny Li
+seoImageLink: https://imgur.com/Nl74x5b.gif
+dateCreated: 2024-7-28
+published: true
+tags:
+  - Community
+  - Events
+---
+
+We just wrapped up our first ever 24-hour [Summer Hackathon](https://www.codedex.io/hackathon)! What better way to wrap up the year than get together for some fun and friendly competition? 🚀
+
+**2,014 hackers** from **57+ countries** showed up and **259 teams** made it across the [finish line](https://www.codedex.io/community/monthly-challenge/december-2023)! Altogether, it was a HUGE blast. 
+
+We had two hackathon tracks: 1) "In the Holiday Spirit" and 2) "New Year, New Me".
+
+Now, it's time to announce the results... 🥁...
+
+
+#### 🎄 Best "In the Holiday Spirit" Hack
+
+**[Christmas Designer](https://www.codedex.io/community/monthly-challenge/submission/32PAQaaiKjx5CQPg8Ebd)** - Team Bumi (@yumi @boro)
+
+![Image](https://imgur.com/hYb9Qjx.png)
+
+**Website:** https://christmasdesigner.netlify.app
+**Tools:** HTML, CSS, JavaScript, Netlify, Procreate
+**Prize:** Apple iPad
+
+Congrats on winning the "In the Holiday Spirit" category, Team Bumi from Boston! The judges and the team LOVED this project. So fun and interactive (drag and drop + holiday music) and the isometric room inspired by the Codédex landing page. Great documentation (images/video), too!
+
+<div style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem", transform: "scale(.9)" }}>
+  <a className="nes-btn is-warning" href="https://www.codedex.io/community/monthly-challenge/submission/32PAQaaiKjx5CQPg8Ebd" target="_blank" and rel="noopener noreferrer">View Project</a>
+</div>
+
+---
+
+#### 🎊 Best "New Year, New Me" Hack 
+
+**[New Year Resolution Generator](https://www.codedex.io/community/monthly-challenge/submission/wo8pui7ITPGVymSoPH2m)** - The Dawgs (@xaiss @barkley)
+
+![Image](https://imgur.com/8k9eAOr.png)
+
+**Website:** https://new-year-resolution-generator-app.vercel.app
+**Tools:** JavaScript, Next.js, React, Prisma, Vercel
+**Prize:** Apple Watches
+
+The web app helps people create and store their New Year resolutions, generate new ones, and also provides a countdown timer to 2024. This team built and deployed the web app on Vercel in just 12 hours — it was the fastest submission and overall just rock solid. Incredible job, Sebastian and James!
+
+<div style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem", transform: "scale(.9)" }}>
+  <a className="nes-btn is-warning" href="https://www.codedex.io/community/monthly-challenge/submission/wo8pui7ITPGVymSoPH2m" target="_blank" and rel="noopener noreferrer">View Project</a>
+</div>
+
+---
+
+#### 💻 Best Terminal App
+
+**[Great Christmas Rescue](https://www.codedex.io/community/monthly-challenge/submission/4chxT7DPA9kGK3ahpT4A)** - faLALALALA (@choisauce, @hannahmackenzie01 @cedar_codes)
+
+![The Great Christmas Rescue](https://i.imgur.com/QLYpTnS.gif)
+
+**GitHub:** https://github.com/choisauce/codedex_holiday_hackathon
+**Tools:** Python, `curses`
+**Prize:** Apple AirPods
+
+A text-based adventure game where the player has to go out and save Christmas from the evil Polar Bear Herbert! You will go around the North Pole completing various tasks and helping out everyone there! However, depending on what you do, you could either end up on the Naughty or Nice list! This is a team of second-time CS students and some of our favorite community members. Congrats Austin, Hannah, and Yazmine!
+
+<div style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem", transform: "scale(.9)" }}>
+  <a className="nes-btn is-warning" href="https://www.codedex.io/community/monthly-challenge/submission/4chxT7DPA9kGK3ahpT4A" target="_blank" and rel="noopener noreferrer">View Project</a>
+</div>
+
+---
+
+#### 🖼️ Best UI/UX Design
+
+**[Christmas Reward Calendar]()** - Solo (@Iris Wang)
+
+![Project image](https://imgur.com/5upMzqy.png)
+
+**Website:** https://hackathon-mini-holiday-advent-calendar.onrender.com
+**Tools:** HTML, CSS, JavaScript, React, Material UI, Render
+**Prize:** Codédex Shirt, Sticker Pack, and annual sub
+
+A single-page React web app featuring an advent calendar that allows users to collect daily loots and win gift cards! The judges and the team all thought this was sooo well done (love the flipping animation!). Amazing job, Iris!
+
+<div style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem", transform: "scale(.9)" }}>
+  <a className="nes-btn is-warning" href="https://www.codedex.io/community/monthly-challenge/submission/4MASTawAEuNR5xswHy5b" target="_blank" and rel="noopener noreferrer">View Project</a>
+</div>
+
+---
+
+#### 🥇 Best Solo Hack
+
+**[Card Crafter](https://www.codedex.io/community/monthly-challenge/submission/bONlraRWkymyE50hhPT4)** - JavaScriptFTW (@Leanne)
+
+![Project image](https://imgur.com/aMOd4qb.png)
+
+**Website:** https://cardcrafter-d6673.web.app
+**Tools:** HTML, CSS, JavaScript, jQuery, Vite, Firebase
+**Prize:** Codédex hoodie and annual sub
+
+Create and store holiday e-cards using templates and each cards gets a sharable link to send to family and friends! This was the only full-fledged web app among the submissions and the judges couldn't believe you even added authentication (Firebase). Such a rock solid presentation and documentation, too. 
+
+<div style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem", transform: "scale(.9)" }}>
+  <a className="nes-btn is-warning" href="https://www.codedex.io/community/monthly-challenge/submission/bONlraRWkymyE50hhPT4" target="_blank" and rel="noopener noreferrer">View Project</a>
+</div>
+
+---
+
+#### 🌱 Best First Time Hack
+
+**[Did I Do the Thing?](https://www.codedex.io/community/monthly-challenge/submission/ClFNRipwDywOZqXUH5cg)** - Snowbirds (@Char, @Dango, @TeeJay)
+
+![Project image](https://imgur.com/st8Ml49.png)
+
+**Website:** https://snowbirds-habit-tracker.netlify.app
+**Tools:** HTML, CSS, JavaScript, Tailwind CSS,  Netlify
+**Prize:** Codédex hoodie and annual sub
+
+<div style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem", transform: "scale(.9)" }}>
+  <a className="nes-btn is-warning" href="https://www.codedex.io/community/monthly-challenge/submission/ClFNRipwDywOZqXUH5cg" target="_blank" and rel="noopener noreferrer">View Project</a>
+</div>
+
+
+**[Santa's Shuffle](https://www.codedex.io/community/monthly-challenge/submission/TRi80Tfr92WeaJ90KSot)** - Solo (@Tammy)
+
+![Project image](https://imgur.com/c7qnvFh.png)
+
+**Website:** https://tammypaws404.github.io/santas-shuffle
+**Tools:** HTML, CSS, JavaScript, GitHub Pages
+**Prize:** Codédex hoodie and annual sub
+
+<div style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem", transform: "scale(.9)" }}>
+  <a className="nes-btn is-warning" href="https://www.codedex.io/community/monthly-challenge/submission/TRi80Tfr92WeaJ90KSot" target="_blank" and rel="noopener noreferrer">View Project</a>
+</div>
+
+
+**[New Years Eve Countdown](https://www.codedex.io/community/monthly-challenge/submission/ofnonB3gD35O8XLFuaAy)** - Solo (@Andreea)
+
+![Project image](https://imgur.com/gltVhcL.gif)
+
+**Website:** https://danandreeamaria.github.io/Andreea-New-Years-Eve-Countdown
+**Tools:** HTML, CSS, JavaScript, GitHub Pages
+**Prize:** Codédex hoodie and annual sub
+
+<div style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem", transform: "scale(.9)" }}>
+  <a className="nes-btn is-warning" href="https://www.codedex.io/community/monthly-challenge/submission/ofnonB3gD35O8XLFuaAy" target="_blank" and rel="noopener noreferrer">View Project</a>
+</div>
+
+---
+
+#### 🏃 Runner-Ups
+
+There were 32 other amazing submissions, so here are some more staff picks & runner-ups:
+
+![Project image](https://imgur.com/Vegcemg.gif)
+
+- **[Year in Pixels](https://www.codedex.io/community/monthly-challenge/submission/DjYNHzqw7RgpbwgKYIRj)** - Solo (@meowongi)
+- **[Santa Locator](https://www.codedex.io/community/monthly-challenge/submission/mH5uUZq9XKN0dDkGZy5K)** - Team Banana (@bananenmus, @susucaster, @siccghxst)
+- **[New Years Eve Countdown](https://www.codedex.io/community/monthly-challenge/submission/WSMEyHdrzyIHO1OXpAqg)** - NoCap Code Connoisseurs (@jwonpee, @jojol)
+- **[Christmas I Spay](https://www.codedex.io/community/monthly-challenge/submission/DeBk214N5VOBc1YuCUSK)** - West Coast Best Coast (@julian, @sheena)
+
+<div style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem", transform: "scale(.9)" }}>
+  <a className="nes-btn is-warning" href="https://www.codedex.io/community/monthly-challenge/december-2023" target="_blank" and rel="noopener noreferrer">See All Submissions</a>
+</div>
+
+---
+
+#### And... that's a wrap!
+
+From the bottom of my heart and the whole Codédex team, **THANK YOU** to all 176 hackers and the two judges [Josh Goldberg](https://twitter.com/JoshuaKGoldberg) and [Wyatt Ades](https://twitter.com/wyattades) that joined us for our first-ever virtual hackathon. There were so many _beauuutiful_ projects that completely blew us away — y'all are seriously amazing. This was a huge milestone and we are beyond grateful to have you a part of our lil' growing community.
+
+Hope you all have a wonderful rest of 2023! 🫶
+
+<img src="https://c.tenor.com/_LNGWobK5usAAAAd/tenor.gif" alt="closing ceremony image" width="50%"/>
+
+#### Links
+
+If you missed the opening / closing ceremony, here are the links:
+
+- [Opening Ceremony & Kick-Off](https://youtu.be/H67v17-Y0qE?si=FbNTaRUzw2P28xfC)
+- [Closing Ceremony](https://youtu.be/cavHgaqGapU?si=Qg056-ky9cAiolcZ)
+- [Project Submissions](https://www.codedex.io/community/monthly-challenge/december-2023)
+
+P.S. If you are interested in our next event, **#30NitesOfCode** is coming 1/1/2024.
