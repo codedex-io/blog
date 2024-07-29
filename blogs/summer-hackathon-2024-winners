@@ -30,7 +30,7 @@ Now, it's time to announce the results... 🥁...
 **Submission:** https://www.codedex.io/community/hackathon/gwLyqyQ9NjP6fygMHrRy
 **Website:** https://sipnplay-peach.vercel.app
 **Tools:** Next.js, Tailwind CSS, NeonDB, Prisma ORM, Thread.js, Shadcn-UI, Vercel
-**Prize:** One Oura Ring (Horizon) per team member
+**Prize:** Oura Ring (Horizon) per team member
 
 Congrats on winning the "In the Holiday Spirit" category, Team Bumi from Boston! The judges and the team LOVED this project. So fun and interactive (drag and drop + holiday music) and the isometric room inspired by the Codédex landing page. Great documentation (images/video), too!
 
@@ -48,25 +48,43 @@ Congrats on winning the "In the Holiday Spirit" category, Team Bumi from Boston!
 **Submission:** https://www.codedex.io/community/hackathon/V6EKtYm8vKQEVLCVcGGy
 **Website:** https://sipnplay.vercel.app/
 **Tools:** React, Tailwind CSS, Three.js, Leaflet Map, Vercel
-**Prize:** One AirPods Pro (2nd gen) per team member
+**Prize:** AirPods Pro (2nd gen) per team member
 
 The web app helps people create and store their New Year resolutions, generate new ones, and also provides a countdown timer to 2024. This team built and deployed the web app on Vercel in just 12 hours — it was the fastest submission and overall just rock solid. Incredible job, Sebastian and James!
 
 <div style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem", transform: "scale(.9)" }}>
-  <a className="nes-btn is-warning" href="https://www.codedex.io/community/monthly-challenge/submission/wo8pui7ITPGVymSoPH2m" target="_blank" and rel="noopener noreferrer">View Project</a>
+  <a className="nes-btn is-warning" href="https://www.codedex.io/community/hackathon/V6EKtYm8vKQEVLCVcGGy" target="_blank" and rel="noopener noreferrer">View Project</a>
 </div>
 
 ---
 
-#### 💻 Best Terminal App
-
-**[Great Christmas Rescue](https://www.codedex.io/community/monthly-challenge/submission/4chxT7DPA9kGK3ahpT4A)** - faLALALALA (@choisauce, @hannahmackenzie01 @cedar_codes)
+#### 💌 Best “Stoop Sale Invitation” Hack: 1st Place 🥇
 
 ![The Great Christmas Rescue](https://i.imgur.com/QLYpTnS.gif)
 
-**GitHub:** https://github.com/choisauce/codedex_holiday_hackathon
-**Tools:** Python, `curses`
-**Prize:** Apple AirPods
+**Team:** Code Riders aka @AnA 🇧🇩, @K Om Senapati 🇮🇳, @CodeIt 🇺🇸
+**Submission:** https://www.codedex.io/community/hackathon/oFpHsvvLX1clcZuXIpMI 
+**Website:** https://brooklyn-stoop.vercel.app
+**Tools:** React, Vite, Vercel
+**Prize:** Ray-Ban Meta Smart Glasses per team member
+
+A text-based adventure game where the player has to go out and save Christmas from the evil Polar Bear Herbert! You will go around the North Pole completing various tasks and helping out everyone there! However, depending on what you do, you could either end up on the Naughty or Nice list! This is a team of second-time CS students and some of our favorite community members. Congrats Austin, Hannah, and Yazmine!
+
+<div style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem", transform: "scale(.9)" }}>
+  <a className="nes-btn is-warning" href="https://www.codedex.io/community/monthly-challenge/submission/4chxT7DPA9kGK3ahpT4A" target="_blank" and rel="noopener noreferrer">View Project</a>
+</div>
+
+---
+
+#### 💌 Best “Stoop Sale Invitation” Hack: 2nd Place 🥈
+
+![The Great Christmas Rescue](https://i.imgur.com/QLYpTnS.gif)
+
+**Team:** Solo @vickydavinci 🇺🇸
+**Submission:** https://www.codedex.io/community/hackathon/h7rjUC0GXxUIrpSIjt4B 
+**Website:** https://stoop-sale.vercel.app
+**Tools:** React, Vite, Vercel
+**Prize:** Peak Desk Everyday Totepack per team member
 
 A text-based adventure game where the player has to go out and save Christmas from the evil Polar Bear Herbert! You will go around the North Pole completing various tasks and helping out everyone there! However, depending on what you do, you could either end up on the Naughty or Nice list! This is a team of second-time CS students and some of our favorite community members. Congrats Austin, Hannah, and Yazmine!
 
