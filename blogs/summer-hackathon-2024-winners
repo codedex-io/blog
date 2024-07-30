@@ -111,14 +111,14 @@ There were 32+ Wix Studio submissions that it was v difficult for Emmy to choose
 
 #### 📊 Best "Paris Olympics" Hack: 1st Place 🥇
 
-![The Great Christmas Rescue](https://i.imgur.com/ZtaugWa.png)
+![Paris Olympics 1](https://i.imgur.com/ZtaugWa.png)
 
 **Team:** HackMob (@Kiiara 🇮🇳, @Delay 🇺🇸, @mikasa 🇳🇵)
 **Submission:** https://www.codedex.io/community/hackathon/S0f6L319yDnfdAe8pAsL
 **Tools:** Python, NumPy, pandas, Plotly, HTML, CSS, JavaScript
 **Prize:** Apple Watches (Series 9)
 
-A text-based adventure game where the player has to go out and save Christmas from the evil Polar Bear Herbert! You will go around the North Pole completing various tasks and helping out everyone there! However, depending on what you do, you could either end up on the Naughty or Nice list! This is a team of second-time CS students and some of our favorite community members. Congrats Austin, Hannah, and Yazmine!
+Absolutely stunning hack. There are beautiful data visualizations and an equally well put together fully deployed web app. The data science judges were absolutely floored. 20/20.
 
 <div style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem", transform: "scale(.9)" }}>
   <a className="nes-btn is-warning" href="https://aayusha-shrestha.github.io/hackathon-olympics-prediction-" target="_blank" and rel="noopener noreferrer">View Project</a>
@@ -135,7 +135,7 @@ A text-based adventure game where the player has to go out and save Christmas fr
 **Tools:** Python, pandas, R Programming, TypeScript, Vercel
 **Prize:** Fitbits
 
-A text-based adventure game where the player has to go out and save Christmas from the evil Polar Bear Herbert! You will go around the North Pole completing various tasks and helping out everyone there! However, depending on what you do, you could either end up on the Naughty or Nice list! This is a team of second-time CS students and some of our favorite community members. Congrats Austin, Hannah, and Yazmine!
+Three University of Guelph (Canada) CS students came together and built a web app around the Olympics datasets. "This was the only project that used both Python and R which is interesting." - one of the judges. Go Gryphons!
 
 <div style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem", transform: "scale(.9)" }}>
   <a className="nes-btn is-warning" href="https://olympicpredict.vercel.app" target="_blank" and rel="noopener noreferrer">View Project</a>
