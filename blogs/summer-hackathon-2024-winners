@@ -162,18 +162,19 @@ Congrats on taking home the Best UI/UX design, Team Fiber AKA Arizona State! Thi
 
 #### 🥇 Best Solo Hack
 
-**[Card Crafter](https://www.codedex.io/community/monthly-challenge/submission/bONlraRWkymyE50hhPT4)** - JavaScriptFTW (@Leanne)
+![Project image](https://i.imgur.com/ZlkCfYA.gif)
 
-![Project image](https://imgur.com/aMOd4qb.png)
-
-**Website:** https://cardcrafter-d6673.web.app
+**Team:** Solo (@Lala 🇸🇦)
+**Submission:** https://www.codedex.io/community/hackathon/ziAsgecN9GQkXc8AhzVr
 **Tools:** HTML, CSS, JavaScript, jQuery, Vite, Firebase
-**Prize:** Codédex hoodie and annual sub
+**Prize:** Mechanical Keyboard, Codédex Hoodie, and Codédex Club 4 Life
+
+The vibes are immaculate for this one. 💗 While this is a one-pager, it had all the requirements! Love the font choice as well as the Stoop Sale image. Love the stars. Love the title and the "You're invited!" animation. This was one of Ellie and Jackie's favorite projects so kudos!
 
 Create and store holiday e-cards using templates and each cards gets a sharable link to send to family and friends! This was the only full-fledged web app among the submissions and the judges couldn't believe you even added authentication (Firebase). Such a rock solid presentation and documentation, too. 
 
 <div style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem", transform: "scale(.9)" }}>
-  <a className="nes-btn is-warning" href="https://www.codedex.io/community/monthly-challenge/submission/bONlraRWkymyE50hhPT4" target="_blank" and rel="noopener noreferrer">View Project</a>
+  <a className="nes-btn is-warning" href="https://thestoopsale.netlify.app/" target="_blank" and rel="noopener noreferrer">View Project</a>
 </div>
 
 ---
