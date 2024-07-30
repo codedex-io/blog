@@ -33,7 +33,7 @@ Now, it's time to announce the results... 🥁...
 **Tools:** Next.js, Tailwind CSS, NeonDB, Prisma ORM, Thread.js, Shadcn-UI, Vercel
 **Prize:** Oura Rings (Horizon)
 
-Congrats Aaron and Mayranne on taking home the "Board Game Cafe" track's first place! The judges and the team LOVED this project. It's absolutely just... perfect. The spinning wheel? The sleek design? The hover effects? 🤌 Jonathan from Sip & Play is hoping to use this for the real site, too!
+Congrats Aaron and Mayranne on taking home the "Board Game Cafe" track's first place! The judges and the team LOVED this project. It's absolutely... perfect. The spinning wheel? The sleek design? The hover effects? 🤌 Sip & Play even wants to use this for their real site!
 
 <div style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem", transform: "scale(.9)" }}>
   <a className="nes-btn is-warning" href="https://sipnplay-peach.vercel.app" target="_blank" and rel="noopener noreferrer">View Project</a>
