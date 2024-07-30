@@ -84,7 +84,7 @@ While deceptively simple at first glance, the judges quickly realized that this 
 **Tools:** HTML, CSS, JavaScript, Vercel
 **Prize:** Peak Desk Everyday Totepack
 
-The cute intro screen and the bubble heads say it on... you are invited to a DIY stoop sale! And sometimes less is more, an one-pager with a jazzy BGM and a cardboard background that ties it together. Lil & Chelsea were v happy that this won!
+The cute intro screen and the bubble heads say it all... you're invited to a DIY stoop sale! And sometimes less is more, an one-pager with a jazzy BGM and a cardboard background that ties it together. Lil & Chelsea were very pleased to learn that this won!
 
 <div style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem", transform: "scale(.9)" }}>
   <a className="nes-btn is-warning" href="https://stoop-sale.vercel.app" target="_blank" and rel="noopener noreferrer">View Project</a>
