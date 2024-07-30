@@ -145,18 +145,17 @@ A text-based adventure game where the player has to go out and save Christmas fr
 
 #### 🖼️ Best UI/UX Design
 
-**[Christmas Reward Calendar]()** - Solo (@Iris Wang)
+![Project image](https://firebasestorage.googleapis.com/v0/b/codedex-io.appspot.com/o/community%2Fhackathon%2Fpost%2Fh3ZCmnIDFDQf4pr6cdUM%2FJul-15-2024%2015-51-50.gif?alt=media&token=a32e8dff-38d4-4aee-94ab-30e561f1f7b4)
 
-![Project image](https://imgur.com/5upMzqy.png)
+**Team:** Team Fiber (@4ndy 🇺🇸, @Luan 🇺🇸, @Smit2553 🇺🇸)
+**Submission:** https://www.codedex.io/community/hackathon/h3ZCmnIDFDQf4pr6cdUM
+**Tools:** React, Three.js, Tailwind CSS
+**Prize:** Apple iPads (10th gen), Codédex Hoodie, and Sticker Pack
 
-**Website:** https://hackathon-mini-holiday-advent-calendar.onrender.com
-**Tools:** HTML, CSS, JavaScript, React, Material UI, Render
-**Prize:** Codédex Shirt, Sticker Pack, and annual sub
-
-A single-page React web app featuring an advent calendar that allows users to collect daily loots and win gift cards! The judges and the team all thought this was sooo well done (love the flipping animation!). Amazing job, Iris!
+Congrats on taking home the Best UI/UX design, Team Fiber AKA Arizona State! This is one of the best prizes of the hackathon and we had to give it to you three. Love the loading screen, the bubbles, and of course.. the 3D room with the menu on the wall. 🤯 That's ABSOLUTE fire.
 
 <div style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem", transform: "scale(.9)" }}>
-  <a className="nes-btn is-warning" href="https://www.codedex.io/community/monthly-challenge/submission/4MASTawAEuNR5xswHy5b" target="_blank" and rel="noopener noreferrer">View Project</a>
+  <a className="nes-btn is-warning" href="https://board-game-cafe-website.vercel.app" target="_blank" and rel="noopener noreferrer">View Project</a>
 </div>
 
 ---
