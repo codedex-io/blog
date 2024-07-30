@@ -22,7 +22,7 @@ If you missed the Opening Ceremony:
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/yaOlDEIkz0I?si=SmdQeYbPXSC_qTZQ&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-Now, it's time to announce the results... 🥁...
+Now, it's time to announce the winners... 🥁...
 
 #### 🎲 Best "Board Game Cafe" Hack: 1st Place 🥇
 
@@ -33,7 +33,7 @@ Now, it's time to announce the results... 🥁...
 **Tools:** Next.js, Tailwind CSS, NeonDB, Prisma ORM, Thread.js, Shadcn-UI, Vercel
 **Prize:** Oura Rings (Horizon)
 
-Congrats Aaron and Mayranne on taking home the "Board Game Cafe" track's first place! The judges and the team LOVED this project. It's absolutely... perfect. The spinning wheel? The sleek design? The hover effects? 🤌 Sip & Play even wants to use this for their real site!
+Congrats Aaron and Mayranne on taking home the "Board Game Cafe" track's first place! The judges and the team LOVED this project. It's absolutely... perfect. The spinning wheel? The sleek design? The hover effects? 🤌 Sip & Play even wants to use this as their real site!
 
 <div style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem", transform: "scale(.9)" }}>
   <a className="nes-btn is-warning" href="https://sipnplay-peach.vercel.app" target="_blank" and rel="noopener noreferrer">View Project</a>
@@ -50,7 +50,7 @@ Congrats Aaron and Mayranne on taking home the "Board Game Cafe" track's first p
 **Tools:** React, Tailwind CSS, Three.js, Leaflet Map, Vercel
 **Prize:** AirPods Pros (2nd gen)
 
-Incredible strong project that's not only feature-complete but also asthetically pleasing. From the 🐢 in the intro screen, to the food menu with 3D items, to the sleek catalgue page that makes you want to go to the board game cafe right meow. GGWP, Pineapple! 
+Incredibly strong project that's not only feature-complete but also aesthetically pleasing. From the 🐢 in the intro screen, the food menu with 3D items, to the sleek catalogue page that makes you want to go to the board game cafe right meow. GGWP, Pineapple! 
 
 <div style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem", transform: "scale(.9)" }}>
   <a className="nes-btn is-warning" href="https://sipnplay.vercel.app/" target="_blank" and rel="noopener noreferrer">View Project</a>
@@ -67,7 +67,7 @@ Incredible strong project that's not only feature-complete but also asthetically
 **Tools:** React, Vite, Vercel
 **Prize:** Ray-Ban Meta Smart Glasses
 
-While deceptively simple at first glance, the judges quickly realized that this checked all the boxes in an e-commerce store type of site. "I think this one is just rock solid." - one of the web dev judges. Great landing page with FAQs and About page with video, it's mobile responsive, and even has a search bar. Congrats Code Riders!
+While deceptively simple at first glance, the judges quickly realized that this checked all the boxes in an e-commerce store type of site. "I think this one is just rock solid." - one of the web dev judges. Great landing page with FAQs and About page with video, it's mobile responsive, and even has a search bar. Congrats, Code Riders!
 
 <div style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem", transform: "scale(.9)" }}>
   <a className="nes-btn is-warning" href="https://brooklyn-stoop.vercel.app" target="_blank" and rel="noopener noreferrer">View Project</a>
@@ -84,7 +84,7 @@ While deceptively simple at first glance, the judges quickly realized that this 
 **Tools:** HTML, CSS, JavaScript, Vercel
 **Prize:** Peak Desk Everyday Totepack
 
-The cute intro screen and the bubble heads say it all... you're invited to a DIY stoop sale! And sometimes less is more, an one-pager with a jazzy BGM and a cardboard background that ties it together. Lil & Chelsea were very pleased to learn that this won!
+The cute intro screen and the bubble heads say it all... you're invited to a DIY stoop sale! And sometimes less is more, a one-pager with a jazzy BGM and a cardboard background that ties it together. Lil & Chelsea loved that this won!
 
 <div style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem", transform: "scale(.9)" }}>
   <a className="nes-btn is-warning" href="https://stoop-sale.vercel.app" target="_blank" and rel="noopener noreferrer">View Project</a>
@@ -101,7 +101,7 @@ The cute intro screen and the bubble heads say it all... you're invited to a DIY
 **Tools:** Wix Studio
 **Prize:** $1,000 cash prize
 
-There were 32+ Wix Studio submissions that it was v difficult for Emmy to choose! But this project by Cindy ended up taking home the big cash prize because it had it all! You can see the creativity come to life by scrolling down the page. Awesome job Cindy! 🥳
+There were 32+ Wix Studio submissions that it was v difficult for Emmy (Develop Advocate @ Wix) to choose! But this project by Cindy ended up taking home the big cash prize because it had it all! You can see the creativity come to life by scrolling down the page. Awesome job Cindy! 🥳
 
 <div style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem", transform: "scale(.9)" }}>
   <a className="nes-btn is-warning" href="https://cindycui2299.wixstudio.io/website-1" target="_blank" and rel="noopener noreferrer">View Project</a>
@@ -135,7 +135,7 @@ Absolutely stunning hack. There are beautiful data visualizations and an equally
 **Tools:** Python, pandas, R Programming, TypeScript, Vercel
 **Prize:** Fitbits
 
-Three University of Guelph (Canada) CS students came together and built a web app around the Olympics datasets. "This was the only project that used both Python and R which is interesting." - one of the judges. Go Gryphons!
+Three University of Guelph (Canada) CS students came together and built a web app around the Olympics datasets. "This was the only project that used both Python and R which is interesting" - one of the judges. Go Gryphons!
 
 <div style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem", transform: "scale(.9)" }}>
   <a className="nes-btn is-warning" href="https://olympicpredict.vercel.app" target="_blank" and rel="noopener noreferrer">View Project</a>
@@ -246,11 +246,11 @@ Built and deployed the web app on Vercel in just 8 hours — it was one of the f
 
 #### And... that's a wrap!
 
-From the bottom of my heart and the whole Codédex team, THANK YOU THANK YOU THANK YOU to all 259+ teams (!) that submitted a project for our first-ever Summer Hackathon. There were so many beauuutiful projects that completely blew us away — every one of you is seriously amazing and deserves a big pat on the back. And shoutout to the judges for volunteering their time and reviewing all the projects and the sponsors. :GoosePray: 
+From the bottom of my heart and the whole Codédex team, THANK YOU THANK YOU THANK YOU to all 259+ teams (!) that submitted a project for our first-ever Summer Hackathon. There were so many beauuutiful projects that completely blew us away — every one of you is seriously amazing and deserves a big pat on the back. And shoutout to the judges for volunteering their time and reviewing all the projects and to our sponsors for bringing this life with us. :GoosePray: 
 
-This was a huge milestone and we are beyond grateful to have you a part of our growing community. We also learned so much and aim to do it bigger and better next time~ ✨
+This was a huge milestone and we are beyond grateful to have you as part of our growing community. We also learned so much and aim to do it bigger and better next time~ ✨
 
-Hope you all have a great rest of summer! 🫶
+Hope you all have a great rest of your summer! 🫶
 
 <img src="https://c.tenor.com/_LNGWobK5usAAAAd/tenor.gif" alt="closing ceremony image" width="50%"/>
 
