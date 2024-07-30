@@ -82,11 +82,11 @@ A text-based adventure game where the player has to go out and save Christmas fr
 ![The Great Christmas Rescue](https://i.imgur.com/SwNKqx2.gif)
 
 **Team:** Solo (@vickydavinci 🇺🇸)
-**Submission:** https://www.codedex.io/community/hackathon/h7rjUC0GXxUIrpSIjt4B 
-**Tools:** React, Vite, Vercel
+**Submission:** https://www.codedex.io/community/hackathon/h7rjUC0GXxUIrpSIjt4B 🌱
+**Tools:** HTML, CSS, JavaScript, Vercel
 **Prize:** Peak Desk Everyday Totepack
 
-A text-based adventure game where the player has to go out and save Christmas from the evil Polar Bear Herbert! You will go around the North Pole completing various tasks and helping out everyone there! However, depending on what you do, you could either end up on the Naughty or Nice list! This is a team of second-time CS students and some of our favorite community members. Congrats Austin, Hannah, and Yazmine!
+The cute intro screen and the bubble heads say it on... you are invited to a DIY stoop sale! And sometimes less is more, an one-pager with a jazzy BGM and a cardboard background that ties it together. Lil & Chelsea were v happy that this won!
 
 <div style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem", transform: "scale(.9)" }}>
   <a className="nes-btn is-warning" href="https://stoop-sale.vercel.app" target="_blank" and rel="noopener noreferrer">View Project</a>
