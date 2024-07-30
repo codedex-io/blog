@@ -24,12 +24,12 @@ Now, it's time to announce the results... 🥁...
 
 ![Image](https://i.imgur.com/vecokWZ.png)
 
-**Team:** Team Chaos (@Aaron 🇬🇧, @Dut 🇧🇷)
+**Team:** Team Chaos (@Aaron 🇬🇧, @Dut 🇬🇧)
 **Submission:** https://www.codedex.io/community/hackathon/gwLyqyQ9NjP6fygMHrRy
 **Tools:** Next.js, Tailwind CSS, NeonDB, Prisma ORM, Thread.js, Shadcn-UI, Vercel
 **Prize:** Oura Rings (Horizon)
 
-Congrats on winning the "In the Holiday Spirit" category, Team Bumi from Boston! The judges and the team LOVED this project. So fun and interactive (drag and drop + holiday music) and the isometric room inspired by the Codédex landing page. Great documentation (images/video), too!
+Congrats on winning the "Board Game Cafe" track, Team Chaos from UK! The judges and the team LOVED this project. So fun and interactive (drag and drop + holiday music) and the isometric room inspired by the Codédex landing page. Great documentation (images/video), too!
 
 <div style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem", transform: "scale(.9)" }}>
   <a className="nes-btn is-warning" href="https://sipnplay-peach.vercel.app" target="_blank" and rel="noopener noreferrer">View Project</a>
