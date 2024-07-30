@@ -50,9 +50,7 @@ Congrats Aaron and Mayranne on taking home the "Board Game Cafe" track's first p
 **Tools:** React, Tailwind CSS, Three.js, Leaflet Map, Vercel
 **Prize:** AirPods Pros (2nd gen)
 
-Another super strong. 🐢
-
-The web app helps people create and store their New Year resolutions, generate new ones, and also provides a countdown timer to 2024. This team built and deployed the web app on Vercel in just 12 hours — it was the fastest submission and overall just rock solid. Incredible job, Sebastian and James!
+Another incredible strong project that's not only feature-complete but also asthetically pleasing. From the 🐢 in the intro screen, to the food menu with 3D items, to the sleek catalgue page that makes you want to go to the board game cafe rn. GGWP, Pineapple! 
 
 <div style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem", transform: "scale(.9)" }}>
   <a className="nes-btn is-warning" href="https://sipnplay.vercel.app/" target="_blank" and rel="noopener noreferrer">View Project</a>
@@ -69,7 +67,7 @@ The web app helps people create and store their New Year resolutions, generate n
 **Tools:** React, Vite, Vercel
 **Prize:** Ray-Ban Meta Smart Glasses
 
-A text-based adventure game where the player has to go out and save Christmas from the evil Polar Bear Herbert! You will go around the North Pole completing various tasks and helping out everyone there! However, depending on what you do, you could either end up on the Naughty or Nice list! This is a team of second-time CS students and some of our favorite community members. Congrats Austin, Hannah, and Yazmine!
+While deceptively simple at first glance, the judges very quickly realized that this was a complete website. "I think this one is just rock solid." - one of the web dev judges. It was mobile responsive and even has a search bar and FAQs. Congrats Code Riders!
 
 <div style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem", transform: "scale(.9)" }}>
   <a className="nes-btn is-warning" href="https://brooklyn-stoop.vercel.app" target="_blank" and rel="noopener noreferrer">View Project</a>
@@ -171,7 +169,7 @@ Congrats on taking home the Best UI/UX design, Team Fiber AKA Arizona State! Thi
 **Tools:** HTML, CSS, JavaScript, jQuery, Vite, Firebase
 **Prize:** Mechanical Keyboard, Codédex Hoodie, and Codédex Club 4 Life
 
-The vibes are immaculate for this one. 💗 While this is a one-pager, it had all the requirements! Love the font choice as well as the Stoop Sale image. Love the stars. Love the title and the "You're invited!" animation. This was one of Ellie and Jackie's favorite projects so kudos!
+The vibes are immaculate for this one. 💗 While this is a one-pager, it had all the requirements! And what an eye candy! Love the font choices, the stars, the title, and the "You're invited!" animation. This was one of Ellie and Jackie's favorite projects so kudos!
 
 P.S. Can't believe you drew Lil & Chelsea, too!
 
@@ -189,6 +187,8 @@ P.S. Can't believe you drew Lil & Chelsea, too!
 **Submission:** https://www.codedex.io/community/hackathon/OJvxzohn1WHGppajHhsi 🌱
 **Tools:** HTML, CSS, Vercel
 **Prize:** Lenovo Monitor, Codédex Hoodie, and Codédex Sticker Pack
+
+Built and deployed the web app on Vercel in just 8 hours — it was one of the fastest submission and overall just rock solid. Incredible job, Tanu! 🔥
 
 <div style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem", transform: "scale(.9)" }}>
   <a className="nes-btn is-warning" href="https://brooklynstoopsale-taniasins-projects.vercel.app" target="_blank" and rel="noopener noreferrer">View Project</a>
