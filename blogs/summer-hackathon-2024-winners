@@ -12,11 +12,11 @@ tags:
 
 We just wrapped up our first ever 24-hour [Summer Hackathon 2024](https://www.codedex.io/hackathon)! 🌞
 
-**2,014 hackers** from **57+ countries** showed up and **259 teams** made it across the [finish line](https://www.codedex.io/community/hackathon)! Altogether, it was a HUGE blast. 
+**2,014 hackers** from **57+ countries** showed up and **259 teams** made it across the [finish line](https://www.codedex.io/community/hackathon).
 
 We had three tracks: 1) 🎲 Board Game Cafe, 2) 💌 Stoop Sale", and 3) 🏅 Paris Olympics.
 
-And $10,000 worth of prizes. 
+And $10,000 worth of prizes.
 
 If you missed the Opening Ceremony:
 
@@ -49,6 +49,8 @@ Congrats Aaron and Mayranne on taking home the "Board Game Cafe" track's first p
 **Submission:** https://www.codedex.io/community/hackathon/V6EKtYm8vKQEVLCVcGGy
 **Tools:** React, Tailwind CSS, Three.js, Leaflet Map, Vercel
 **Prize:** AirPods Pros (2nd gen)
+
+Another super strong. 🐢
 
 The web app helps people create and store their New Year resolutions, generate new ones, and also provides a countdown timer to 2024. This team built and deployed the web app on Vercel in just 12 hours — it was the fastest submission and overall just rock solid. Incredible job, Sebastian and James!
 
@@ -191,29 +193,51 @@ The vibes are immaculate for this one. 💗 While this is a one-pager, it had al
 </div>
 
 
-**[Santa's Shuffle](https://www.codedex.io/community/monthly-challenge/submission/TRi80Tfr92WeaJ90KSot)** - Solo (@Tammy)
+![GameGrove](https://firebasestorage.googleapis.com/v0/b/codedex-io.appspot.com/o/community%2Fhackathon%2Fpost%2F6SQ9RemV5GavbhcDt9la%2FScreenshot%202024-07-12%20202028.png?alt=media&token=e57d4cd7-4967-41bc-8e09-43274f4bd799)
 
-![Project image](https://imgur.com/c7qnvFh.png)
-
-**Website:** https://tammypaws404.github.io/santas-shuffle
-**Tools:** HTML, CSS, JavaScript, GitHub Pages
-**Prize:** Codédex hoodie and annual sub
+**Team:** GameGrove (@ANIK 🇮🇳, @Anjali sharma 🇮🇳)
+**Submission:** https://www.codedex.io/community/hackathon/6SQ9RemV5GavbhcDt9la 🌱
+**Tools:** HTML, CSS, JavaScript, Three.js, Netlify
+**Prize:** Lenovo Monitor, Codédex Hoodie, and Codédex Sticker Pack
 
 <div style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem", transform: "scale(.9)" }}>
-  <a className="nes-btn is-warning" href="https://www.codedex.io/community/monthly-challenge/submission/TRi80Tfr92WeaJ90KSot" target="_blank" and rel="noopener noreferrer">View Project</a>
+  <a className="nes-btn is-warning" href="https://gamegrove.netlify.app" target="_blank" and rel="noopener noreferrer">View Project</a>
 </div>
 
 
-**[New Years Eve Countdown](https://www.codedex.io/community/monthly-challenge/submission/ofnonB3gD35O8XLFuaAy)** - Solo (@Andreea)
+![Project image](https://i.imgur.com/pnd11go.gif)
 
-![Project image](https://imgur.com/gltVhcL.gif)
-
-**Website:** https://danandreeamaria.github.io/Andreea-New-Years-Eve-Countdown
+**Team:** Team Stoop (@andreia 🇵🇹, @coolio 🇵🇹)
+**Submission:** https://www.codedex.io/community/hackathon/4teKFV8MCo6dHyocM5Zb 🌱
 **Tools:** HTML, CSS, JavaScript, GitHub Pages
-**Prize:** Codédex hoodie and annual sub
+**Prize:** Lenovo Monitor, Codédex Hoodie, and Codédex Sticker Pack
 
 <div style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem", transform: "scale(.9)" }}>
-  <a className="nes-btn is-warning" href="https://www.codedex.io/community/monthly-challenge/submission/ofnonB3gD35O8XLFuaAy" target="_blank" and rel="noopener noreferrer">View Project</a>
+  <a className="nes-btn is-warning" href="https://anafrei-007.github.io/Stoop-Sale.github.io" target="_blank" and rel="noopener noreferrer">View Project</a>
+</div>
+
+
+![Project image](https://firebasestorage.googleapis.com/v0/b/codedex-io.appspot.com/o/community%2Fhackathon%2Fpost%2FV2tQGX6dSFLYtaHNjSSB%2FJul-15-2024%2015-57-21.gif?alt=media&token=4bdd057c-293d-4da9-aaef-101ad0687d88)
+
+**Team:** moggers (@anngerchanovsky 🇺🇸, @gabyardi 🇺🇸, @Jacob Riviere 🇺🇸)
+**Submission:** https://www.codedex.io/community/hackathon/V2tQGX6dSFLYtaHNjSSB 🌱
+**Tools:** Wix Studio
+**Prize:** Lenovo Monitor, Codédex Hoodie, and Codédex Sticker Pack
+
+<div style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem", transform: "scale(.9)" }}>
+  <a className="nes-btn is-warning" href="https://gabriellaardiles12.wixsite.com/stoop-sale" target="_blank" and rel="noopener noreferrer">View Project</a>
+</div>
+
+
+![Project image](https://firebasestorage.googleapis.com/v0/b/codedex-io.appspot.com/o/community%2Fhackathon%2Fpost%2FqqojzIivTi0zlDIE98eX%2FScreenshot%202024-07-12%20at%2008.46.27.png?alt=media&token=9db63fdb-fcb8-4e52-a2a8-109f074eb334)
+
+**Team:** CoolKidz (@munjkin 🇨🇦, @Lou M 🇨🇦)
+**Submission:** https://www.codedex.io/community/hackathon/qqojzIivTi0zlDIE98eX 🌱
+**Tools:** Python, Jupyter Notebook
+**Prize:** Lenovo Monitor, Codédex Hoodie, and Codédex Sticker Pack
+
+<div style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem", transform: "scale(.9)" }}>
+  <a className="nes-btn is-warning" href="https://drive.google.com/file/d/1-W4rLdRXLQMLR5aTXbBCMntR_pWumtXR/view" target="_blank" and rel="noopener noreferrer">View Project</a>
 </div>
 
 ---
