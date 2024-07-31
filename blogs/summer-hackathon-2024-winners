@@ -154,7 +154,7 @@ Three University of Guelph (Canada) CS students came together and built a web ap
 **Tools:** React, Three.js, Tailwind CSS
 **Prize:** Apple iPads (10th gen), Codédex Hoodie, and Sticker Pack
 
-Congrats on taking home the Best UI/UX design, Team Fiber AKA Arizona State! This is one of the best prizes of the hackathon and we had to give it to you three. Love the loading screen, the bubbles, and of course.. the 3D room with the menu on the wall. 🤯 That's ABSOLUTE fire.
+Congrats on taking home the Best UI/UX design, Team Fiber AKA Arizona State! This is one of the best prizes of the hackathon and we had to give it to you three. Love the loading screen, the bubbles, and of course.. the 3D room with the menu on the wall. 🤯 Mindblow.
 
 <div style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem", transform: "scale(.9)" }}>
   <a className="nes-btn is-warning" href="https://board-game-cafe-website.vercel.app" target="_blank" and rel="noopener noreferrer">View Project</a>
@@ -203,6 +203,8 @@ Built and deployed the web app on Vercel in just 8 hours — it was one of the f
 **Submission:** https://www.codedex.io/community/hackathon/6SQ9RemV5GavbhcDt9la 🌱
 **Tools:** HTML, CSS, JavaScript, Three.js, Netlify
 **Prize:** Lenovo Monitors, Codédex Hoodies, and Codédex Sticker Packs
+
+This web app included 3 playable games: Tic-Tac-Toe (against AI), Checkers, and Crossword! Wow.
 
 <div style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem", transform: "scale(.9)" }}>
   <a className="nes-btn is-warning" href="https://gamegrove.netlify.app" target="_blank" and rel="noopener noreferrer">View Project</a>
