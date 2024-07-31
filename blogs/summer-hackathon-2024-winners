@@ -65,14 +65,14 @@ Incredibly strong project that's not only feature-complete but also aestheticall
 ![Stoop Sale website 1](https://i.imgur.com/EEjFsuz.png)
 
 **Team:** Code Riders (@AnA 🇧🇩, @K Om Senapati 🇮🇳, @CodeIt 🇺🇸)
-**Submission:** https://www.codedex.io/community/hackathon/oFpHsvvLX1clcZuXIpMI 🌱
+**Website:** https://brooklyn-stoop.vercel.app 🌱
 **Tools:** React, Vite, Vercel
 **Prize:** Ray-Ban Meta Smart Glasses
 
 While deceptively simple at first glance, the judges quickly realized that this checked all the boxes in an e-commerce store. "I think this one is just rock solid. Can't do much more in 24 hrs." - one of the web dev judges. Great landing page with FAQs and About page with video, it's mobile responsive, and even has a search bar. Congrats, Code Riders!
 
 <div style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem", transform: "scale(.9)" }}>
-  <a className="nes-btn is-warning" href="https://brooklyn-stoop.vercel.app" target="_blank" and rel="noopener noreferrer">View Project</a>
+  <a className="nes-btn is-warning" href="https://www.codedex.io/community/hackathon/oFpHsvvLX1clcZuXIpMI" target="_blank" and rel="noopener noreferrer">View Post</a>
 </div>
 
 ---
@@ -82,14 +82,14 @@ While deceptively simple at first glance, the judges quickly realized that this 
 ![Stoop Sale website 2](https://i.imgur.com/SwNKqx2.gif)
 
 **Team:** Solo (@vickydavinci 🇺🇸)
-**Submission:** https://www.codedex.io/community/hackathon/h7rjUC0GXxUIrpSIjt4B 🌱
+**Website:** https://stoop-sale.vercel.app 🌱
 **Tools:** HTML, CSS, JavaScript, Vercel
 **Prize:** Peak Desk Everyday Totepack
 
 The cute intro screen and the bubble heads say it all... you're invited to a DIY stoop sale! And sometimes less is more, a one-pager with a jazzy BGM and a cardboard background that ties it together. Lil & Chelsea loved that this won!
 
 <div style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem", transform: "scale(.9)" }}>
-  <a className="nes-btn is-warning" href="https://stoop-sale.vercel.app" target="_blank" and rel="noopener noreferrer">View Project</a>
+  <a className="nes-btn is-warning" href="https://www.codedex.io/community/hackathon/h7rjUC0GXxUIrpSIjt4B" target="_blank" and rel="noopener noreferrer">View Post</a>
 </div>
 
 ---
