@@ -204,7 +204,7 @@ Built and deployed the web app on Vercel in just 8 hours — it was one of the f
 **Tools:** HTML, CSS, JavaScript, Three.js, Netlify
 **Prize:** Lenovo Monitors, Codédex Hoodies, and Codédex Sticker Packs
 
-This web app included 3 playable games: Tic-Tac-Toe (against AI), Checkers, and Crossword! Wow.
+This web app included 3 playable games: Tic-Tac-Toe (against AI), Checkers, and Crossword!
 
 <div style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem", transform: "scale(.9)" }}>
   <a className="nes-btn is-warning" href="https://gamegrove.netlify.app" target="_blank" and rel="noopener noreferrer">View Project</a>
