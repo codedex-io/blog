@@ -218,7 +218,7 @@ This web app included 3 playable games: Tic-Tac-Toe (against AI), Checkers, and 
 **Tools:** HTML, CSS, JavaScript, GitHub Pages
 **Prize:** Lenovo Monitors, Codédex Hoodies, and Codédex Sticker Packs
 
-So cool and fun! Brings us back to playing flash games (rip) and a favorite of Jackie and Ellie. Great work, Team Stoop from Braga!
+So cool and fun! Brings us back to playing Flash games (RIP) and it's a favorite of Jackie's and Ellie's. Great work, Team Stoop from Braga!
 
 <div style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem", transform: "scale(.9)" }}>
   <a className="nes-btn is-warning" href="https://www.codedex.io/community/hackathon/4teKFV8MCo6dHyocM5Zb" target="_blank" and rel="noopener noreferrer">View Project</a>
