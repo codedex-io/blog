@@ -59,7 +59,7 @@ Pizza Party at NYU Tandon (location: MakerSpace) in Brooklyn on Mon, Sep 23 from
 Please note this is a closed event for NYU Tandon School of Engineering students. You must present your school ID to enter the premises.
 
 <div style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem", transform: "scale(.9)" }}>
-  <a className="nes-btn is-warning" href="https://" target="_blank" and rel="noopener noreferrer">Sign Up</a>
+  <a className="nes-btn is-warning" href="https://https://linkedin.com/company/codedex" target="_blank" and rel="noopener noreferrer">Sign Up</a>
 </div>
 
 **[Thu 9/26: Pizza Party @ CCNY](https://lu.ma/6t1fc9la)**
@@ -72,7 +72,9 @@ Introduction to SQL workshop at The City College of New York at the North Academ
 
 Please note this is a closed event for CCNY CompSci and tech-adjacent majors students. You must present your school ID to enter the premises.
 
-Sign up: https://lu.ma/6t1fc9la
+<div style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem", transform: "scale(.9)" }}>
+  <a className="nes-btn is-warning" href="https://lu.ma/6t1fc9la" target="_blank" and rel="noopener noreferrer">Sign Up</a>
+</div>
 
 **[Sat 10/5: DivHacks @ Columbia](https://www.columbiadivhacks.org)**
 
