@@ -46,7 +46,7 @@ Find Sonny, Naomi, and Jackie at the Codédex booth in the mentor / career fair 
 
 ---
 
-<div style={{display: "flex", justifyContent: "center", marginTop: "1rem"}}>
+<div style={{display: "flex", justifyContent: "center", marginTop: "2rem", marginBottom: "-2rem"}}>
   <img src="https://i.imgur.com/ouF1uGq.png" width="200"/>
 </div>
 
