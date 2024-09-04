@@ -96,6 +96,10 @@ RSVP and purchase your ticket here: https://lu.ma/tvwccbhp
 
 **Please note:** All attendees must present a valid photo ID at the door.
 
+<div style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem", transform: "scale(.9)" }}>
+  <a className="nes-btn is-warning" href="https://lu.ma/tvwccbhp" target="_blank" and rel="noopener noreferrer">Sign Up</a>
+</div>
+
 #### Digital Badge
 
 If you find us at any of the five events, ask us for a QR code or a code to get a rare Achievement Badge on your Codédex profile.
