@@ -52,7 +52,9 @@ Pizza Party (workshop TBA) at NYU Tandon (location: MakerSpace) in Brooklyn on M
 
 Please note this is a closed event for NYU Tandon School of Engineering students. You must present your school ID to enter the premises.
 
-Sign up: (Check back in a few days for the link!)
+<div style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem", transform: "scale(.9)" }}>
+  <a className="nes-btn is-warning" href="https://" target="_blank" and rel="noopener noreferrer">Sign Up</a>
+</div>
 
 *[Thu 9/26: Pizza Party @ CCNY](https://lu.ma/6t1fc9la)**
 
