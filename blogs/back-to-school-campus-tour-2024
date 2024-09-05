@@ -101,7 +101,7 @@ Please note this is a closed event for CCNY CompSci and tech-adjacent majors stu
 ---
 
 <div style={{display: "flex", justifyContent: "center", marginTop: "2rem", marginBottom: "-2rem"}}>
-  <img src="https://i.imgur.com/3HaMJoP.png" width="180"/>
+  <img src="https://i.imgur.com/3HaMJoP.png" width="185"/>
 </div>
 
 #### [Sat 10/5: DivHacks @ Columbia](https://www.columbiadivhacks.org)
@@ -119,7 +119,7 @@ Find Sonny, Naomi, and Asiqur at the Codédex booth on Sat, Oct 5 for:
 ---
 
 <div style={{display: "flex", justifyContent: "center", marginTop: "2rem", marginBottom: "-2rem"}}>
-  <img src="https://i.imgur.com/M8OAPvt.gif" width="185"/>
+  <img src="https://i.imgur.com/M8OAPvt.gif" width="190"/>
 </div>
 
 #### [Thu 10/10: Back to School Bash @ Wix](https://lu.ma/tvwccbhp) ⋆˙⟡
@@ -146,12 +146,17 @@ This will be our biggest IRL event yet. So quick, RSVP here! Only 100-120 spots 
 
 If you find us at any of the five events, ask us for a QR code to get a rare Achievement Badge on your Codédex profile.
 
-(pic of the digital badge coming soon!)
+<div style={{display: "flex", justifyContent: "center", marginTop: "2rem", marginBottom: "-2rem"}}>
+  <img src="https://i.imgur.com/s6Tf8me.png" width="500"/>
+</div>
 
 #### Sponsors & Friends!
 
 Snaps & slays to our sponsors Emmy at [Wix Studio](https://www.wix.com/studio), Juan at [GitHub Education](https://github.com/education), Ivanha at [Jam.dev](https://jam.dev) for sponsoring the event! Shoutout to the HackNYU, Beavers Code, DivHacks, HackMIT teams as well. 🫶🏻
-![Sponsors](https://i.imgur.com/S7JvOUv.png)
+
+<div style={{display: "flex", justifyContent: "center", marginTop: "2rem", marginBottom: "-2rem"}}>
+  <img src="https://i.imgur.com/S7JvOUv.png" width="600"/>
+</div>
 
 #### Come Say Hi
 
