@@ -23,7 +23,7 @@ It'll be a viiibe~ 🍎
 **Here’s our lineup:**
 
 - Stop 1️⃣ Sat 9/14: HackMIT @ **MIT** (Cambridge, MA)
-- Stop 2️⃣ Mon 9/23: Pizza Party @ **NYU** (Brooklyn, NY) - [LinkedIn Event (TBA)](https://www.linkcomingsoon.com)
+- Stop 2️⃣ Mon 9/23: Pizza Party @ **NYU** (Brooklyn, NY) - [LinkedIn Event](https://www.linkedin.com/events/introtowebdev-nyutandon7239003607885361152/comments)
 - Stop 3️⃣ Thu 9/26: Pizza Party @ **CCNY** (New York, NY) - [Lu.ma](https://lu.ma/6t1fc9la)
 - Stop 4️⃣ Sat 10/5:  DivHacks @ **Columbia** (New York, NY)
 - Stop 5️⃣ Thu 10/10: Back to School Bash @ **Wix** (New York, NY) - [Lu.ma](https://lu.ma/tvwccbhp)
@@ -73,7 +73,7 @@ Pizza Party at NYU Tandon (MakerSpace) in Brooklyn on Mon, Sep 23 from 4-7pm. We
 Please note this is a closed event for NYU Tandon School of Engineering students. You must present your school ID to enter the premises.
 
 <div style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem", transform: "scale(.9)" }}>
-  <a className="nes-btn is-warning" href="https://www.linkedin.com/events/introtowebdev-nyutandon7239003607885361152/comments" target="_blank" and rel="noopener noreferrer">Sign Up (Soon)</a>
+  <a className="nes-btn is-warning" href="https://www.linkedin.com/events/introtowebdev-nyutandon7239003607885361152/comments" target="_blank" and rel="noopener noreferrer">RSVP Now</a>
 </div>
 
 ---
@@ -95,7 +95,7 @@ Introduction to SQL workshop and Q&A at The City College of New York at the Nort
 Please note this is a closed event for CCNY CompSci and tech-adjacent majors students. You must present your CCNY ID to enter the premises.
 
 <div style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem", transform: "scale(.9)" }}>
-  <a className="nes-btn is-warning" href="https://lu.ma/6t1fc9la" target="_blank" and rel="noopener noreferrer">Sign Up</a>
+  <a className="nes-btn is-warning" href="https://lu.ma/6t1fc9la" target="_blank" and rel="noopener noreferrer">RSVP Now</a>
 </div>
 
 ---
@@ -135,7 +135,7 @@ Our Back to School Bash (Thu, Oct 10) at Wix Playground in Manhattan. You can ex
 This will be our biggest IRL event yet. So quick, RSVP here! Only 100-120 spots available:
 
 <div style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem", transform: "scale(.9)" }}>
-  <a className="nes-btn is-warning" href="https://lu.ma/tvwccbhp" target="_blank" and rel="noopener noreferrer">Sign Up</a>
+  <a className="nes-btn is-warning" href="https://lu.ma/tvwccbhp" target="_blank" and rel="noopener noreferrer">RSVP Now</a>
 </div>
 
 **Please note:** All attendees must present a valid photo ID at the door.
