@@ -26,6 +26,9 @@ firebaseAdmin.initializeApp({
   }),
 });
 
+if(!process.env.private_key || !process.env.private_key_id || !process.env.client_email || !process.env.client_id || !process.env.client_cert_url){
+  throw new Error("Misssing required environment variables for Firbase initialization");
+}
 const firestore = firebaseAdmin.firestore();
 
 function getBlogsFileNames() {
