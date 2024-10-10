@@ -68,38 +68,17 @@ async function main() {
           ],
         },
       });
-      if (!blogExists) {
-        await firestore
-          .collection("blogs")
-          .doc(fileNameWithoutExtension)
-          .set(
-            {
-              source,
-              content: blogMatter.content,
-              ...blogMatter.data,
-              dateCreated: blogMatter.data.dateCreated.toUTCString(),
-              dateUpdated: new Date().toUTCString(),
-              likes: 0,
-              link: fileNameWithoutExtension,
-            },
-            { merge: true }
-          );
-      } else {
-        await firestore
-          .collection("blogs")
-          .doc(fileNameWithoutExtension)
-          .set(
-            {
-              source,
-              content: blogMatter.content,
-              ...blogMatter.data,
-              dateCreated: blogMatter.data.dateCreated.toUTCString(),
-              dateUpdated: new Date().toUTCString(),
-              link: fileNameWithoutExtension,
-            },
-            { merge: true }
-          );
-      }
+      const blogData = {
+        source,
+        content: blogMatter.content,
+        ...blogMatter.data,
+        dateCreated: blogMatter.data.dateCreated.toUTCString(),
+        dateUpdated: new Date().toUTCString(),
+        likes: blogExists ? (blogMatter.data.likes || 0) : 0,
+        link: fileNameWithoutExtension,
+      };
+      await firestore.collection('blogs').doc(fileNameWithoutExtension).set(blogData, {merge: true});
+      
     }
   }
   catch(error){
