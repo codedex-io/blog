@@ -82,7 +82,7 @@ Please note this is a closed event for NYU students. You must present your NYU I
 **Update:** 109 RSVP'ed for the event! We are closing registration now.
 
 <div style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem", transform: "scale(.9)" }}>
-  <a className="nes-btn is-warning" href="https://www.linkedin.com/events/introtowebdev-nyutandon7239003607885361152/comments" target="_blank" and rel="noopener noreferrer">RSVP Now</a>
+  <a style={{ all: "unset" }} href="https://www.linkedin.com/events/introtowebdev-nyutandon7239003607885361152/comments" target="_blank" and rel="noopener noreferrer"><Button variant="yellow">RSVP Now</Button></a>
 </div>
 
 ---
@@ -106,7 +106,7 @@ Please note this is a closed event for CCNY CompSci and tech-adjacent majors stu
 **Update:** 93 RSVP'ed for the event! We are closing registration now.
 
 <div style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem", transform: "scale(.9)" }}>
-  <a className="nes-btn is-warning" href="https://lu.ma/6t1fc9la" target="_blank" and rel="noopener noreferrer">RSVP Now</a>
+  <a style={{ all: "unset" }} href="https://lu.ma/6t1fc9la" target="_blank" and rel="noopener noreferrer"><Button variant="yellow">RSVP Now</Button></a>
 </div>
 
 ---
@@ -156,7 +156,7 @@ You can expect:
 This will be our biggest IRL event yet. So quick, RSVP here! Only 120 spots available:
 
 <div style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem", transform: "scale(.9)" }}>
-  <a className="nes-btn is-warning" href="https://lu.ma/tvwccbhp" target="_blank" and rel="noopener noreferrer">RSVP Now</a>
+  <a style={{ all: "unset" }} href="https://lu.ma/tvwccbhp" target="_blank" and rel="noopener noreferrer"><Button variant="yellow">RSVP Now</Button></a>
 </div>
 
 **Note:** All attendees must present a valid photo ID at the door.

@@ -38,7 +38,7 @@ Now, it's time to announce the winners...  🥁...
 Congrats Aaron and Mayranne on taking home the "Board Game Cafe" track's first place! The judges and the team LOVED this project. It's absolutely... perfect. The spinning wheel? The sleek design? The hover effects? 🤌 Sip & Play even wants to use this as their real site!
 
 <div style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem", transform: "scale(.9)" }}>
-  <a className="nes-btn is-warning" href="https://www.codedex.io/community/hackathon/gwLyqyQ9NjP6fygMHrRy" target="_blank" and rel="noopener noreferrer">View Project</a>
+  <a style={{ all: "unset" }} href="https://www.codedex.io/community/hackathon/gwLyqyQ9NjP6fygMHrRy" target="_blank" and rel="noopener noreferrer"><Button variant="yellow">View Project</Button></a>
 </div>
 
 ---
@@ -55,7 +55,7 @@ Congrats Aaron and Mayranne on taking home the "Board Game Cafe" track's first p
 Incredibly strong project that's not only feature-complete but also aesthetically pleasing. From the 🐢 in the intro screen, the food menu with 3D items, to the sleek catalog page that makes you want to go to the board game cafe right meow. GGWP, Pineapple! 
 
 <div style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem", transform: "scale(.9)" }}>
-  <a className="nes-btn is-warning" href="https://www.codedex.io/community/hackathon/V6EKtYm8vKQEVLCVcGGy" target="_blank" and rel="noopener noreferrer">View Project</a>
+  <a style={{ all: "unset" }} href="https://www.codedex.io/community/hackathon/V6EKtYm8vKQEVLCVcGGy" target="_blank" and rel="noopener noreferrer"><Button variant="yellow">View Project</Button></a>
 </div>
 
 ---
@@ -72,7 +72,7 @@ Incredibly strong project that's not only feature-complete but also aestheticall
 While deceptively simple at first glance, the judges quickly realized that this checked all the boxes in an e-commerce store. "I think this one is just rock solid. Can't do much more in 24 hrs." - one of the web dev judges. Great landing page with FAQs and About page with video; it's mobile responsive and even has a search bar. Congrats, Code Riders!
 
 <div style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem", transform: "scale(.9)" }}>
-  <a className="nes-btn is-warning" href="https://www.codedex.io/community/hackathon/oFpHsvvLX1clcZuXIpMI" target="_blank" and rel="noopener noreferrer">View Post</a>
+  <a style={{ all: "unset" }} href="https://www.codedex.io/community/hackathon/oFpHsvvLX1clcZuXIpMI" target="_blank" and rel="noopener noreferrer"><Button variant="yellow">View Post</Button></a>
 </div>
 
 ---
@@ -89,7 +89,7 @@ While deceptively simple at first glance, the judges quickly realized that this 
 The cute intro screen and the bubble heads say it all... you're invited to a DIY stoop sale! And sometimes less is more, a one-pager with a jazzy BGM and a cardboard background that ties it together. Lil & Chelsea loved that this won!
 
 <div style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem", transform: "scale(.9)" }}>
-  <a className="nes-btn is-warning" href="https://www.codedex.io/community/hackathon/h7rjUC0GXxUIrpSIjt4B" target="_blank" and rel="noopener noreferrer">View Post</a>
+  <a style={{ all: "unset" }} href="https://www.codedex.io/community/hackathon/h7rjUC0GXxUIrpSIjt4B" target="_blank" and rel="noopener noreferrer"><Button variant="yellow">View Post</Button></a>
 </div>
 
 ---
@@ -106,7 +106,7 @@ The cute intro screen and the bubble heads say it all... you're invited to a DIY
 There were 36 Wix Studio submissions that it was v difficult for Emmy (Developer Advocate @ Wix Studio) to choose from! But this project by Cindy took home the big cash prize because it had it all! You can see the creativity come to life by scrolling down the page. Awesome job, Cindy! 🥳
 
 <div style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem", transform: "scale(.9)" }}>
-  <a className="nes-btn is-warning" href="https://www.codedex.io/community/hackathon/CEo1ZKcPb8D5rszZLchl" target="_blank" and rel="noopener noreferrer">View Project</a>
+  <a style={{ all: "unset" }} href="https://www.codedex.io/community/hackathon/CEo1ZKcPb8D5rszZLchl" target="_blank" and rel="noopener noreferrer"><Button variant="yellow">View Project</Button></a>
 </div>
 
 ---
@@ -123,7 +123,7 @@ There were 36 Wix Studio submissions that it was v difficult for Emmy (Developer
 Absolutely stunning hack. There are beautiful data visualizations and an equally well put together fully deployed web app. The data science judges were absolutely floored. 20/20.
 
 <div style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem", transform: "scale(.9)" }}>
-  <a className="nes-btn is-warning" href="https://www.codedex.io/community/hackathon/S0f6L319yDnfdAe8pAsL" target="_blank" and rel="noopener noreferrer">View Project</a>
+  <a style={{ all: "unset" }} href="https://www.codedex.io/community/hackathon/S0f6L319yDnfdAe8pAsL" target="_blank" and rel="noopener noreferrer"><Button variant="yellow">View Project</Button></a>
 </div>
 
 ---
@@ -140,7 +140,7 @@ Absolutely stunning hack. There are beautiful data visualizations and an equally
 Three University of Guelph (Canada) CS students came together and built a web app around the Olympics datasets. "This was the only project that used both Python and R which is very unique," one of the judges said. Go Gryphons!
 
 <div style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem", transform: "scale(.9)" }}>
-  <a className="nes-btn is-warning" href="https://www.codedex.io/community/hackathon/qTvtHbJm7iKUfHi7fLPz" target="_blank" and rel="noopener noreferrer">View Project</a>
+  <a style={{ all: "unset" }} href="https://www.codedex.io/community/hackathon/qTvtHbJm7iKUfHi7fLPz" target="_blank" and rel="noopener noreferrer"><Button variant="yellow">View Project</Button></a>
 </div>
 
 ---
@@ -157,7 +157,7 @@ Three University of Guelph (Canada) CS students came together and built a web ap
 Congrats on taking home the Best UI/UX design, Team Fiber AKA Arizona State! This is one of the best prizes of the hackathon and we had to give it to you three. Love the loading screen, the bubbles, and of course... the 3D room with the menu on the wall. 🤯 Mindblow.
 
 <div style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem", transform: "scale(.9)" }}>
-  <a className="nes-btn is-warning" href="https://www.codedex.io/community/hackathon/h3ZCmnIDFDQf4pr6cdUM" target="_blank" and rel="noopener noreferrer">View Project</a>
+  <a style={{ all: "unset" }} href="https://www.codedex.io/community/hackathon/h3ZCmnIDFDQf4pr6cdUM" target="_blank" and rel="noopener noreferrer"><Button variant="yellow">View Project</Button></a>
 </div>
 
 ---
@@ -176,7 +176,7 @@ The vibes are immaculate for this one. 💗 While this is a one-pager, it had al
 P.S. Can't believe you drew Lil & Chelsea, too!
 
 <div style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem", transform: "scale(.9)" }}>
-  <a className="nes-btn is-warning" href="https://www.codedex.io/community/hackathon/ziAsgecN9GQkXc8AhzVr" target="_blank" and rel="noopener noreferrer">View Project</a>
+  <a style={{ all: "unset" }} href="https://www.codedex.io/community/hackathon/ziAsgecN9GQkXc8AhzVr" target="_blank" and rel="noopener noreferrer"><Button variant="yellow">View Project</Button></a>
 </div>
 
 ---
@@ -193,7 +193,7 @@ P.S. Can't believe you drew Lil & Chelsea, too!
 Built and deployed the web app on Vercel in just 8 hours — it was one of the fastest submissions and overall just rock solid. Incredible job, Tanu! 🔥
 
 <div style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem", transform: "scale(.9)" }}>
-  <a className="nes-btn is-warning" href="https://www.codedex.io/community/hackathon/OJvxzohn1WHGppajHhsi" target="_blank" and rel="noopener noreferrer">View Project</a>
+  <a style={{ all: "unset" }} href="https://www.codedex.io/community/hackathon/OJvxzohn1WHGppajHhsi" target="_blank" and rel="noopener noreferrer"><Button variant="yellow">View Project</Button></a>
 </div>
 
 
@@ -207,7 +207,7 @@ Built and deployed the web app on Vercel in just 8 hours — it was one of the f
 This web app included 3 playable games: Tic-Tac-Toe (against AI), Checkers, and Crossword!
 
 <div style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem", transform: "scale(.9)" }}>
-  <a className="nes-btn is-warning" href="https://www.codedex.io/community/hackathon/6SQ9RemV5GavbhcDt9la" target="_blank" and rel="noopener noreferrer">View Project</a>
+  <a style={{ all: "unset" }} href="https://www.codedex.io/community/hackathon/6SQ9RemV5GavbhcDt9la" target="_blank" and rel="noopener noreferrer"><Button variant="yellow">View Project</Button></a>
 </div>
 
 
@@ -221,7 +221,7 @@ This web app included 3 playable games: Tic-Tac-Toe (against AI), Checkers, and 
 So cool and fun! Brings us back to playing Flash games (RIP) and it's a favorite of Jackie's and Ellie's. Great work, Team Stoop from Braga!
 
 <div style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem", transform: "scale(.9)" }}>
-  <a className="nes-btn is-warning" href="https://www.codedex.io/community/hackathon/4teKFV8MCo6dHyocM5Zb" target="_blank" and rel="noopener noreferrer">View Project</a>
+  <a style={{ all: "unset" }} href="https://www.codedex.io/community/hackathon/4teKFV8MCo6dHyocM5Zb" target="_blank" and rel="noopener noreferrer"><Button variant="yellow">View Project</Button></a>
 </div>
 
 
@@ -235,7 +235,7 @@ So cool and fun! Brings us back to playing Flash games (RIP) and it's a favorite
 We met the moggers (from Carnegie Mellon University) during the hackathon Office Hours, and they definitely got the BK vibes down. They even made two custom fonts! #bratsummer
 
 <div style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem", transform: "scale(.9)" }}>
-  <a className="nes-btn is-warning" href="https://www.codedex.io/community/hackathon/V2tQGX6dSFLYtaHNjSSB" target="_blank" and rel="noopener noreferrer">View Project</a>
+  <a style={{ all: "unset" }} href="https://www.codedex.io/community/hackathon/V2tQGX6dSFLYtaHNjSSB" target="_blank" and rel="noopener noreferrer"><Button variant="yellow">View Project</Button></a>
 </div>
 
 
@@ -249,7 +249,7 @@ We met the moggers (from Carnegie Mellon University) during the hackathon Office
 So much of Data Science is about storytelling, and the CoolKidz gave us a super compelling presentation based on their findings. Check out the demo above!
 
 <div style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem", transform: "scale(.9)" }}>
-  <a className="nes-btn is-warning" href="https://www.codedex.io/community/hackathon/qqojzIivTi0zlDIE98eX" target="_blank" and rel="noopener noreferrer">View Project</a>
+  <a style={{ all: "unset" }} href="https://www.codedex.io/community/hackathon/qqojzIivTi0zlDIE98eX" target="_blank" and rel="noopener noreferrer"><Button variant="yellow">View Project</Button></a>
 </div>
 
 ---
