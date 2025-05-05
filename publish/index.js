@@ -41,36 +41,30 @@ async function main() {
     const { source, content, data } = parseMarkdown({ markdown: blog });
 
     if (!blogExists) {
-      await firestore
-        .collection("blogs")
-        .doc(fileNameWithoutExtension)
-        .set(
-          {
-            source,
-            content: blogMatter.content,
-            ...blogMatter.data,
-            dateCreated: blogMatter.data.dateCreated.toUTCString(),
-            dateUpdated: new Date().toUTCString(),
-            likes: 0,
-            link: fileNameWithoutExtension,
-          },
-          { merge: true },
-        );
+      await firestore.collection("blogs").doc(fileNameWithoutExtension).set(
+        {
+          source,
+          content: content,
+          data,
+          dateCreated: blogMatter.data.dateCreated.toUTCString(),
+          dateUpdated: new Date().toUTCString(),
+          likes: 0,
+          link: fileNameWithoutExtension,
+        },
+        { merge: true },
+      );
     } else {
-      await firestore
-        .collection("blogs")
-        .doc(fileNameWithoutExtension)
-        .set(
-          {
-            source,
-            content: blogMatter.content,
-            ...blogMatter.data,
-            dateCreated: blogMatter.data.dateCreated.toUTCString(),
-            dateUpdated: new Date().toUTCString(),
-            link: fileNameWithoutExtension,
-          },
-          { merge: true },
-        );
+      await firestore.collection("blogs").doc(fileNameWithoutExtension).set(
+        {
+          source,
+          content: content,
+          data,
+          dateCreated: blogMatter.data.dateCreated.toUTCString(),
+          dateUpdated: new Date().toUTCString(),
+          link: fileNameWithoutExtension,
+        },
+        { merge: true },
+      );
     }
   }
 }
