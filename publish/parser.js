@@ -12,8 +12,6 @@ import rehypeKatex from "rehype-katex";
 import rehypeAutoLinkHeadings from "rehype-autolink-headings";
 import rehypeRewrite from "rehype-rewrite";
 import { h } from "hastscript";
-import { getSolutionArray } from "./parseGHLink.js";
-import { serializeMdx } from "./serializeMdx.js";
 
 export async function parseMarkdown({ markdown }) {
   const { content, data } = matter(markdown);
