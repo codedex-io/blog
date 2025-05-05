@@ -1,15 +1,7 @@
 import firebaseAdmin from "firebase-admin";
 import fs from "fs";
 import path from "path";
-import matter from "gray-matter";
-import { serialize } from "next-mdx-remote/serialize";
-import rehypeHighlight from "rehype-highlight";
-import rehypeSlug from "rehype-slug";
-import remarkGfm from "remark-gfm";
-import remarkPresetLintConsistent from "remark-preset-lint-consistent";
-import remarkPresetLintRecommended from "remark-preset-lint-recommended";
-import rehypeExternalLinks from "rehype-external-links";
-import remarkBreaks from "remark-breaks";
+import { parseMarkdown } from "./parser.js";
 
 firebaseAdmin.initializeApp({
   credential: firebaseAdmin.credential.cert({
@@ -43,29 +35,11 @@ async function main() {
 
     const blog = fs.readFileSync(
       path.resolve(process.cwd(), "blogs", filename),
-      "utf-8"
+      "utf-8",
     );
 
-    const blogMatter = matter(blog);
+    const { source, content, data } = parseMarkdown({ markdown: blog });
 
-    const source = await serialize(blogMatter.content, {
-      mdxOptions: {
-        remarkPlugins: [
-          remarkPresetLintConsistent,
-          remarkPresetLintRecommended,
-          remarkBreaks,
-          remarkGfm,
-        ],
-        rehypePlugins: [
-          rehypeSlug,
-          rehypeHighlight,
-          [
-            rehypeExternalLinks,
-            { target: "_blank", rel: ["nofollow", "noreferrer", "noopener"] },
-          ],
-        ],
-      },
-    });
     if (!blogExists) {
       await firestore
         .collection("blogs")
@@ -80,7 +54,7 @@ async function main() {
             likes: 0,
             link: fileNameWithoutExtension,
           },
-          { merge: true }
+          { merge: true },
         );
     } else {
       await firestore
@@ -95,7 +69,7 @@ async function main() {
             dateUpdated: new Date().toUTCString(),
             link: fileNameWithoutExtension,
           },
-          { merge: true }
+          { merge: true },
         );
     }
   }
