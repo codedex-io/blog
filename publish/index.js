@@ -38,7 +38,7 @@ async function main() {
       "utf-8"
     );
 
-    const { source, content, data } = parseMarkdown({ markdown: blog });
+    const { source, content, data } = await parseMarkdown({ markdown: blog });
 
     if (!blogExists) {
       await firestore
