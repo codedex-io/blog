@@ -65,7 +65,7 @@ async function main() {
             source,
             content: content,
             ...data,
-            dateCreated: blogMatter.data.dateCreated.toUTCString(),
+            dateCreated: data.dateCreated.toUTCString(),
             dateUpdated: new Date().toUTCString(),
             link: fileNameWithoutExtension,
           },
