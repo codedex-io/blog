@@ -35,7 +35,7 @@ async function main() {
 
     const blog = fs.readFileSync(
       path.resolve(process.cwd(), "blogs", filename),
-      "utf-8",
+      "utf-8"
     );
 
     const { source, content, data } = parseMarkdown({ markdown: blog });
@@ -47,14 +47,14 @@ async function main() {
         .set(
           {
             source,
-            content:content,
+            content: content,
             ...data,
-            dateCreated: blogMatter.data.dateCreated.toUTCString(),
+            dateCreated: data.dateCreated.toUTCString(),
             dateUpdated: new Date().toUTCString(),
             likes: 0,
             link: fileNameWithoutExtension,
           },
-          { merge: true },
+          { merge: true }
         );
     } else {
       await firestore
@@ -69,7 +69,7 @@ async function main() {
             dateUpdated: new Date().toUTCString(),
             link: fileNameWithoutExtension,
           },
-          { merge: true },
+          { merge: true }
         );
     }
   }
