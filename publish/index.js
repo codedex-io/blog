@@ -21,22 +21,35 @@ firebaseAdmin.initializeApp({
 const firestore = firebaseAdmin.firestore();
 
 function getBlogsFileNames() {
-  return fs.readdirSync(path.resolve(process.cwd(), "blogs"));
+  return fs
+    .readdirSync(path.resolve(process.cwd(), "blogs"), { withFileTypes: true })
+    .filter((dirent) => dirent.isDirectory())
+    .flatMap((dirent) => {
+      const yearDir = path.resolve(process.cwd(), "blogs", dirent.name);
+      return fs
+        .readdirSync(yearDir)
+        .filter((file) => file.endsWith(".mdx"))
+        .map((file) => path.join(dirent.name, file));
+    });
+}
+
+function getBlogFileContent(filename) {
+  return fs.readFileSync(
+    path.resolve(process.cwd(), "blogs", filename),
+    "utf-8",
+  );
 }
 
 async function main() {
   const blogFileNames = getBlogsFileNames();
 
   for (let filename of blogFileNames) {
-    const fileNameWithoutExtension = filename.split(".")[0];
+    const fileNameWithoutExtension = filename.split(".")[0].split("/").pop();
     const blogExists = (
       await firestore.collection("blogs").doc(fileNameWithoutExtension).get()
     ).exists;
 
-    const blog = fs.readFileSync(
-      path.resolve(process.cwd(), "blogs", filename),
-      "utf-8"
-    );
+    const blog = getBlogFileContent(filename);
 
     const { source, content, data } = await parseMarkdown({ markdown: blog });
 
@@ -54,7 +67,7 @@ async function main() {
             likes: 0,
             link: fileNameWithoutExtension,
           },
-          { merge: true }
+          { merge: true },
         );
     } else {
       await firestore
@@ -69,7 +82,7 @@ async function main() {
             dateUpdated: new Date().toUTCString(),
             link: fileNameWithoutExtension,
           },
-          { merge: true }
+          { merge: true },
         );
     }
   }
