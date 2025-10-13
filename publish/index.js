@@ -1,7 +1,14 @@
 import firebaseAdmin from "firebase-admin";
 import fs from "fs";
 import path from "path";
+import { MeiliSearch } from "meilisearch";
+
 import { parseMarkdown } from "./parser.js";
+
+const client = new MeiliSearch({
+  host: process.env.MEILISEARCH_HOST,
+  apiKey: process.env.MEILISEARCH_API_KEY,
+});
 
 firebaseAdmin.initializeApp({
   credential: firebaseAdmin.credential.cert({
@@ -44,46 +51,66 @@ async function main() {
   const blogFileNames = getBlogsFileNames();
 
   for (let filename of blogFileNames) {
-    const fileNameWithoutExtension = filename.split(".")[0].split("/").pop();
-    const blogExists = (
-      await firestore.collection("blogs").doc(fileNameWithoutExtension).get()
-    ).exists;
+    try {
+      const fileNameWithoutExtension = filename.split(".")[0].split("/").pop();
+      const blogExists = (
+        await firestore.collection("blogs").doc(fileNameWithoutExtension).get()
+      ).exists;
 
-    const blog = getBlogFileContent(filename);
+      const blog = getBlogFileContent(filename);
 
-    const { source, content, data } = await parseMarkdown({ markdown: blog });
+      const { source, content, data } = await parseMarkdown({ markdown: blog });
 
-    if (!blogExists) {
-      await firestore
-        .collection("blogs")
-        .doc(fileNameWithoutExtension)
-        .set(
+      if (!blogExists) {
+        await firestore
+          .collection("blogs")
+          .doc(fileNameWithoutExtension)
+          .set(
+            {
+              source,
+              content: content,
+              ...data,
+              dateCreated: data.dateCreated.toUTCString(),
+              dateUpdated: new Date().toUTCString(),
+              likes: 0,
+              link: fileNameWithoutExtension,
+            },
+            { merge: true },
+          );
+      } else {
+        await firestore
+          .collection("blogs")
+          .doc(fileNameWithoutExtension)
+          .set(
+            {
+              source,
+              content: content,
+              ...data,
+              dateCreated: data.dateCreated.toUTCString(),
+              dateUpdated: new Date().toUTCString(),
+              link: fileNameWithoutExtension,
+            },
+            { merge: true },
+          );
+      }
+
+      try {
+        await client.index("blogs").addDocuments([
           {
-            source,
-            content: content,
-            ...data,
-            dateCreated: data.dateCreated.toUTCString(),
-            dateUpdated: new Date().toUTCString(),
-            likes: 0,
+            id: fileNameWithoutExtension,
+            title: data.title,
+            content,
+            author: data.author,
+            tags: data.tags,
             link: fileNameWithoutExtension,
+            dateCreated: new Date(data.dateCreated).toISOString(),
+            description: data.description,
           },
-          { merge: true },
-        );
-    } else {
-      await firestore
-        .collection("blogs")
-        .doc(fileNameWithoutExtension)
-        .set(
-          {
-            source,
-            content: content,
-            ...data,
-            dateCreated: data.dateCreated.toUTCString(),
-            dateUpdated: new Date().toUTCString(),
-            link: fileNameWithoutExtension,
-          },
-          { merge: true },
-        );
+        ]);
+      } catch (error) {}
+    } catch (error) {
+      console.log("Error with file: " + filename);
+      console.error(error);
     }
   }
 }
