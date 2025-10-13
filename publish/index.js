@@ -99,12 +99,11 @@ async function main() {
           {
             id: fileNameWithoutExtension,
             title: data.title,
+            description: data.description,
             content,
             author: data.author,
-            tags: data.tags,
+            tags: data?.tags,
             link: fileNameWithoutExtension,
-            dateCreated: new Date(data.dateCreated).toISOString(),
-            description: data.description,
           },
         ]);
       } catch (error) {}
