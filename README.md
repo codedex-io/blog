@@ -7,12 +7,12 @@ www.codedex.io/blog
 The supported tags in the frontmatter for the blogs are:
 
 - `News`
-- `Changelog`
-- `Events`
-- `Challenges`
 - `Product`
+- `Events`
 - `Community`
-- `Eng` (Deleted, don't use for now)
-- `Other` (Deleted, don't use for now)
+- `Changelog`
+- `Boba Talk`
+- `Partnerships`
+- `Resources`
 
 Blog header images should be 1,600 x 900 px.
