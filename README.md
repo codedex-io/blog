@@ -14,5 +14,6 @@ The supported tags in the frontmatter for the blogs are:
 - `Boba Talk`
 - `Partnerships`
 - `Resources`
+- `Challenges` (try not to use anymore, this is when we did Monthly Challenges in blogs)
 
 Blog header images should be 1,600 x 900 px.
