@@ -1,0 +1,285 @@
+---
+title: "Can ChatGPT Beat My Favorite Puzzle Game?"
+description: I've been obsessed with a new daily puzzle game. After playing every day for a couple months, I couldn't help but wonder - how would ChatGPT do? Let's use Python and langchain to find out.
+author: Nick Sypteras
+seoImageLink: TODO
+dateCreated: 2025-11-24
+published: TODO
+uid: TODO
+tags:
+  - TODO
+---
+
+Lately, I've been obsessed with a daily puzzle game called [Clues By Sam](https://cluesbysam.com/). It's a game of logical deduction where you mark people in a 4x5 grid as either *Criminal* or *Innocent*. Each person you reveal gives you a new piece of information, which you then use to deduce the next person's identity, and so on.
+
+You start with one person already revealed:
+
+![clues by sam game grid](../../blog-images/can-chatgpt-beat-my-favorite-puzzle-game/game-grid-bottom.png)
+
+You continue until the whole grid is revealed, at which point you're shown your results, text-sharable a la Wordle (green=correct, yellow=mistake), along with how long you spent solving it.
+
+![game results](../../blog-images/can-chatgpt-beat-my-favorite-puzzle-game/results.png)
+
+It wasn't long after starting to exchange daily scores that my friends and I started wondering: "How would ChatGPT perform at Clues by Sam?"
+
+![conversation about llms](../../blog-images/can-chatgpt-beat-my-favorite-puzzle-game/chat-screenshot.png)
+
+So, I decided to find out which SOTA model is the "smartest" by creating my own [Clues By Sam LLM benchmarking tool](https://github.com/Syps/cbs-bench). After comparing performance across 25 puzzles of varying difficulties, the winner* is... 🥁 **GPT-5 Pro 🎉**
+
+**As of Nov 13, 2025*
+
+Below are the results of testing 5 different frontier models against 25 puzzles of varying difficulty.
+
+## The puzzles
+
+All puzzles in the evaluation came from Clues By Sam's [Puzzle Pack #1](https://cluesbysam.com/s/puzzle-pack-1.html), a pay-what-you-want bonus puzzle pack.
+
+| Difficulty | # of Puzzles |
+| --- | --- |
+| Easy | 5 |
+| Medium | 10 |
+| Hard | 6 |
+| Brutal (Harder) | 2 |
+| Evil (Hardest) | 2 |
+| **Total** | **25** |
+
+## The Models
+
+| Company | Model Name | Input Cost (USD / 1M tokens) | Output Cost (USD / 1M tokens) |
+| --- | --- | --- | --- |
+| OpenAI | GPT-5 Pro | $1.25 | $10.00 |
+| Anthropic | Claude Sonnet 4.5 | $3.00 | $15.00 |
+| DeepSeek | deepseek-chat | $0.28 | $0.42 |
+| Gemini | Gemini 2.5 Pro | $1.25 | $10.00 |
+| xAI* | grok-4-0709 | $3.00 | $15.00 |
+
+**See Notes and Caveats*
+
+## Results
+
+### Easy Difficulty 👼
+
+![easy difficulty performance](../../blog-images/can-chatgpt-beat-my-favorite-puzzle-game/horiz_chart_easy.png)
+
+### Medium 💪
+
+![medium difficulty performance](../../blog-images/can-chatgpt-beat-my-favorite-puzzle-game/horiz_chart_med.png)
+
+### Hard 😮‍💨
+
+![hard difficulty performance](../../blog-images/can-chatgpt-beat-my-favorite-puzzle-game/horiz_chart_hard.png)
+
+### Brutal 😱
+
+![brutal difficulty performance](../../blog-images/can-chatgpt-beat-my-favorite-puzzle-game/horiz_chart_brutal.png)
+
+### Evil 😈
+
+![evil difficulty performance](../../blog-images/can-chatgpt-beat-my-favorite-puzzle-game/horiz_chart_evil.png)
+
+## Superlatives 🏆
+
+- **🧠 Smartest** - GPT-5, with near perfect puzzle completion and accuracy
+- **🐇 Fastest** - Claude Sonnet 4.5, with an average response time of 18 seconds
+- **🐢 Slowest** - Grok 4, with an average response time of *"Oh just forget it..."*
+- **💸 Most expensive** - Gemini 2.5 Pro, thanks to high cost and high error rate (hence more re-prompting)
+- **😤 Most determined** - Gemini 2.5 Pro, thanks to both a high error rate and a high completion rate
+- **🏷️ Cheapest** - DeepSeek Chat, costing literally pennies on the dollar
+- **🤦‍♂️ Most Annoying** - Claude Sonnet 4.5 due to poor docs around prompt caching and max_token limits (see *Notes & Caveats*)
+- **🤪 Dumbest** - Grok 4, for being unable to solve even the easiest puzzle. I would like my $10 back.
+
+## Notes & Caveats
+
+- Evaluation puzzles obtained via convenience sampling
+- Only one prompt was used. A more rigorous approach might do iterative evaluations with different prompt variants and choose the best or average result.
+- Only one evaluation per model per puzzle was done in order to keep costs down
+- The "Fastest" and "Slowest" superlatives are more just for fun. Obviously there are many factors that impact the speed of the model API response that have nothing to do with the underlying model architecture. But I was still very impressed by DeepSeek's performance in terms of both its accuracy, price and rate limiting.
+- Surprisingly, Grok 4 never came close to completing even an Easy puzzle. Therefore I stopped testing it once it ate my $10 worth of credits (which did not take long).
+- If you or someone you love is trying to develop with the Claude API, then please read the following. Hopefully you can avoid the frustrations that I hit.
+    - Make sure to set the `max_tokens` parameter to be greater than the output tokens you anticipate in the model response. Otherwise...
+    - ...the model output will [literally stop mid sentence](https://docs.claude.com/en/api/messages#body-max-tokens) if the `max_tokens` limit is reached.
+    - For Sonnet 4.5, [prompts shorter than 1024 tokens cannot be cached](https://docs.claude.com/en/docs/build-with-claude/prompt-caching#cache-limitations) - the `cache_control` parameter will simply be ignored.
+
+Obviously, my evaluation was by no means exhaustive. However, I think it provided enough information to draw a fairly reasonable conclusion about comparative performance of SOTA models at this type of logical deduction game.
+
+You can try comparing the models yourself by [cloning the repository](https://github.com/Syps/cbs-bench). There's even a "race mode" to run the models in parallel against a given puzzle.
+
+![race mode interface](../../blog-images/can-chatgpt-beat-my-favorite-puzzle-game/race-mode.png)
+
+And while those models are a-racing, read on for details on how it all works.
+
+## Translating a web game into ASCII text
+
+Rather than using browser automation, the tool creates a serialized version of Clues By Sam using ASCII text that can be easily tokenized and passed to the LLM. The benefits of this approach are two fold:
+
+- Raw text is faster than browser automation
+- It's simpler context for the model to process compared with raw HTML (I don't care about the model's ability to "use" a browser, I just want to know if it's good at reasoning)
+
+The serialized game state consists of an ASCII grid followed by a list of hints for each revealed person.
+
+So this
+
+![clues by sam game grid](../../blog-images/can-chatgpt-beat-my-favorite-puzzle-game/game-unserialized-example.png)
+
+*"Gary and Isaac have 3 innocent neighbors in common"*
+
+becomes this
+
+```
+PUZZLE GRID (5 rows x 4 columns):
+Row 1: [Ben(teacher):I] [Claire(builder):?] [Debra(coder):?] [Eve(farmer):?]
+Row 2: [Flora(builder):?] [Gary(builder):?] [Hank(coder):?] [Isaac(farmer):?]
+Row 3: [Keith(doctor):?] [Lisa(cook):?] [Mary(singer):?] [Olof(coder):?]
+Row 4: [Paula(painter):?] [Rob(cook):?] [Salil(painter):?] [Tom(teacher):?]
+Row 5: [Vera(singer):?] [Wally(farmer):?] [Xena(doctor):?] [Zoe(teacher):?]
+
+Solved: 1/20, Remaining: 19
+
+VISIBLE HINTS:
+- ben (INNOCENT): Gary and Isaac have 3 innocent neighbors in common
+
+```
+
+The evaluation code is essentially a single agentic loop. The prompt starts with the game rules followed by the puzzle state. The model responds with a summary of its "logic" and a move which follows the pattern `MOVE: <name> is <criminal/innocent>`.
+
+Here's an example of one of Deepseek's responses to the prompt:
+
+```
+Let's analyze the hint we have:
+
+Ben says: "Gary and Isaac have 3 innocent neighbors in common."
+
+Gary is at (2,2) and Isaac is at (2,4).
+Their common neighbors are:
+- Row 1: Claire (1,2), Debra (1,3), Eve (1,4)
+- Row 2: Flora (2,1), Hank (2,3)
+- Row 3: Keith (3,1), Lisa (3,2), Mary (3,3), Olof (3,4)
+
+Actually, let's list systematically:
+Gary's neighbors:
+(1,1) Ben, (1,2) Claire, (1,3) Debra, (2,1) Flora, (2,3) Hank,
+(3,1) Keith, (3,2) Lisa, (3,3) Mary
+
+Isaac's neighbors:
+(1,3) Debra, (1,4) Eve, (2,3) Hank, (3,3) Mary, (3,4) Olof
+
+Common neighbors of Gary and Isaac:
+(1,3) Debra, (2,3) Hank, (3,3) Mary
+
+So they have exactly 3 common neighbors: Debra, Hank, Mary.
+
+The clue says: "Gary and Isaac have 3 innocent neighbors in common."
+That means all three of Debra, Hank, Mary are innocent.
+
+So we can mark Debra, Hank, Mary as innocent.
+
+But we can only make one move per response, so I'll pick one.
+
+**MOVE: Debra is innocent**
+
+```
+
+Quite verbose for how simple the hint is, but a correct move nonetheless. Interestingly, the model's thought summary immediately begins with a hallucination. It initially misidentifies the common neighbors of Gary and Isaac only to correctly identify them further down in its output.
+
+## Validating The Output and Re-Prompting
+
+The `MOVE` then gets extracted from the response via regex and validated. How do we know if the move is correct or not? Thankfully, the answers are scrapable from the webpage that hosts the puzzle. The benchmark tool I wrote has logic to fetch the raw source and extract the answers into a nice object we can validate against. You can see that logic [here](https://github.com/Syps/cbs-bench/blob/main/fetch.py#L15).
+
+The code updates the model context with the result (incorrect/correct), the incorrect reason if applicable (wrong determination or not logically deducible), and the updated state of the puzzle. To help the model not repeat its mistakes, incorrect moves are kept "in memory" by passing them in all subsequent prompts. With the context updated, we send a new completion request to the LLM provider via [langchain](https://docs.langchain.com/oss/python/langchain/models).
+
+The model responds with a next move, and the process repeats. The evaluation ends when either the puzzle has been fully solved or the model has made over 40 moves. Why 40? Since the the puzzle is always a 4x5 grid with one cell revealed by default, each game only requires 19 moves assuming no mistakes. So I chose 40 moves as an abritrary "safety brake" to prevent cost overrun.
+
+Here's what the loop logic looks like in pseudocode
+
+```python
+system_prompt = """
+GAME RULES:
+...
+
+TERMINOLOGY:
+...
+
+RESPONSE FORMAT:
+...
+
+IMPORTANT:
+...
+
+STRATEGY:
+...
+
+Ready to start? I'll give you the current puzzle state.
+"""
+clues_data = fetch_puzzle_from_website()
+current_state = initialize_puzzle_state(clues_data)
+llm.context = system_prompt + serialize(current_state)
+move_count = 0
+max_moves = 40
+
+while move_count < max_moves:
+    move = extract_move_from_output(llm.invoke())
+    is_correct, feedback = validate(move, current_state)
+
+    if is_correct:
+        llm.add_to_context("✅ CORRECT!")
+        current_state = update_puzzle_state(current_state, move)
+        llm.context += serialize(current_state)
+
+        if is_puzzle_complete(current_state):
+            print("✅ PUZZLE COMPLETED!")
+            break
+
+    else:
+        llm.context += f"❌ INCORRECT! {feedback}"
+        llm.context += f"Your wrong move: {move}"
+
+    move_count += 1
+
+```
+
+For the actual code, please see the [Github repo](https://github.com/Syps/cbs-bench).
+
+## Why is GPT-5 so good at this?
+
+GPT-5 far surpassed my expectations of how well a SOTA LLM could perform. And by that I mean it beats me... a lot. GPT-5's knowledge cutoff is [September 2024](https://platform.openai.com/docs/models/compare). Based on the creator's [original HN post](https://news.ycombinator.com/item?id=43821457), [Clues By Sam](https://cluesbysam.com/) went live in April 2025. We can therefore assume that no information about the game exists in GPT-5's training data. So how does it perform so well? Is it actually capable of "reasoning"?
+
+At the time of this post, [researchers have found that the success of LLMs at logical problems depends more on recognizing patterns from the training set](https://arxiv.org/abs/2406.11050) rather than actional reasoning ability. A good example of this phenomenom can be seen in LLM performance on [math benchmarks](https://en.wikipedia.org/wiki/Language_model_benchmark#Mathematics). Simply change some numbers or the phrasing of the math problems, and [model performance takes a significant hit](https://arxiv.org/abs/2410.05229).
+
+So maybe in the case of CBS, either
+
+- The models are indeed employing some sort of generalized reasoning ability, or
+- There are very similar puzzles in the training data.
+
+Or both...
+
+I asked ChatGPT if my description of Clues By Sam rang any of its finely tuned bells and this is what it said:
+
+> That description is most reminiscent of logic deduction grid puzzles like Minesweeper, Picross (Nonograms), and Clue/Cluedo logic grid puzzles, with shades of Tents and Trees, Einstein's Riddle, and The Witness panel puzzles.
+> 
+> 
+> Specifically:
+> 
+> - The "innocent/criminal" binary resembles *Minesweeper's bomb/empty* mechanic, especially since clues depend on neighbor relationships.
+> - The layered clue-reveal mechanic (only after a correct mark) recalls *The Return of the Obra Dinn* and *Contradiction*style deduction games, where correctness unlocks narrative information.
+> - The logical neighbor-based constraints and grid reasoning align closely with *Nikoli logic puzzles* like *Nurikabe*, *Masyu*, or *Hitori*, where connectivity and adjacency rules define solvability.
+> - The "connected" and "in-between" phrasing mirrors *Slitherlink* and *Hashiwokakero (Bridges)* reasoning.
+> - The mix of professions, clues, and deduction evokes *logic murder mystery puzzles* or *Zachtronics*style narrative logic grids (*Exapunks*, *Eliza*).
+> 
+> In short, it's like a **narrative Minesweeper crossed with a logic-grid mystery**, combining mechanical deduction with semantic clues.
+> 
+
+So it does sound like there are a decent number of similar games in the training data. Still, thinking about whether this is *pattern matching* or *reasoning* makes my brain hurt. Are they the same thing at some level?
+
+Whether or not they are *reasoning*, it still amazes (read: humbles) me that GPT-5 now routinely beats my friends and I at my favorite game.
+
+![frontier model perfomance imessage commiseration](../../blog-images/can-chatgpt-beat-my-favorite-puzzle-game/imessage-commiseration.png)
+
+*All good things must come to an end*
+
+## Conclusion: 🤷‍♂️
+
+In the all-you-can-crawl buffet that is AI company data ingestion, Clues By Sam, maybe even this blog post, will inevitably be trained on. At that point, how do we know whether the models are actually solving the puzzles or just memorizing nuanced patterns of the ones they see in training (let's for now assume this is conceptually different than "reasoning")?
+
+One potential solution I can imagine would be an adversarial approach in which two LLMs are pitted against each other. LLM A creates new logic puzzles and LLM B attempts to solve them. Could this potentially assess LLM A's "creativity" (it's ability to create logically satisfiable and novel puzzles) while measuring LLM B's "reasoning" ability?
+
+At this point in my learning I have neither the ~~pattern matching~~ knowledge nor the ~~reasoning~~ expertise to answer these questions. But there is excitement in not knowing. Maybe scaling LLMs *will* continue to yield some genuine reasoning breakthroughs in the coming years that can't be forseen. Maybe my stock portfolio is *not* in fact teetering on the edge of a stomach-lurching free fall. Whatever happens, at least now I have even more friends to play my favorite daily puzzle game with 🧩
