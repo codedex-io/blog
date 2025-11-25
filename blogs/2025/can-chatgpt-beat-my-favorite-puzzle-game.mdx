@@ -19,17 +19,17 @@ You start with one person already revealed. You continue until the whole grid is
 
 ![game results](https://raw.githubusercontent.com/codedex-io/blog/refs/heads/main/blog-images/can-chatgpt-beat-my-favorite-puzzle-game/results.png)
 
-It wasn't long after starting to exchange daily scores that my friends and I started wondering: 
-
-_"How would ChatGPT perform at Clues by Sam?"_
+It wasn't long after starting to exchange daily scores that my friends and I started wondering: _"How would ChatGPT perform at Clues by Sam?"_
 
 ![conversation about llms](https://raw.githubusercontent.com/codedex-io/blog/refs/heads/main/blog-images/can-chatgpt-beat-my-favorite-puzzle-game/chat-screenshot.png)
 
-So, I decided to find out which SOTA model is the "smartest" by creating my own [Clues By Sam LLM benchmarking tool](https://github.com/Syps/cbs-bench). After comparing performance across 25 puzzles of varying difficulties, the winner* is... 🥁... **GPT-5 Pro!** 🎉 
+So, I decided to find out which [SOTA model](https://www.google.com/search?q=SOTA+model) is the "smartest" by creating my own [Clues By Sam LLM benchmarking tool](https://github.com/Syps/cbs-bench). After comparing performance across 25 puzzles of varying difficulties, the winner* is... 🥁... 
+
+🏆 **GPT-5 Pro** 🏆
 
 **As of Nov 13, 2025*
 
-Below are the results of testing 5 different frontier models against 25 puzzles of varying difficulty.
+Below are the results of testing 5 frontier models against 25 puzzles of varying difficulty.
 
 ## The puzzles
 
@@ -62,7 +62,7 @@ All puzzles in the evaluation came from Clues By Sam's [Puzzle Pack #1](https://
 
 ![easy difficulty performance](https://raw.githubusercontent.com/codedex-io/blog/refs/heads/main/blog-images/can-chatgpt-beat-my-favorite-puzzle-game/horiz_chart_easy.png)
 
-### Medium 💪
+### Medium Difficulty 💪
 
 ![medium difficulty performance](https://raw.githubusercontent.com/codedex-io/blog/refs/heads/main/blog-images/can-chatgpt-beat-my-favorite-puzzle-game/horiz_chart_med.png)
 
@@ -70,11 +70,11 @@ All puzzles in the evaluation came from Clues By Sam's [Puzzle Pack #1](https://
 
 ![hard difficulty performance](https://raw.githubusercontent.com/codedex-io/blog/refs/heads/main/blog-images/can-chatgpt-beat-my-favorite-puzzle-game/horiz_chart_hard.png)
 
-### Brutal 😱
+### Brutal Difficulty 😱
 
 ![brutal difficulty performance](https://raw.githubusercontent.com/codedex-io/blog/refs/heads/main/blog-images/can-chatgpt-beat-my-favorite-puzzle-game/horiz_chart_brutal.png)
 
-### Evil 😈
+### Evil Difficulty 😈
 
 ![evil difficulty performance](https://raw.githubusercontent.com/codedex-io/blog/refs/heads/main/blog-images/can-chatgpt-beat-my-favorite-puzzle-game/horiz_chart_evil.png)
 
@@ -99,13 +99,13 @@ All puzzles in the evaluation came from Clues By Sam's [Puzzle Pack #1](https://
 - If you or someone you love is trying to develop with the Claude API, then please read the following. Hopefully you can avoid the frustrations that I hit.
     - Make sure to set the `max_tokens` parameter to be greater than the output tokens you anticipate in the model response. Otherwise...
     - ...the model output will [literally stop mid sentence](https://docs.claude.com/en/api/messages#body-max-tokens) if the `max_tokens` limit is reached.
-    - For Sonnet 4.5, [prompts shorter than 1024 tokens cannot be cached](https://docs.claude.com/en/docs/build-with-claude/prompt-caching#cache-limitations) - the `cache_control` parameter will simply be ignored.
+    - For Sonnet 4.5, [prompts shorter than 1024 tokens cannot be cached](https://docs.claude.com/en/docs/build-with-claude/prompt-caching#cache-limitations) – the `cache_control` parameter will simply be ignored.
 
 Obviously, my evaluation was by no means exhaustive. However, I think it provided enough information to draw a fairly reasonable conclusion about comparative performance of SOTA models at this type of logical deduction game.
 
 You can try comparing the models yourself by [cloning the repository](https://github.com/Syps/cbs-bench). There's even a "race mode" to run the models in parallel against a given puzzle.
 
-![race mode interface](../../blog-images/can-chatgpt-beat-my-favorite-puzzle-game/race-mode.png)
+![race mode interface](https://raw.githubusercontent.com/codedex-io/blog/refs/heads/main/blog-images/can-chatgpt-beat-my-favorite-puzzle-game/race-mode.png)
 
 And while those models are a-racing, read on for details on how it all works.
 
@@ -118,15 +118,15 @@ Rather than using browser automation, the tool creates a serialized version of C
 
 The serialized game state consists of an ASCII grid followed by a list of hints for each revealed person.
 
-So this
+So this:
 
-![clues by sam game grid](../../blog-images/can-chatgpt-beat-my-favorite-puzzle-game/game-unserialized-example.png)
+![clues by sam game grid](https://raw.githubusercontent.com/codedex-io/blog/refs/heads/main/blog-images/can-chatgpt-beat-my-favorite-puzzle-game/game-unserialized-example.png)
 
 *"Gary and Isaac have 3 innocent neighbors in common"*
 
-becomes this
+becomes this:
 
-```
+```output
 PUZZLE GRID (5 rows x 4 columns):
 Row 1: [Ben(teacher):I] [Claire(builder):?] [Debra(coder):?] [Eve(farmer):?]
 Row 2: [Flora(builder):?] [Gary(builder):?] [Hank(coder):?] [Isaac(farmer):?]
@@ -138,7 +138,6 @@ Solved: 1/20, Remaining: 19
 
 VISIBLE HINTS:
 - ben (INNOCENT): Gary and Isaac have 3 innocent neighbors in common
-
 ```
 
 The evaluation code is essentially a single agentic loop. The prompt starts with the game rules followed by the puzzle state. The model responds with a summary of its "logic" and a move which follows the pattern `MOVE: <name> is <criminal/innocent>`.
@@ -177,7 +176,6 @@ So we can mark Debra, Hank, Mary as innocent.
 But we can only make one move per response, so I'll pick one.
 
 **MOVE: Debra is innocent**
-
 ```
 
 Quite verbose for how simple the hint is, but a correct move nonetheless. Interestingly, the model's thought summary immediately begins with a hallucination. It initially misidentifies the common neighbors of Gary and Isaac only to correctly identify them further down in its output.
@@ -190,7 +188,7 @@ The code updates the model context with the result (incorrect/correct), the inco
 
 The model responds with a next move, and the process repeats. The evaluation ends when either the puzzle has been fully solved or the model has made over 40 moves. Why 40? Since the the puzzle is always a 4x5 grid with one cell revealed by default, each game only requires 19 moves assuming no mistakes. So I chose 40 moves as an abritrary "safety brake" to prevent cost overrun.
 
-Here's what the loop logic looks like in pseudocode
+Here's what the loop logic looks like in pseudocode:
 
 ```python
 system_prompt = """
@@ -211,6 +209,7 @@ STRATEGY:
 
 Ready to start? I'll give you the current puzzle state.
 """
+
 clues_data = fetch_puzzle_from_website()
 current_state = initialize_puzzle_state(clues_data)
 llm.context = system_prompt + serialize(current_state)
@@ -218,31 +217,32 @@ move_count = 0
 max_moves = 40
 
 while move_count < max_moves:
-    move = extract_move_from_output(llm.invoke())
-    is_correct, feedback = validate(move, current_state)
+  move = extract_move_from_output(llm.invoke())
+  is_correct, feedback = validate(move, current_state)
 
-    if is_correct:
-        llm.add_to_context("✅ CORRECT!")
-        current_state = update_puzzle_state(current_state, move)
-        llm.context += serialize(current_state)
+  if is_correct:
+    llm.add_to_context("✅ CORRECT!")
+    current_state = update_puzzle_state(current_state, move)
+    llm.context += serialize(current_state)
 
-        if is_puzzle_complete(current_state):
-            print("✅ PUZZLE COMPLETED!")
-            break
+    if is_puzzle_complete(current_state):
+      print("✅ PUZZLE COMPLETED!")
+      break
 
-    else:
-        llm.context += f"❌ INCORRECT! {feedback}"
-        llm.context += f"Your wrong move: {move}"
+  else:
+    llm.context += f"❌ INCORRECT! {feedback}"
+    llm.context += f"Your wrong move: {move}"
 
-    move_count += 1
-
+  move_count += 1
 ```
 
-For the actual code, please see the [Github repo](https://github.com/Syps/cbs-bench).
+For the actual code, please see the [GitHub repo](https://github.com/Syps/cbs-bench).
 
 ## Why is GPT-5 so good at this?
 
-GPT-5 far surpassed my expectations of how well a SOTA LLM could perform. And by that I mean it beats me... a lot. GPT-5's knowledge cutoff is [September 2024](https://platform.openai.com/docs/models/compare). Based on the creator's [original HN post](https://news.ycombinator.com/item?id=43821457), [Clues By Sam](https://cluesbysam.com/) went live in April 2025. We can therefore assume that no information about the game exists in GPT-5's training data. So how does it perform so well? Is it actually capable of "reasoning"?
+GPT-5 far surpassed my expectations of how well a SOTA LLM could perform. And by that I mean it beats me... a lot. 
+
+GPT-5's knowledge cutoff is [September 2024](https://platform.openai.com/docs/models/compare). Based on the creator's [original HN post](https://news.ycombinator.com/item?id=43821457), [Clues By Sam](https://cluesbysam.com/) went live in April 2025. We can therefore assume that no information about the game exists in GPT-5's training data. So how does it perform so well? Is it actually capable of "reasoning"?
 
 At the time of this post, [researchers have found that the success of LLMs at logical problems depends more on recognizing patterns from the training set](https://arxiv.org/abs/2406.11050) rather than actional reasoning ability. A good example of this phenomenom can be seen in LLM performance on [math benchmarks](https://en.wikipedia.org/wiki/Language_model_benchmark#Mathematics). Simply change some numbers or the phrasing of the math problems, and [model performance takes a significant hit](https://arxiv.org/abs/2410.05229).
 
@@ -267,13 +267,12 @@ I asked ChatGPT if my description of Clues By Sam rang any of its finely tuned b
 > - The mix of professions, clues, and deduction evokes *logic murder mystery puzzles* or *Zachtronics*style narrative logic grids (*Exapunks*, *Eliza*).
 > 
 > In short, it's like a **narrative Minesweeper crossed with a logic-grid mystery**, combining mechanical deduction with semantic clues.
-> 
 
 So it does sound like there are a decent number of similar games in the training data. Still, thinking about whether this is *pattern matching* or *reasoning* makes my brain hurt. Are they the same thing at some level?
 
 Whether or not they are *reasoning*, it still amazes (read: humbles) me that GPT-5 now routinely beats my friends and I at my favorite game.
 
-![frontier model perfomance imessage commiseration](../../blog-images/can-chatgpt-beat-my-favorite-puzzle-game/imessage-commiseration.png)
+![frontier model perfomance imessage commiseration](https://raw.githubusercontent.com/codedex-io/blog/refs/heads/main/blog-images/can-chatgpt-beat-my-favorite-puzzle-game/imessage-commiseration.png)
 
 *All good things must come to an end*
 
@@ -283,4 +282,4 @@ In the all-you-can-crawl buffet that is AI company data ingestion, Clues By Sam,
 
 One potential solution I can imagine would be an adversarial approach in which two LLMs are pitted against each other. LLM A creates new logic puzzles and LLM B attempts to solve them. Could this potentially assess LLM A's "creativity" (it's ability to create logically satisfiable and novel puzzles) while measuring LLM B's "reasoning" ability?
 
-At this point in my learning I have neither the ~~pattern matching~~ knowledge nor the ~~reasoning~~ expertise to answer these questions. But there is excitement in not knowing. Maybe scaling LLMs *will* continue to yield some genuine reasoning breakthroughs in the coming years that can't be forseen. Maybe my stock portfolio is *not* in fact teetering on the edge of a stomach-lurching free fall. Whatever happens, at least now I have even more friends to play my favorite daily puzzle game with 🧩
+At this point in my learning I have neither the ~~pattern matching~~ knowledge nor the ~~reasoning~~ expertise to answer these questions. But there is excitement in not knowing. Maybe scaling LLMs *will* continue to yield some genuine reasoning breakthroughs in the coming years that can't be forseen. Maybe my stock portfolio is *not* in fact teetering on the edge of a stomach-lurching free fall. Whatever happens, at least now I have even more friends to play my favorite daily puzzle game with. 🧩
