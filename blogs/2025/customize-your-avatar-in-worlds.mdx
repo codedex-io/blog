@@ -108,7 +108,7 @@ Here's where the magic happens. We literally scan every pixel:
 ```js
 function recolorImageData(imageData: ImageData, colorMap: Map<string, RGBA>) {
   const buffer = imageData.data; // Raw RGBA pixel array
-  const tolerance = 15; // Forgiveness for compression artifacts
+  const tolerance = 15; // Forgiveness for compression tolerance
 
   // Loop through every pixel (4 values each: R, G, B, A)
   for (let i = 0; i < buffer.length; i += 4) {
@@ -141,6 +141,10 @@ function recolorImageData(imageData: ImageData, colorMap: Map<string, RGBA>) {
 ```
 
 For a 144×96 walking spritesheet, that's 13,824 pixels to check. Multiply this number with 5 which is the number of color shades and that results in \~69,000 comparisons. And, it happens instantly!
+
+**Note**: "Compression tolerance" refers to small color shifts that happen when images are saved or compressed. A pixel that should be exactly #341300 might become #351401. The tolerance = 15 means: if a pixel is close enough to the target color (within 15 units), we still consider it a match and swap it. 
+
+This would often happen in production environment when it doesn't happen on local development environments because of all the optimizations that production is streamlined with.
 
 Of course, that’s not all. We also handle shading relationships using color luminance with the “Human eye perception” formula. So, when the original sprite has a dark brown shadow pixel, your pink version gets an equivalent dark pink shadow. The depth is preserved.
 
