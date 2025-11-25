@@ -93,18 +93,6 @@ All puzzles in the evaluation came from Clues By Sam's [Puzzle Pack #1](https://
 - **🤦‍♂️ Most Annoying** - Claude Sonnet 4.5 due to poor docs around prompt caching and `max_token` limits (see *Notes & Caveats*)
 - **🤪 Dumbest** - Grok 4, for not able solve even the easiest puzzle. I want my $10 back.
 
-## Notes & Caveats
-
-- Evaluation puzzles obtained via convenience sampling
-- Only one prompt was used. A more rigorous approach might do iterative evaluations with different prompt variants and choose the best or average result.
-- Only one evaluation per model per puzzle was done in order to keep costs down
-- The "Fastest" and "Slowest" superlatives are more just for fun. Obviously there are many factors that impact the speed of the model API response that have nothing to do with the underlying model architecture. But I was still very impressed by DeepSeek's performance in terms of both its accuracy, price and rate limiting.
-- Surprisingly, Grok 4 never came close to completing even an Easy puzzle. Therefore I stopped testing it once it ate my $10 worth of credits (which did not take long).feas
-- If you or someone you love is trying to develop with the Claude API, then please read the following. Hopefully you can avoid the frustrations that I hit.
-    - Make sure to set the `max_tokens` parameter to be greater than the output tokens you anticipate in the model response. Otherwise...
-    - ...the model output will [literally stop mid sentence](https://docs.claude.com/en/api/messages#body-max-tokens) if the `max_tokens` limit is reached.
-    - For Sonnet 4.5, [prompts shorter than 1024 tokens cannot be cached](https://docs.claude.com/en/docs/build-with-claude/prompt-caching#cache-limitations) – the `cache_control` parameter will simply be ignored.
-
 Obviously, my evaluation was by no means exhaustive. However, I think it provided enough information to draw a fairly reasonable conclusion about comparative performance of SOTA models at this type of logical deduction game.
 
 You can try comparing the models yourself by [cloning the repository](https://github.com/Syps/cbs-bench). There's even a "race mode" to run the models in parallel against a given puzzle.
@@ -115,7 +103,9 @@ And while those models are a-racing, read on for details on how it all works.
 
 ## Translating a web game into ASCII text
 
-Rather than using browser automation, the tool creates a serialized version of Clues By Sam using ASCII text that can be easily tokenized and passed to the LLM. The benefits of this approach are two fold:
+Rather than using browser automation, the tool creates a serialized version of Clues By Sam using ASCII text that can be easily tokenized and passed to the LLM. 
+
+The benefits of this approach are two fold:
 
 - Raw text is faster than browser automation
 - It's simpler context for the model to process compared with raw HTML (I don't care about the model's ability to "use" a browser, I just want to know if it's good at reasoning)
@@ -291,3 +281,15 @@ One potential solution I can imagine would be an adversarial approach in which t
 At this point in my learning I have neither the ~~pattern matching~~ knowledge nor the ~~reasoning~~ expertise to answer these questions. But there is excitement in not knowing. 
 
 Maybe scaling LLMs *will* continue to yield some genuine reasoning breakthroughs in the coming years that can't be forseen. Maybe my stock portfolio is *not* in fact teetering on the edge of a stomach-lurching free fall. Whatever happens, at least now I have even more friends to play my favorite daily puzzle game with. 🧩
+
+## Notes & Caveats
+
+- Evaluation puzzles obtained via convenience sampling
+- Only one prompt was used. A more rigorous approach might do iterative evaluations with different prompt variants and choose the best or average result.
+- Only one evaluation per model per puzzle was done in order to keep costs down
+- The "Fastest" and "Slowest" superlatives are more just for fun. Obviously there are many factors that impact the speed of the model API response that have nothing to do with the underlying model architecture. But I was still very impressed by DeepSeek's performance in terms of both its accuracy, price and rate limiting.
+- Surprisingly, Grok 4 never came close to completing even an Easy puzzle. Therefore I stopped testing it once it ate my $10 worth of credits (which did not take long).feas
+- If you or someone you love is trying to develop with the Claude API, then please read the following. Hopefully you can avoid the frustrations that I hit.
+    - Make sure to set the `max_tokens` parameter to be greater than the output tokens you anticipate in the model response. Otherwise...
+    - ...the model output will [literally stop mid sentence](https://docs.claude.com/en/api/messages#body-max-tokens) if the `max_tokens` limit is reached.
+    - For Sonnet 4.5, [prompts shorter than 1024 tokens cannot be cached](https://docs.claude.com/en/docs/build-with-claude/prompt-caching#cache-limitations) – the `cache_control` parameter will simply be ignored.
