@@ -87,7 +87,7 @@ All puzzles in the evaluation came from Clues By Sam's [Puzzle Pack #1](https://
 - **😤 Most determined** - Gemini 2.5 Pro, thanks to both a high error rate and a high completion rate
 - **🏷️ Cheapest** - DeepSeek Chat, costing literally pennies on the dollar
 - **🤦‍♂️ Most Annoying** - Claude Sonnet 4.5 due to poor docs around prompt caching and max_token limits (see *Notes & Caveats*)
-- **🤪 Dumbest** - Grok 4, for being unable to solve even the easiest puzzle. I would like my $10 back.
+- **🤪 Dumbest** - Grok 4, for being unable to solve even the easiest puzzle. I want my $10 back.
 
 ## Notes & Caveats
 
@@ -95,7 +95,7 @@ All puzzles in the evaluation came from Clues By Sam's [Puzzle Pack #1](https://
 - Only one prompt was used. A more rigorous approach might do iterative evaluations with different prompt variants and choose the best or average result.
 - Only one evaluation per model per puzzle was done in order to keep costs down
 - The "Fastest" and "Slowest" superlatives are more just for fun. Obviously there are many factors that impact the speed of the model API response that have nothing to do with the underlying model architecture. But I was still very impressed by DeepSeek's performance in terms of both its accuracy, price and rate limiting.
-- Surprisingly, Grok 4 never came close to completing even an Easy puzzle. Therefore I stopped testing it once it ate my $10 worth of credits (which did not take long).
+- Surprisingly, Grok 4 never came close to completing even an Easy puzzle. Therefore I stopped testing it once it ate my $10 worth of credits (which did not take long).feas
 - If you or someone you love is trying to develop with the Claude API, then please read the following. Hopefully you can avoid the frustrations that I hit.
     - Make sure to set the `max_tokens` parameter to be greater than the output tokens you anticipate in the model response. Otherwise...
     - ...the model output will [literally stop mid sentence](https://docs.claude.com/en/api/messages#body-max-tokens) if the `max_tokens` limit is reached.
@@ -242,7 +242,9 @@ For the actual code, please see the [GitHub repo](https://github.com/Syps/cbs-be
 
 GPT-5 far surpassed my expectations of how well a SOTA LLM could perform. And by that I mean it beats me... a lot. 
 
-GPT-5's knowledge cutoff is [September 2024](https://platform.openai.com/docs/models/compare). Based on the creator's [original HN post](https://news.ycombinator.com/item?id=43821457), [Clues By Sam](https://cluesbysam.com/) went live in April 2025. We can therefore assume that no information about the game exists in GPT-5's training data. So how does it perform so well? Is it actually capable of "reasoning"?
+GPT-5's knowledge cutoff is [September 2024](https://platform.openai.com/docs/models/compare). Based on the creator's [original HN post](https://news.ycombinator.com/item?id=43821457), [Clues By Sam](https://cluesbysam.com/) went live in April 2025. We can therefore assume that no information about the game exists in GPT-5's training data. 
+
+So how does it perform so well? Is it actually capable of "reasoning"?
 
 At the time of this post, [researchers have found that the success of LLMs at logical problems depends more on recognizing patterns from the training set](https://arxiv.org/abs/2406.11050) rather than actional reasoning ability. A good example of this phenomenom can be seen in LLM performance on [math benchmarks](https://en.wikipedia.org/wiki/Language_model_benchmark#Mathematics). Simply change some numbers or the phrasing of the math problems, and [model performance takes a significant hit](https://arxiv.org/abs/2410.05229).
 
