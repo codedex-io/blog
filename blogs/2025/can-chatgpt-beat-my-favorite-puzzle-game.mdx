@@ -200,7 +200,7 @@ It initially misidentifies the common neighbors of Gary and Isaac only to correc
 
 ## Validating The Output and Re-Prompting
 
-The `MOVE` then gets extracted from the response via regex and validated. 
+The `MOVE` then gets extracted from the response via [regex](https://en.wikipedia.org/wiki/Regular_expression) and validated. 
 
 How do we know if the move is correct or not? Thankfully, the answers are scrapable from the webpage that hosts the puzzle. The benchmark tool I wrote has logic to fetch the raw source and extract the answers into a nice object we can validate against. You can see that logic [here](https://github.com/Syps/cbs-bench/blob/main/fetch.py#L15).
 
