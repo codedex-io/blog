@@ -92,7 +92,7 @@ Here are my findings:
 - **💸 Most pricey** - Gemini 2.5 Pro, high cost and high error rate (hence more re-prompting)
 - **😤 Most determined** - Gemini 2.5 Pro, both a high error rate and a high completion rate
 - **🏷️ Cheapest** - DeepSeek Chat, costing literally pennies on the dollar
-- **🤦‍♂️ Most Annoying** - Claude Sonnet 4.5 due to poor docs around prompt caching and `max_token` limits (see *Notes & Caveats*)
+- **🤦‍♂️ Most Annoying** - Claude Sonnet 4.5 due to poor docs around prompt caching and `max_token` limits (see *Some Notes & Caveats*)
 - **🤪 Dumbest** - Grok 4, for not able solve even the easiest puzzle. I want my $10 back.
 
 Obviously, my evaluation was by no means exhaustive. However, I think it provided enough information to draw a fairly reasonable conclusion about comparative performance of SOTA models at this type of logical deduction game.
@@ -154,12 +154,14 @@ Let's analyze the hint we have:
 Ben says: "Gary and Isaac have 3 innocent neighbors in common."
 
 Gary is at (2,2) and Isaac is at (2,4).
+
 Their common neighbors are:
 - Row 1: Claire (1,2), Debra (1,3), Eve (1,4)
 - Row 2: Flora (2,1), Hank (2,3)
 - Row 3: Keith (3,1), Lisa (3,2), Mary (3,3), Olof (3,4)
 
 Actually, let's list systematically:
+
 Gary's neighbors:
 (1,1) Ben, (1,2) Claire, (1,3) Debra, (2,1) Flora, (2,3) Hank,
 (3,1) Keith, (3,2) Lisa, (3,3) Mary
@@ -182,15 +184,27 @@ But we can only make one move per response, so I'll pick one.
 **MOVE: Debra is innocent**
 ```
 
-Quite verbose for how simple the hint is, but a correct move nonetheless. Interestingly, the model's thought summary immediately begins with a hallucination. It initially misidentifies the common neighbors of Gary and Isaac only to correctly identify them further down in its output.
+Quite verbose for how simple the hint is, but a correct move nonetheless. 
+
+Interestingly, the model's thought summary immediately begins with a hallucination. 
+
+An **hallucination** is when a model generates false, inaccurate, or nonsensical information while presenting it as factual.
+
+It initially misidentifies the common neighbors of Gary and Isaac only to correctly identify them further down in its output.
 
 ## Validating The Output and Re-Prompting
 
-The `MOVE` then gets extracted from the response via regex and validated. How do we know if the move is correct or not? Thankfully, the answers are scrapable from the webpage that hosts the puzzle. The benchmark tool I wrote has logic to fetch the raw source and extract the answers into a nice object we can validate against. You can see that logic [here](https://github.com/Syps/cbs-bench/blob/main/fetch.py#L15).
+The `MOVE` then gets extracted from the response via regex and validated. 
 
-The code updates the model context with the result (incorrect/correct), the incorrect reason if applicable (wrong determination or not logically deducible), and the updated state of the puzzle. To help the model not repeat its mistakes, incorrect moves are kept "in memory" by passing them in all subsequent prompts. With the context updated, we send a new completion request to the LLM provider via [langchain](https://docs.langchain.com/oss/python/langchain/models).
+How do we know if the move is correct or not? Thankfully, the answers are scrapable from the webpage that hosts the puzzle. The benchmark tool I wrote has logic to fetch the raw source and extract the answers into a nice object we can validate against. You can see that logic [here](https://github.com/Syps/cbs-bench/blob/main/fetch.py#L15).
 
-The model responds with a next move, and the process repeats. The evaluation ends when either the puzzle has been fully solved or the model has made over 40 moves. Why 40? Since the the puzzle is always a 4x5 grid with one cell revealed by default, each game only requires 19 moves assuming no mistakes. So I chose 40 moves as an abritrary "safety brake" to prevent cost overrun.
+The code updates the model context with the result (incorrect/correct), the incorrect reason if applicable (wrong determination or not logically deducible), and the updated state of the puzzle. 
+
+To help the model not repeat its mistakes, incorrect moves are kept "in memory" by passing them in all subsequent prompts. With the context updated, we send a new completion request to the LLM provider via [langchain](https://docs.langchain.com/oss/python/langchain/models).
+
+The model responds with a next move, and the process repeats. The evaluation ends when either the puzzle has been fully solved or the model has made over 40 moves. 
+
+Why 40? Since the the puzzle is always a 4x5 grid with one cell revealed by default, each game only requires 19 moves assuming no mistakes. So I chose 40 moves as an abritrary "safety brake" to prevent cost overrun.
 
 Here's what the loop logic looks like in pseudocode:
 
@@ -244,15 +258,17 @@ For the actual code, please see the [GitHub repo](https://github.com/Syps/cbs-be
 
 ## Why is GPT-5 so good at this?
 
-GPT-5 far surpassed my expectations of how well a SOTA LLM could perform. And by that I mean it beats me... a lot. 
+GPT-5 far surpassed my expectations of how well a SOTA LLM could perform. 
 
-GPT-5's knowledge cutoff is [September 2024](https://platform.openai.com/docs/models/compare). Based on the creator's [original HN post](https://news.ycombinator.com/item?id=43821457), [Clues By Sam](https://cluesbysam.com/) went live in April 2025. We can therefore assume that no information about the game exists in GPT-5's training data. 
+And by that I mean it beats me... a lot. 
+
+GPT-5's knowledge cutoff is [September 2024](https://platform.openai.com/docs/models/compare). Based on the creator's [original HN post](https://news.ycombinator.com/item?id=43821457), Clues By Sam went live in April 2025. We can therefore assume that no information about the game exists in GPT-5's training data. 
 
 So how does it perform so well? Is it actually capable of "reasoning"?
 
 At the time of this post, [researchers have found that the success of LLMs at logical problems depends more on recognizing patterns from the training set](https://arxiv.org/abs/2406.11050) rather than actional reasoning ability. A good example of this phenomenom can be seen in LLM performance on [math benchmarks](https://en.wikipedia.org/wiki/Language_model_benchmark#Mathematics). Simply change some numbers or the phrasing of the math problems, and [model performance takes a significant hit](https://arxiv.org/abs/2410.05229).
 
-So maybe in the case of CBS, either
+So maybe in the case of Clues By Sam, either:
 
 - The models are indeed employing some sort of generalized reasoning ability, or
 - There are very similar puzzles in the training data.
@@ -286,13 +302,18 @@ Whether or not they are *reasoning*, it still amazes (read: humbles) me that GPT
 
 In the all-you-can-crawl buffet that is AI company data ingestion, Clues By Sam, maybe even this blog post, will inevitably be trained on. At that point, how do we know whether the models are actually solving the puzzles or just memorizing nuanced patterns of the ones they see in training (let's for now assume this is conceptually different than "reasoning")?
 
-One potential solution I can imagine would be an adversarial approach in which two LLMs are pitted against each other. LLM A creates new logic puzzles and LLM B attempts to solve them. Could this potentially assess LLM A's "creativity" (it's ability to create logically satisfiable and novel puzzles) while measuring LLM B's "reasoning" ability?
+One potential solution I can imagine would be an adversarial approach in which two LLMs are pitted against each other:
+
+- LLM A creates new logic puzzles and 
+- LLM B attempts to solve them. 
+
+Could this potentially assess LLM A's "creativity" (it's ability to create logically satisfiable and novel puzzles) while measuring LLM B's "reasoning" ability?
 
 At this point in my learning I have neither the ~~pattern matching~~ knowledge nor the ~~reasoning~~ expertise to answer these questions. But there is excitement in not knowing. 
 
 Maybe scaling LLMs *will* continue to yield some genuine reasoning breakthroughs in the coming years that can't be forseen. Maybe my stock portfolio is *not* in fact teetering on the edge of a stomach-lurching free fall. Whatever happens, at least now I have even more friends to play my favorite daily puzzle game with. 🧩
 
-## Notes & Caveats
+## Some Notes & Caveats
 
 - Evaluation puzzles obtained via convenience sampling
 - Only one prompt was used. A more rigorous approach might do iterative evaluations with different prompt variants and choose the best or average result.
@@ -303,3 +324,9 @@ Maybe scaling LLMs *will* continue to yield some genuine reasoning breakthroughs
     - Make sure to set the `max_tokens` parameter to be greater than the output tokens you anticipate in the model response. Otherwise...
     - ...the model output will [literally stop mid sentence](https://docs.claude.com/en/api/messages#body-max-tokens) if the `max_tokens` limit is reached.
     - For Sonnet 4.5, [prompts shorter than 1024 tokens cannot be cached](https://docs.claude.com/en/docs/build-with-claude/prompt-caching#cache-limitations) – the `cache_control` parameter will simply be ignored.
+
+## Links
+
+- GPT-5 Pro: https://platform.openai.com/docs/models/gpt-5-pro
+- 
+
