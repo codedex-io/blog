@@ -84,6 +84,8 @@ All puzzles in the evaluation came from Clues By Sam's [Puzzle Pack #1](https://
 
 ## Superlatives 🏆
 
+Here are my findings:
+
 - **🧠 Smartest** - GPT-5, with near perfect puzzle completion and accuracy
 - **🐇 Fastest** - Claude Sonnet 4.5, with an average response time of 18 seconds
 - **🐢 Slowest** - Grok 4, with an average response time of *"Oh just forget it..."*
@@ -95,7 +97,9 @@ All puzzles in the evaluation came from Clues By Sam's [Puzzle Pack #1](https://
 
 Obviously, my evaluation was by no means exhaustive. However, I think it provided enough information to draw a fairly reasonable conclusion about comparative performance of SOTA models at this type of logical deduction game.
 
-You can try comparing the models yourself by [cloning the repository](https://github.com/Syps/cbs-bench). There's even a "race mode" to run the models in parallel against a given puzzle.
+You can try comparing the models yourself by [cloning the repository](https://github.com/Syps/cbs-bench). 
+
+There's even a "race mode" to run the models in parallel against a given puzzle.
 
 ![race mode interface](https://raw.githubusercontent.com/codedex-io/blog/refs/heads/main/blog-images/can-chatgpt-beat-my-favorite-puzzle-game/race-mode.png)
 
@@ -110,7 +114,7 @@ The benefits of this approach are two fold:
 - Raw text is faster than browser automation
 - It's simpler context for the model to process compared with raw HTML (I don't care about the model's ability to "use" a browser, I just want to know if it's good at reasoning)
 
-The serialized game state consists of an ASCII grid followed by a list of hints for each revealed person.
+The serialized game state consists of an ASCII grid followed by hints for each revealed person.
 
 So this:
 
@@ -121,7 +125,8 @@ So this:
 becomes this:
 
 ```output
-PUZZLE GRID (5 rows x 4 columns):
+PUZZLE GRID:
+
 Row 1: [Ben(teacher):I] [Claire(builder):?] [Debra(coder):?] [Eve(farmer):?]
 Row 2: [Flora(builder):?] [Gary(builder):?] [Hank(coder):?] [Isaac(farmer):?]
 Row 3: [Keith(doctor):?] [Lisa(cook):?] [Mary(singer):?] [Olof(coder):?]
@@ -131,10 +136,15 @@ Row 5: [Vera(singer):?] [Wally(farmer):?] [Xena(doctor):?] [Zoe(teacher):?]
 Solved: 1/20, Remaining: 19
 
 VISIBLE HINTS:
+
 - ben (INNOCENT): Gary and Isaac have 3 innocent neighbors in common
 ```
 
-The evaluation code is essentially a single agentic loop. The prompt starts with the game rules followed by the puzzle state. The model responds with a summary of its "logic" and a move which follows the pattern `MOVE: <name> is <criminal/innocent>`.
+The evaluation code is essentially a single agentic loop. 
+
+An **agentic loop** is an iterative process where an AI agent takes a goal, performs an action, evaluates the result, and then repeats the process to improve its outcome or complete a complex task.
+
+The prompt starts with the game rules followed by the puzzle state. The model responds with a summary of its "logic" and a move which follows the pattern `MOVE: <name> is <criminal/innocent>`.
 
 Here's an example of one of DeepSeek's responses to the prompt:
 
