@@ -144,7 +144,9 @@ The evaluation code is essentially a single agentic loop.
 
 An **agentic loop** is an iterative process where an AI takes a goal, performs an action, evaluates the result, and then repeats the process to improve its outcome or complete a complex task.
 
-The prompt starts with the game rules followed by the puzzle state. The model responds with a summary of its "logic" and a move which follows the pattern `MOVE: <name> is <criminal/innocent>`.
+The prompt starts with the game rules followed by the puzzle state. The model responds with a summary of its "logic" and a move which follows the pattern: 
+
+`MOVE: <name> is <criminal/innocent>`.
 
 Here's an example of one of DeepSeek's responses to the prompt:
 
@@ -186,9 +188,7 @@ But we can only make one move per response, so I'll pick one.
 
 Quite verbose for how simple the hint is, but a correct move nonetheless. 
 
-Interestingly, the model's thought summary immediately begins with a hallucination. 
-
-An **hallucination** is when a model generates false, inaccurate, or nonsensical information while presenting it as factual.
+Interestingly, the model's thought summary immediately begins with a hallucination. An **hallucination** is when a model generates false or inaccurate, or nonsensical information while presenting it as factual.
 
 It initially misidentifies the common neighbors of Gary and Isaac only to correctly identify them further down in its output.
 
@@ -196,7 +196,9 @@ It initially misidentifies the common neighbors of Gary and Isaac only to correc
 
 The `MOVE` then gets extracted from the response via regex and validated. 
 
-How do we know if the move is correct or not? Thankfully, the answers are scrapable from the webpage that hosts the puzzle. The benchmark tool I wrote has logic to fetch the raw source and extract the answers into a nice object we can validate against. You can see that logic [here](https://github.com/Syps/cbs-bench/blob/main/fetch.py#L15).
+How do we know if the move is correct or not? 
+
+Thankfully, the answers are scrapable from the webpage that hosts the puzzle. The benchmark tool I wrote has logic to fetch the raw source and extract the answers into a nice object we can validate against. You can see that logic [here](https://github.com/Syps/cbs-bench/blob/main/fetch.py#L15).
 
 The code updates the model context with the result (incorrect/correct), the incorrect reason if applicable (wrong determination or not logically deducible), and the updated state of the puzzle. 
 
