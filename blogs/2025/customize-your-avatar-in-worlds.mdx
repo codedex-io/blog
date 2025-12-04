@@ -1,0 +1,257 @@
+---
+title: Customize Your Avatar in Worlds
+description: Enjoying your customized avatars? This blog goes into detail about the new avatar customizer and the engineering behind it!
+author: Dharma Jethva
+seoImageLink: TBD
+dateCreated: 2025-11-25
+published: false
+tags:
+  - Product
+---
+
+Hey, Dharma here! Back with another update from the Codédex Engineering team.
+
+This time around, let's talk avatars.
+
+## Express Yourself in Pixels
+
+Since we launched [Codédex Worlds](https://www.codedex.io/worlds), you've been able to pick from a handful of preset characters.
+
+That changes with this update.
+
+We're excited to introduce **avatar customization** – a new way to create a character that actually represents you in Codédex Worlds.
+
+## What You Can Customize
+
+Meet the new – our first fully customizable character. Here's what you can personalize:
+
+![Sprite](https://firebasestorage.googleapis.com/v0/b/codedex-io.appspot.com/o/blogs%2Fcustomize-your-avatar-in-worlds%2Fcharacter-customizer.gif?alt=media&token=406feea2-5de2-446f-be7e-b2cf1e0a1ad6)
+
+| Category     | Options                                                                             |
+| ------------ | ----------------------------------------------------------------------------------- |
+| Skin Tone    | 7 tones to match your look                                                          |
+| Hair Style   | 3 styles to choose from                                                             |
+| Hair Color   | 10 colors including blonde, brown, black, white, red, pink, purple, green, and blue |
+| Outfit Style | 4 different outfit designs                                                          |
+| Outfit Color | 5 colors per outfit style                                                           |
+| Background   | Custom preview background                                                           |
+
+Mix and match to create hundreds of unique combinations. Want pink hair with a green outfit? Go for it. Prefer something more classic with the default colors? That works too.
+
+Of course, your avatar automatically gets saved to your account, so you’ll look the same every time you enter Worlds and in the dashboard and other places.
+
+## The Challenge
+
+Building a customization system  sounds simple: add the outfit/hair style, pick a color, apply it to the sprite and boom! Done, right?
+
+Well, not quite. Here’s what I had to consider:
+
+**Static Assets Combination** - 7 skin tones, 3 hair styles with 10 hair colors, 4 outfits with 5 different colors for each outfit and 8 background colors. The number of combinations is 7 \* 3 \* 10 \* 4 \* 5 \* 8 = 33600 combinations! Creating a separate sprite file for each? That’s over 33600 asset files for \*one\* character, across walking and standing animations in 4 directions. NO THANKS! 
+
+**Preserving pixel-art depth** – You can't just find-and-replace colors. A sprite has shadows, mid-tones, and highlights. Swap "brown" for "pink" and you lose all that shading. The character looks flat and lifeless.
+
+**Real-time preview** – The Worlds runs in Phaser, but the customizer lives in React outside of the Worlds. I needed instant visual feedback without booting up a game engine every time you tweak a style for your character.
+
+**Layer synchronization** – Body, hair, and outfit are separate sprite layers. They all need to animate together, frame-perfectly, in all four directions. Imagine a game world where your character walks and the hair comes floating behind it. Yeah, I wouldn’t play that game either!
+
+So what did I do to address these issues, you ask? Let’s take a look!
+
+## The Solution
+
+It starts with understanding the spritesheet.
+
+### Anatomy of a Spritesheet
+
+Each character is a 24x24 pixel sprite arranged in a grid. Similiary each asset such as hair type, outfit type, etc. is a similar spritesheet.
+
+There are two variant spritesheets of each asset. One for idle standing animation and one for walking animation. Take a look at this base body idle standing spritesheet:
+
+![spritesheet](https://firebasestorage.googleapis.com/v0/b/codedex-io.appspot.com/o/blogs%2Fcustomize-your-avatar-in-worlds%2Fbody-idle.png?alt=media&token=735a8e3c-fb19-40fa-ad2d-6897b748e097)
+
+It has 10 frames in each row. A total of 40 frames.
+
+```js
+// Standing/idle: 10 frames × 4 directions = 40 frames
+const standingSpritesheet = {
+  frameWidth: 24,
+  frameHeight: 24,
+  columns: 10,
+  rows: 4,
+};
+
+// Walking animation: 6 frames × 4 directions = 24 total frames
+const walkingSpritesheet = {
+  frameWidth: 24,
+  frameHeight: 24,
+  columns: 6, // Animation frames
+  rows: 4, // Down, Right, Left, Up
+};
+
+// That's 64 frames per layer, per character.
+// Now multiply by hair, body, outfit layers...
+```
+
+### The Multi-Shade Palette System
+
+Here's the key insight: a "color" isn't one color – it's a coordinated palette of shades.
+
+![color mappings](https://firebasestorage.googleapis.com/v0/b/codedex-io.appspot.com/o/blogs%2Fcustomize-your-avatar-in-worlds%2Fcolors.png?alt=media&token=1c262911-ee9a-41c2-af2f-53bf18762642)
+
+Each shade maps to specific pixels in the sprite. The dark base creates depth around edges, mid-tones fill the bulk, and highlights add that pixel-art pop.
+
+Shoutout to our brilliant in-house Product Designer Jackie Liu for handcrafting these assets and color palettes!
+
+### Pixel-by-Pixel Color Swapping
+
+Here's where the magic happens. We literally scan every pixel:
+
+```js
+function recolorImageData(imageData: ImageData, colorMap: Map<string, RGBA>) {
+  const buffer = imageData.data; // Raw RGBA pixel array
+  const tolerance = 15; // Forgiveness for compression tolerance
+
+  // Loop through every pixel (4 values each: R, G, B, A)
+  for (let i = 0; i < buffer.length; i += 4) {
+    const r = buffer[i];
+    const g = buffer[i + 1];
+    const b = buffer[i + 2];
+    const a = buffer[i + 3];
+
+    // Skip transparent pixels (nothing to recolor)
+    if (a === 0) continue;
+
+    // Find if this pixel matches any source color
+    for (const [sourceColor, targetColor] of colorMap) {
+      const distance =
+        Math.abs(r - sourceColor[0]) +
+        Math.abs(g - sourceColor[1]) +
+        Math.abs(b - sourceColor[2]);
+
+      if (distance <= tolerance) {
+        // Swap the pixel to the new color!
+        buffer[i] = targetColor[0]; // R
+        buffer[i + 1] = targetColor[1]; // G
+        buffer[i + 2] = targetColor[2]; // B
+        break;
+      }
+    }
+  }
+}
+
+```
+
+For a 144×96 walking spritesheet, that's 13,824 pixels to check. Multiply this number with 5 which is the number of color shades and that results in \~69,000 comparisons. And, it happens instantly!
+
+**Note**: "Compression tolerance" refers to small color shifts that happen when images are saved or compressed. A pixel that should be exactly #341300 might become #351401. The tolerance = 15 means: if a pixel is close enough to the target color (within 15 units), we still consider it a match and swap it. 
+
+This would often happen in production environment when it doesn't happen on local development environments because of all the optimizations that production is streamlined with.
+
+Of course, that’s not all. We also handle shading relationships using color luminance with the “Human eye perception” formula. So, when the original sprite has a dark brown shadow pixel, your pink version gets an equivalent dark pink shadow. The depth is preserved.
+
+So when the original sprite has a dark brown shadow pixel, your pink version gets an equivalently dark pink shadow. The depth is preserved.
+
+### Layer Compositing
+
+Finally, we stack the layers like transparent overlays:
+
+```js
+// Sort layers by z-index and draw them in order
+const layerCanvases = [
+  bodyCanvas, // zIndex: 0 – base layer
+  hairCanvas, // zIndex: 1 – on top
+  outfitCanvas, // zIndex: 2 – topmost details
+];
+
+layerCanvases.forEach((layer) => {
+  ctx.drawImage(layer, 0, 0); // Each layer composites onto the previous
+});
+
+// Register the final composite with Phaser's texture manager
+scene.textures.addSpriteSheet(uniqueKey, compositeCanvas, {
+  frameWidth: 24,
+  frameHeight: 24,
+});
+```
+
+The result gets a unique key based on your exact configuration, so the same pink-hair-green-outfit combo is shared across all players who chose it. Gotta be efficient after all, right?
+
+This also makes sure that the layers are never out of sync when rendered. So, no “hair floating behind the character” or “outfit floating above the character” moments! 
+
+### Real-Time Preview (Without the Game Engine)
+
+As stated, the customizer runs in React, but the avatars render in Phaser(our game engine). We can’t boot up a whole game just to show a preview.
+
+Solution? A parallel rendering system:
+
+```js
+// Load the spritesheet as a regular image
+async function loadImage(src: string): Promise<HTMLImageElement> {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.crossOrigin = "anonymous";
+    img.onload = () => resolve(img);
+    img.onerror = reject;
+    img.src = src;
+  });
+}
+
+// Extract just one frame from the spritesheet for preview
+ctx.drawImage(
+  image,
+  frameWidth, // Start at 2nd frame (facing forward)
+  0,
+  frameWidth,
+  frameHeight,
+  0,
+  0,
+  frameWidth,
+  frameHeight,
+);
+```
+
+We grab the standing-facing-forward frame, apply the same palette swapping logic, composite the layers, and export it:
+
+```js
+export async function generateAvatarPreview(config: AvatarConfig) {
+  // ... load and composite all layers ...
+
+  // Export as a data URL for instant display
+  return finalCanvas.toDataURL("image/png");
+
+  // Result: "data:image/png;base64,iVBORw0KGgo..."
+  // Displays instantly in an <img> tag!
+}
+```
+
+![Sprite](https://firebasestorage.googleapis.com/v0/b/codedex-io.appspot.com/o/blogs%2Fcustomize-your-avatar-in-worlds%2Fcharacter-customizer.gif?alt=media&token=406feea2-5de2-446f-be7e-b2cf1e0a1ad6)
+
+Same color math, same layer stacking – just without Phaser. When you tweak your hair color, you see the result in milliseconds.
+
+**The payoff?** Hundreds of unique combinations from ~20 base sprite files. No 10,000-asset nightmare. Just math, pixels, and a lot of for-loops running twice – once for your preview, once in the game.
+
+## Try It Out
+
+Ready to create your avatar? Here's how:
+
+1. Head to [codedex.io/worlds](https://www.codedex.io/worlds)
+2. Before entering, you'll see the character selection screen
+3. Choose **Custom** tab - the customizable option in the avatar picker
+4. Pick your skin tone, hair style & color, and outfit style & color
+5. Hit **Save** and enter Worlds!
+
+Your customizations save automatically to your account. Next time you visit, your avatar will be waiting exactly as you left it.
+
+## Why This Matters
+
+Worlds is where our community comes together – for events, hackathons (raffles and winner announcements), and just hanging out. But when everyone looks the same, it's hard to feel like **you**.
+
+Now you can stand out. Express yourself. And when you spot that bright pink hair across the room, you'll know exactly who it is.
+
+## What's Next
+
+This is just the beginning. More customization options are in the works. Stay tuned.
+
+---
+
+Happy coding,
+Dharma
