@@ -12,38 +12,44 @@ tags:
 
 Hey, Dharma here! Back with another update from the Codédex Engineering team.
 
-This time around, let's talk avatars.
+This time around, let's talk avatars. 👤
 
-## Express Yourself in Pixels
+---
 
-Since we launched [Codédex Worlds](https://www.codedex.io/worlds), you've been able to pick from a handful of preset characters.
+## What You Can Customize
+
+Since we launched [Codédex Worlds](https://www.codedex.io/worlds), you've been able to pick from a handful of preset characters: the boy, the girl, the bot, the cat-ear boy, and the cat-year girl.
 
 That changes with this update.
 
 We're excited to introduce **avatar customization** – a new way to create a character that actually represents you in Codédex Worlds.
 
-## What You Can Customize
-
-Meet the new – our first fully customizable character. Here's what you can personalize:
+Meet the new character customizer!
 
 ![Sprite](https://firebasestorage.googleapis.com/v0/b/codedex-io.appspot.com/o/blogs%2Fcustomize-your-avatar-in-worlds%2Fcharacter-customizer.gif?alt=media&token=406feea2-5de2-446f-be7e-b2cf1e0a1ad6)
 
+Here's what you can personalize:
+
 | Category     | Options                                                                             |
 | ------------ | ----------------------------------------------------------------------------------- |
-| Skin Tone    | 7 tones to match your look                                                          |
-| Hair Style   | 3 styles to choose from                                                             |
-| Hair Color   | 10 colors including blonde, brown, black, white, red, pink, purple, green, and blue |
-| Outfit Style | 4 different outfit designs                                                          |
-| Outfit Color | 5 colors per outfit style                                                           |
-| Background   | Custom preview background                                                           |
+| 👱 Skin Tone    | 7 tones to match your look                                                          |
+| 💇 Hair Style   | 3 styles to choose from                                                             |
+| 💈 Hair Color   | 10 colors including blonde, brown, black, white, red, pink, purple, green, and blue |
+| 👕 Outfit Style | 4 different outfit designs                                                          |
+| 🎨 Outfit Color | 5 colors per outfit style                                                           |
+| 🖼️ Background   | Custom preview background                                                           |
 
 Mix and match to create hundreds of unique combinations. Want pink hair with a green outfit? Go for it. Prefer something more classic with the default colors? That works too.
 
 Of course, your avatar automatically gets saved to your account, so you’ll look the same every time you enter Worlds and in the dashboard and other places.
 
-## The Challenge
+<Quote text="For a 144×96 walking spritesheet, that's 13,824 pixels to check. Multiply this number with 5 which is the number of color shades and that results in ~69,000 comparisons. And, it happens instantly!" />
 
-Building a customization system  sounds simple: add the outfit/hair style, pick a color, apply it to the sprite and boom! Done, right?
+---
+
+## The Engineering Challenge
+
+Building a customization system sounds simple: 1) add the outfit/hair style, 2) pick a color, 3) apply it to the sprite and boom! Done, right?
 
 Well, not quite. Here’s what I had to consider:
 
@@ -51,7 +57,7 @@ Well, not quite. Here’s what I had to consider:
 
 **Preserving pixel-art depth** – You can't just find-and-replace colors. A sprite has shadows, mid-tones, and highlights. Swap "brown" for "pink" and you lose all that shading. The character looks flat and lifeless.
 
-**Real-time preview** – The Worlds runs in Phaser, but the customizer lives in React outside of the Worlds. I needed instant visual feedback without booting up a game engine every time you tweak a style for your character.
+**Real-time preview** – The Worlds runs in [Phaser](https://codedex.io/phaser), but the customizer lives in React outside of the Worlds. I needed instant visual feedback without booting up a game engine every time you tweak a style for your character.
 
 **Layer synchronization** – Body, hair, and outfit are separate sprite layers. They all need to animate together, frame-perfectly, in all four directions. Imagine a game world where your character walks and the hair comes floating behind it. Yeah, I wouldn’t play that game either!
 
@@ -70,6 +76,8 @@ There are two variant spritesheets of each asset. One for idle standing animatio
 ![spritesheet](https://firebasestorage.googleapis.com/v0/b/codedex-io.appspot.com/o/blogs%2Fcustomize-your-avatar-in-worlds%2Fbody-idle.png?alt=media&token=735a8e3c-fb19-40fa-ad2d-6897b748e097)
 
 It has 10 frames in each row. A total of 40 frames.
+
+Here's the JavaScript code:
 
 ```js
 // Standing/idle: 10 frames × 4 directions = 40 frames
@@ -100,7 +108,7 @@ Here's the key insight: a "color" isn't one color – it's a coordinated palette
 
 Each shade maps to specific pixels in the sprite. The dark base creates depth around edges, mid-tones fill the bulk, and highlights add that pixel-art pop.
 
-Shoutout to our brilliant in-house Product Designer Jackie Liu for handcrafting these assets and color palettes!
+Shoutout to our brilliant pixel artist Azuna for handcrafting these assets and our in-house in-house Sr. Product Designer Jackie Liu for the color palettes!
 
 ### Pixel-by-Pixel Color Swapping
 
@@ -138,10 +146,11 @@ function recolorImageData(imageData: ImageData, colorMap: Map<string, RGBA>) {
     }
   }
 }
-
 ```
 
-For a 144×96 walking spritesheet, that's 13,824 pixels to check. Multiply this number with 5 which is the number of color shades and that results in \~69,000 comparisons. And, it happens instantly!
+For a 144×96 walking spritesheet, that's 13,824 pixels to check. Multiply this number with 5 which is the number of color shades and that results in \~69,000 comparisons. 
+
+And, it happens instantly!
 
 **Note**: "Compression tolerance" refers to small color shifts that happen when images are saved or compressed. A pixel that should be exactly #341300 might become #351401. The tolerance = 15 means: if a pixel is close enough to the target color (within 15 units), we still consider it a match and swap it. 
 
@@ -230,6 +239,8 @@ Same color math, same layer stacking – just without Phaser. When you tweak you
 
 **The payoff?** Hundreds of unique combinations from ~20 base sprite files. No 10,000-asset nightmare. Just math, pixels, and a lot of for-loops running twice – once for your preview, once in the game.
 
+---
+
 ## Try It Out
 
 Ready to create your avatar? Here's how:
@@ -242,17 +253,19 @@ Ready to create your avatar? Here's how:
 
 Your customizations save automatically to your account. Next time you visit, your avatar will be waiting exactly as you left it.
 
+<div style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem", transform: "scale(.9)" }}>
+  <a href="https://www.codedex.io/worlds" style={{ all: "unset" }} target="_blank" and rel="noopener noreferrer"><Button variant="yellow">View Worlds</Button></a>
+</div>
+
+---
+
 ## Why This Matters
 
 Worlds is where our community comes together – for events, hackathons (raffles and winner announcements), and just hanging out. But when everyone looks the same, it's hard to feel like **you**.
 
 Now you can stand out. Express yourself. And when you spot that bright pink hair across the room, you'll know exactly who it is.
 
-## What's Next
-
-This is just the beginning. More customization options are in the works. Stay tuned.
-
----
+P.S. This is just the beginning. More customization options are in the works. Stay tuned.
 
 Happy coding,
 Dharma
