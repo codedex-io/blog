@@ -168,7 +168,7 @@ For a 144×96 walking spritesheet, that's 13,824 pixels to check. Multiply this 
 
 And, it happens instantly!
 
-**Note**: "Compression tolerance" refers to small color shifts that happen when images are saved or compressed. A pixel that should be exactly #341300 might become #351401. The tolerance = 15 means: if a pixel is close enough to the target color (within 15 units), we still consider it a match and swap it. 
+**Note**: "Compression tolerance" refers to small color shifts that happen when images are saved or compressed. A pixel that should be exactly #341300 might become #351401. The `tolerance = 15` means: if a pixel is close enough to the target color (within 15 units), we still consider it a match and swap it. 
 
 This would often happen in production environment when it doesn't happen on local development environments because of all the optimizations that production is streamlined with.
 
