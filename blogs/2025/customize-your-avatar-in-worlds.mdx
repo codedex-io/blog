@@ -49,21 +49,31 @@ Of course, your avatar automatically gets saved to your account, so you’ll loo
 
 ## The Engineering Challenge
 
-Building a customization system sounds simple: 1) add the outfit/hair style, 2) pick a color, 3) apply it to the sprite and boom! Done, right?
+Building a customization system sounds simple: 1️⃣ add the outfit/hair style, 2️⃣ pick a color, 3️⃣ apply it to the sprite and boom! Done, right?
 
 Well, not quite. Here’s what I had to consider:
 
 ### Static Assets Combination
 
-7 skin tones, 3 hair styles with 10 hair colors, 4 outfits with 5 different colors for each outfit and 8 background colors. The number of combinations is 7 \* 3 \* 10 \* 4 \* 5 \* 8 = 33600 combinations! Creating a separate sprite file for each? That’s over 33600 asset files for \*one\* character, across walking and standing animations in 4 directions. NO THANKS! 
+7 skin tones, 3 hair styles with 10 hair colors, 4 outfits with 5 different colors for each outfit and 8 background colors. The number of combinations is:
+
+$$
+7 \times 3 \times 10 \times 4 \times 5 \times 8 = 33{,}600 combinations
+$$
+
+Creating a separate sprite file for each? That’s over 33600 asset files for \*one\* character, across walking and standing animations in 4 directions. NO THANKS! 
 
 ### Preserving pixel-art depth
 
 You can't just find-and-replace colors. A sprite has shadows, mid-tones, and highlights. Swap "brown" for "pink" and you lose all that shading. The character looks flat and lifeless.
 
-**Real-time preview** – The Worlds runs in [Phaser](https://codedex.io/phaser), but the customizer lives in React outside of the Worlds. I needed instant visual feedback without booting up a game engine every time you tweak a style for your character.
+### Real-time preview
 
-**Layer synchronization** – Body, hair, and outfit are separate sprite layers. They all need to animate together, frame-perfectly, in all four directions. Imagine a game world where your character walks and the hair comes floating behind it. Yeah, I wouldn’t play that game either!
+The Worlds runs in [Phaser](https://codedex.io/phaser), but the customizer lives in React outside of the Worlds. I needed instant visual feedback without booting up a game engine every time you tweak a style for your character.
+
+### Layer synchronization
+
+Body, hair, and outfit are separate sprite layers. They all need to animate together, frame-perfectly, in all four directions. Imagine a game world where your character walks and the hair comes floating behind it. Yeah, I wouldn’t play that game either!
 
 So what did I do to address these issues, you ask? Let’s take a look!
 
