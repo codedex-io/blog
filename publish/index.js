@@ -1,31 +1,9 @@
-import firebaseAdmin from "firebase-admin";
 import fs from "fs";
 import path from "path";
-import { MeiliSearch } from "meilisearch";
 
-import { parseMarkdown } from "./parser.js";
-
-const client = new MeiliSearch({
-  host: process.env.MEILISEARCH_HOST,
-  apiKey: process.env.MEILISEARCH_API_KEY,
-});
-
-firebaseAdmin.initializeApp({
-  credential: firebaseAdmin.credential.cert({
-    type: "service_account",
-    project_id: "codedex-io",
-    private_key_id: process.env.private_key_id,
-    private_key: process.env.private_key,
-    client_email: process.env.client_email,
-    client_id: process.env.client_id,
-    auth_uri: "https://accounts.google.com/o/oauth2/auth",
-    token_uri: "https://oauth2.googleapis.com/token",
-    auth_provider_x509_cert_url: "https://www.googleapis.com/oauth2/v1/certs",
-    client_x509_cert_url: process.env.client_cert_url,
-  }),
-});
-
-const firestore = firebaseAdmin.firestore();
+import { firestore } from "./lib/firebase.js";
+import { client } from "./lib/meilisearch.js";
+import { parseMarkdown } from "./parsers/mdx-parser.js";
 
 function getBlogsFileNames() {
   return fs

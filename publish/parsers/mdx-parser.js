@@ -66,4 +66,3 @@ export async function parseMarkdown({ markdown }) {
 
   return { source, content, data };
 }
-
