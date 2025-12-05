@@ -30,8 +30,8 @@ Meet the new character customizer! ✨
 
 Here's what you can personalize:
 
-| Category     | Options                                                                             |
-| ------------ | ----------------------------------------------------------------------------------- |
+| Category        | Options                                                                             |
+| --------------- | ----------------------------------------------------------------------------------- |
 | 👱 Skin Tone    | 7 tones to match your look                                                          |
 | 💇 Hair Style   | 3 styles to choose from                                                             |
 | 💈 Hair Color   | 10 colors including blonde, brown, black, white, red, pink, purple, green, and blue |
@@ -75,11 +75,11 @@ The Worlds runs in [Phaser](https://codedex.io/phaser), but the customizer lives
 
 Body, hair, and outfit are separate sprite layers. They all need to animate together, frame-perfectly, in all four directions. Imagine a game world where your character walks and the hair comes floating behind it. Yeah, I wouldn’t play that game either!
 
-So what did I do to address these issues, you ask? 
+So what did I do to address these issues, you ask?
 
 Let’s take a look!
 
---- 
+---
 
 ## The Solution
 
@@ -93,7 +93,7 @@ There are two variant spritesheets of each asset. One for idle standing animatio
 
 ![spritesheet](https://firebasestorage.googleapis.com/v0/b/codedex-io.appspot.com/o/blogs%2Fcustomize-your-avatar-in-worlds%2Fbody-idle.png?alt=media&token=735a8e3c-fb19-40fa-ad2d-6897b748e097)
 
-It has 10 frames in each row. A total of 40 frames.
+It has 10 frames in each row, with 4 rows. A total of 40 frames.
 
 Here's the JavaScript code:
 
@@ -111,7 +111,7 @@ const walkingSpritesheet = {
   frameWidth: 24,
   frameHeight: 24,
   columns: 6, // Animation frames
-  rows: 4, // Down, Right, Left, Up
+  rows: 4, // Down, Up, Right, Left
 };
 
 // That's 64 frames per layer, per character.
@@ -126,7 +126,7 @@ Here's the key insight: a "color" isn't one color – it's a coordinated palette
 
 Each shade maps to specific pixels in the sprite. The dark base creates depth around edges, mid-tones fill the bulk, and highlights add that pixel-art pop.
 
-Shoutout to our brilliant pixel artist **Azuna Pixels** for handcrafting these assets and our in-house in-house Sr. Product Designer **Jackie Liu** for the color palettes and UI/UX designs!
+Shoutout to our brilliant pixel artist **Azuna Pixels** for handcrafting these assets and our in-house Sr. Product Designer **Jackie Liu** for the color palettes and UI/UX designs!
 
 ### Pixel-by-Pixel Color Swapping
 
@@ -166,15 +166,15 @@ function recolorImageData(imageData: ImageData, colorMap: Map<string, RGBA>) {
 }
 ```
 
-For a 144×96 walking spritesheet, that's 13,824 pixels to check. Multiply this number with 5 which is the number of color shades and that results in \~69,000 comparisons. 
+For a 144×96 walking spritesheet, that's 13,824 pixels to check. Multiply this number with 5 which is the number of color shades and that results in \~69,000 comparisons.
 
 And, it happens instantly!
 
-**Note**: "Compression tolerance" refers to small color shifts that happen when images are saved or compressed. A pixel that should be exactly #341300 might become #351401. 
+**Note**: "Compression tolerance" refers to small color shifts that happen when images are saved or compressed. A pixel that should be exactly #341300 might become #351401.
 
-The `tolerance = 15` means: if a pixel is close enough to the target color (within 15 units), we still consider it a match and swap it. 
+The `tolerance = 15` means: if a pixel is close enough to the target color (within 15 units), we still consider it a match and swap it.
 
-This would often happen in production environment when it doesn't happen on local development environments because of all the optimizations that production is streamlined with.
+This would often happen in production environment because of all the optimizations enabled in production such as asset compression.
 
 Of course, that’s not all. We also handle shading relationships using color luminance with the “Human eye perception” formula. So, when the original sprite has a dark brown shadow pixel, your pink version gets an equivalent dark pink shadow. The depth is preserved.
 
@@ -257,7 +257,7 @@ export async function generateAvatarPreview(config: AvatarConfig) {
 
 Same color math, same layer stacking – just without Phaser. When you tweak your hair color, you see the result in milliseconds.
 
-**The payoff?** 
+**The payoff?**
 
 Hundreds of unique combinations from ~20 base sprite files. No 10,000-asset nightmare. Just math, pixels, and a lot of for-loops running twice – once for your preview, once in the game.
 
@@ -275,8 +275,8 @@ Ready to create your avatar? Here's how:
 
 Your customizations save automatically to your account. Next time you visit, your avatar will be waiting exactly as you left it.
 
-<div style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem", transform: "scale(.9)" }}>
-  <a href="https://www.codedex.io/worlds" style={{ all: "unset" }} target="_blank" and rel="noopener noreferrer"><Button variant="yellow">View Worlds</Button></a>
+<div style={{ display: "flex", justifyContent: "center", marginBottom: "1.2rem", transform: "scale(.9)", }} >
+  <a href="https://www.codedex.io/worlds" style={{ all: "unset" }} target="_blank" and rel="noopener noreferrer"> <Button variant="yellow">View Worlds</Button> </a>
 </div>
 
 ---
