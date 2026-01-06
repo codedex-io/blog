@@ -1,0 +1,309 @@
+---
+title: "Your Website Glow-Up Guide ✨"
+description: "In this blog post, Vishalya shares some fun tips & tricks to make your website look stunning! From color theory and gradients to typography, hover effects, and smooth animations, learn how to level up your web design game with just a few simple tricks."
+author: Vishalya Sairam
+seoImageLink: https://firebasestorage.googleapis.com/v0/b/codedex-io.appspot.com/o/blogs%2Fyour-website-glow-up-guide%2Fbanner.png?alt=media&token=f6101d0e-b326-4202-9f9c-c7ffa2fd4ba3
+uid: 
+dateCreated: 2026-01-06
+published: false
+tags:
+  - Community
+  - Resources
+---
+
+## Introduction
+
+Hi! My name is Vishalya, and I LOVE to design websites and bring them to life. I took a bunch of graphic design classes in high school, so a lot of that carried over into my passion for web dev! Anyone can create a simple website, but knowing how to style it is what makes it stand out.
+
+The best part? You don’t need to be a designer to make your site look good. A few simple styling tricks, using only HTML and CSS, can completely transform your project. 😉
+
+In this guide, I’ll walk you through color theory, contrast, gradients, hover effects, animations, and scroll effects to help you **level up your next website**. 
+
+Let’s make your pages go from simple to ✨ stunning ✨!
+
+## So… Where do I start? 
+
+Before we start, you’ll want to familiarize yourself with [CSS](https://en.wikipedia.org/wiki/CSS), the language that brings your website to life! **CSS** (Cascading Style Sheets) controls everything from colors and fonts to spacing, animations, and layout. Basically, if a component on a website looks pretty, CSS probably did that. 💅
+
+If you’re new to CSS, Codédex offers a [CSS course](https://www.codedex.io/css) to help you get started!
+
+## Color Theory 🎨
+
+You’ve probably seen a variation of the image below at least once in your life. If not, that’s completely fine!
+
+![image](hhttps://firebasestorage.googleapis.com/v0/b/codedex-io.appspot.com/o/blogs%2Fyour-website-glow-up-guide%2Fcolor-wheel.jpg?alt=media&token=a130fc3e-480f-407c-89cc-29ac8fc5bebb)
+
+This is a **color wheel**. It’s your cheat sheet for choosing colors that actually look good together. 
+
+Color wheels are broken down into primary (red, blue, yellow), secondary (green, orange, purple, which are a mix of primary colors), and tertiary colors (a mix of primary and secondary colors).
+
+Certain parts of the wheel naturally pair well together, and those pairings are what help you build a strong color palette.
+
+Here are a few beginner-friendly color combinations: 
+
+- **Complementary**: Opposite on the wheel, high contrast (ex. red + green 🎄)
+- **Analogous**: Side-by-side, harmonious (ex. yellow + yellow-orange + orange 🌞)
+- **Triadic**: Evenly spaced and form a triangle (ex. red + blue + yellow )
+- **Monochromatic**: Different tints/shades of the same base color  (great for minimal sites)
+
+### Okay, so why is the color wheel important?
+
+The colors you choose set the mood of your entire website. With a basic understanding of the color wheel, you can build an aesthetically pleasing palette that fits your website’s vibe. Color theory helps you avoid random combinations that clash and instead gives your site a balanced and intentional look.
+
+### A quick note on black and white
+
+Black and white are neutral colors, meaning they pretty much work with everything! 
+
+### Need color inspo?
+
+If you ever feel stuck choosing colors, check out these websites!
+- [Color Hunt](https://colorhunt.co),
+- [Coolors](https://coolors.co/40f99b-61707d-9d69a3-f5fbef-e85d75)
+- [Adobe Color](https://color.adobe.com/create/color-wheel)
+
+### Contrast Example
+
+<div
+    style={{
+      display: "grid",
+      gridTemplateColumns: "1fr 1fr",
+      margin: "0 3rem",
+    }}
+  >
+    <img
+      src="https://firebasestorage.googleapis.com/v0/b/codedex-io.appspot.com/o/blogs%2Fyour-website-glow-up-guide%2Fcontrast-2.png?alt=media&token=c874ddea-0c19-43fc-ada6-2958e766da46"
+      alt=""
+      height={200}
+      width="auto"
+    />
+    <img
+      src="https://firebasestorage.googleapis.com/v0/b/codedex-io.appspot.com/o/blogs%2Fyour-website-glow-up-guide%2Fcontrast-1.png?alt=media&token=95635c35-75e2-4aa8-be53-2d9a2e8d8c6a"
+      alt=""
+      height={200}
+      width="auto"
+    />
+  </div>
+
+Contrast is important for accessibility, ensuring that content on your website is readable to people with low vision and color blindness. Check out the [A11Y Project](https://www.a11yproject.com/) to learn more about accessibility in website design.
+
+### Gradients
+
+A [gradient](https://en.wikipedia.org/wiki/Color_gradient) is a visual map of colors that blend between each other gradually. [CSS Gradients](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Images/Using_gradients) are a simple addition to your website to give you more depth! Gradients can be used for any components on your website, such as background, buttons, text, and more.
+
+There are three main types of gradients: **linear**, **radial**, and **conic**.
+
+![image](https://firebasestorage.googleapis.com/v0/b/codedex-io.appspot.com/o/blogs%2Fyour-website-glow-up-guide%2Fgradient-types.png?alt=media&token=f6d5d61b-7498-4030-9ce3-b9a15cb4787d)
+
+They are super easy to implement! 
+
+For example, to achieve the gradients shown in the pictures above:
+
+```css
+background: linear-gradient(180deg, #FF87AB 0%, #FFF585 100%);
+
+background: radial-gradient(50% 50% at 50% 50%, #0F9 0%, #A21DDB 100%);
+
+background: conic-gradient(from 180deg at 50% 50%, #FF2B2B 0deg, #FFA100 67.5deg, #FFF585 138.4615409374237deg, #0F9 209.4230818748474deg, #3613FE 283.8461637496948deg, #A21DDB 358.2692241668701deg);
+```
+
+### Need Help choosing gradients?
+
+No worries, there are tons of websites out there that help you easily visualize your gradient and CSS code for easy implementation. 
+- [cssgradient.io](https://cssgradient.io/)
+- [csshero.org](https://csshero.org/mesher/)
+
+### Gradient example
+
+Here are some of my favorite websites that utilize and showcase gradients in their designs below!
+
+![image](https://firebasestorage.googleapis.com/v0/b/codedex-io.appspot.com/o/blogs%2Fyour-website-glow-up-guide%2Fgradient-1.png?alt=media&token=02d873bb-87d3-4a1d-8926-f17ce5e6c50c)
+
+I use [Top Hat](https://tophat.com/) for my boring government textbook reading, but at least it’s on a pretty website. 🥹
+
+![image(https://firebasestorage.googleapis.com/v0/b/codedex-io.appspot.com/o/blogs%2Fyour-website-glow-up-guide%2Fgradient-3.png?alt=media&token=325aa8c3-6288-4bc7-b748-2ad5b988024a)
+
+The [GitHub Copilot](https://github.com/features/copilot) page really pops! Just look at those juicy gradient colors! 🤩
+
+![image](https://firebasestorage.googleapis.com/v0/b/codedex-io.appspot.com/o/blogs%2Fyour-website-glow-up-guide%2Fgradient-2.png?alt=media&token=87a95ade-e702-4b78-b22d-db46ad5d5377)
+
+[UTD Trends](https://trends.utdnebula.com/) uses a gradient for the background and the navbar! A playful splash of color is so nice, especially when trying to choose your next boring classes. 😏
+
+## Typography
+
+[Typography](https://en.wikipedia.org/wiki/Typography) is the art of styling text. Fonts are one of the easiest ways to change a website’s entire vibe. ☮️
+
+Bold, soft, playful, minimal, the font you choose instantly sets the tone.
+
+### Why typography matters 🗣️
+
+Typography decides your website’s vibe.
+
+It tells people whether your site feels:
+- playful 
+- minimal 
+- bold 
+- techy 
+- elegant
+- chaotic (intentionally or not 😭)
+
+Even if your colors look amazing, bad typography can make a site feel messy or unfinished. 
+
+Keep it simple! Try to keep the number of fonts used on your website to a minimum, with different font weights for variation. A [sans-serif](https://en.wikipedia.org/wiki/Sans-serif) + [serif](https://en.wikipedia.org/wiki/Serif) combo usually looks super clean. 🧼
+
+Need typography pairing help? 
+- [fontpair.co](https://www.fontpair.co/)
+- [fontjoy.com](https://fontjoy.com/)
+- [fontmixer.app](https://fontmixer.app/)
+
+Once you find the desired fonts for your website, you can get an embed code from [Google Fonts](https://fonts.google.com/) and import them into your HTML by pasting this code into the head of the document.
+
+```html
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+```
+
+To apply the font, you can declare the font using the font-family in the CSS:
+
+```css
+body {
+  font-family: 'Poppins', sans-serif;
+}
+```
+
+### Typography example
+
+![image](https://firebasestorage.googleapis.com/v0/b/codedex-io.appspot.com/o/blogs%2Fyour-website-glow-up-guide%2Ftypography-1.png?alt=media&token=10139e99-25da-4336-bf0b-e444ad064458)
+
+The [Royal Caribbean](https://www.royalcaribbean.com/ultimate-world-cruise/) did a great job pairing 2 fonts together for a heading that draws user eyes and grabs attention. 👀
+
+!(image)[https://firebasestorage.googleapis.com/v0/b/codedex-io.appspot.com/o/blogs%2Fyour-website-glow-up-guide%2Ftypography-2.png?alt=media&token=d60d7e16-9b17-411f-ab92-7d90447092ed]
+
+[Stripe](https://stripe.com/) used a bold header font and contrasted it with a normal thin paragraph font for easy readability and contrast between the two. 
+
+## Hover Effects
+
+Okay, now your website colors look pretty. ✨
+
+Did you know that you can make components on your website change when you hover over them? 😮 If you didn’t, let’s get into it!
+
+To create hover effects in CSS, we use pseudo-classes. A pseudo-class lets you style a specific state of a selected element. Pseudoclasses consist of a colon (:) followed by a class name, in this case, hover.
+
+First, style your element normally. Then, when you want it to react, you can add a hover class to change its color, add a drop shadow, glow, bounce, and more! 
+
+### Hover example
+
+```css
+.kitty-wrapper:hover .spin {
+  opacity: 1;
+}
+
+.kitty-wrapper:hover .default {
+  opacity: 0;
+}
+```
+
+![image](https://firebasestorage.googleapis.com/v0/b/codedex-io.appspot.com/o/blogs%2Fyour-website-glow-up-guide%2Fhover.gif?alt=media&token=aeb38709-3c34-4c34-aa96-ab9ac9100b0a)
+
+In the code above, I added the [:hover](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:hover) to my original class, so whenever I hover over the cat, the spinning cat fades in by increasing its opacity while the default cat fades out. When you stop hovering, everything goes back to normal. 
+
+Pretty cool, right? 😆
+
+## Keyframes
+
+Ready to make your website move? 📻
+
+CSS keyframes are like choreography for your website. 💃🕺
+
+Unlike hover, keyframes can run automatically, loop forever, or run when triggered using JavaScript! With keyframes, you can decide exactly how elements change at different points in time. ⏰
+
+### How do keyframes work?
+
+```css
+@keyframes animation-name {
+  0% { /* initial state */ }
+  50% { /* middle state */ }
+  100% { /* final state */ }
+}
+```
+
+Each percentage tells what you want to happen to your element. 
+
+```css
+selector {
+  animation: animation-name duration easing-type iteration-count;
+}
+```
+
+Next, you can add the animation to your CSS ID or class! Specify the animation name you defined with @keyframes length of the animation, the easing type, the animation transition type and if you want your animation to run a finite or infinite number of times. 
+Voila! You just created an animation in CSS! 🧑‍🍳
+
+### Keyframe example
+
+What if we wanted to make Moodeng, a chaotic little hippo, bounce? 🦛✨
+
+We have to create a keyframes selector that moves her 20 pixels down halfway through the animation and returns Moodeng to the original spot at 100% completion, so it looks like she jumps!
+
+```css
+@keyframes moodeng-bounce {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0); }
+} 
+```
+
+Next, we have to 
+
+```css
+.moodeng {
+  width: 300px;
+  animation: moodeng-bounce 0.8s infinite ease-in-out;
+}
+```
+
+Add the animation to the `moodeng` selector. I set it to 0.8 seconds and gave it infinite bouncing time with an ease-in and out effect.
+
+The result looks something like below.
+
+![image](https://firebasestorage.googleapis.com/v0/b/codedex-io.appspot.com/o/blogs%2Fyour-website-glow-up-guide%2Fmoodeng.gif?alt=media&token=13dcfc8e-7989-48cd-a95e-17838995c4d2)
+
+## Scrolling Effects
+
+Ever click a link in your navbar and have the page jump instantly to a section? 😬 It works, but it can feel a little jarring. 
+
+Smooth scrolling works with anchor links that are defined in the HTML
+
+
+```html
+<a href="#section-id">`
+```
+
+These links take you to different areas of your page in a smooth, polished way.
+
+All you need is a tiny bit of CSS:
+
+```css
+html{
+  scroll-behavior: smooth;
+}
+```
+
+Now, when a link is clicked, the page scrolls into view naturally, so your visitors can see exactly _where_ the page has taken them.
+
+![image](https://firebasestorage.googleapis.com/v0/b/codedex-io.appspot.com/o/blogs%2Fyour-website-glow-up-guide%2Fscrolling.gif?alt=media&token=dd0a2015-422b-49d2-88a2-c6a50e6c16a8)
+
+See how my page smoothly scrolled to the section when a navigation link was pressed? All of this is done in just **3 lines of CSS**. 😉
+
+Now you know how to make your website even cooler! I hope you found these tips helpful, and maybe try them in your next project! Don’t be afraid to experiment with colors, fonts, and animations! Your site is your canvas 🎨✨ 
+
+Remember, small changes make a big impact. 💥 If you try any of these tips, we’d love to see your creations! Keep coding, keep styling, and most importantly… have fun 😎💖
+
+Thanks for reading!
+- Vishalya (✿◠‿◠)
+
+## Extra resources
+
+- [Codédex | CSS Course](https://www.codedex.io/css)
+- [Codédex | Animate Images with Keyframes Using CSS](https://www.codedex.io/projects/animate-images-with-keyframes-using-css)
+- [Color theory for designers: a beginner’s guide](https://webflow.com/blog/color-theory?msockid=3dc0c7dd391f6b121f7ed1f638486ae2)
+- [How to use a Color Wheel Like a Pro](https://www.watercoloraffair.com/how-to-use-a-color-wheel-in-depth-guide/)
+- [A Beginner's Guide to Typography](https://www.zekagraphic.com/typography-design-beginner-guide/)
+
