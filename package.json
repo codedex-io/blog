@@ -21,9 +21,9 @@
   "homepage": "https://github.com/codedex-io/blogs#readme",
   "dependencies": {
     "firebase-admin": "^13.0.2",
-    "meilisearch": "^0.51.0",
     "gray-matter": "^4.0.3",
     "hastscript": "^9.0.1",
+    "meilisearch": "^0.51.0",
     "next-mdx-remote": "^6.0.0",
     "rehype-autolink-headings": "^7.1.0",
     "rehype-external-links": "^3.0.0",
@@ -31,13 +31,14 @@
     "rehype-katex": "^7.0.1",
     "rehype-rewrite": "^4.0.4",
     "rehype-slug": "^6.0.0",
+    "remark": "^14.0.2",
     "remark-breaks": "^4.0.0",
     "remark-gfm": "^4.0.1",
+    "remark-lint-list-item-indent": "^3.1.1",
     "remark-math": "^6.0.0",
+    "remark-mdx": "^2.1.2",
     "remark-preset-lint-consistent": "^6.0.1",
     "remark-preset-lint-recommended": "^7.0.1",
-    "remark": "^14.0.2",
-    "remark-lint-list-item-indent": "^3.1.1",
-    "remark-mdx": "^2.1.2"
+    "unist-util-visit": "^5.1.0"
   }
 }
