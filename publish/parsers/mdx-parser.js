@@ -51,19 +51,18 @@ export async function parseMarkdown({ markdown }) {
     mdxOptions: {
       remarkPlugins: [
         remarkMath,
-        remarkPresetLintRecommended,
-        remarkBreaks,
         remarkGfm,
+        remarkBreaks,
+        remarkPresetLintRecommended,
         remarkPresetLintConsistent,
       ],
       rehypePlugins: [
-        rehypeSlug,
         [rehypeHighlight, { aliases: { markdown: ["output", "terminal"] } }],
+        rehypeSlug,
         [
           rehypeExternalLinks,
           { target: "_blank", rel: ["nofollow", "noreferrer", "noopener"] },
         ],
-        rehypeKatex,
         [
           rehypeRewrite,
           {
@@ -73,7 +72,9 @@ export async function parseMarkdown({ markdown }) {
                 node.tagName === "h3" ||
                 node.tagName === "h4"
               ) {
-                node.children[0].value = " " + node.children[0].value;
+                if (node.children && node.children[0]) {
+                  node.children[0].value = " " + node.children[0].value;
+                }
               }
               if (node.tagName === "table") {
                 const tableContainer = h("div", { class: "table-container" }, [
@@ -84,6 +85,7 @@ export async function parseMarkdown({ markdown }) {
             },
           },
         ],
+        [rehypeKatex, { throwOnError: true, strict: true }],
         [
           rehypeAutoLinkHeadings,
           {
@@ -108,6 +110,7 @@ export async function parseMarkdown({ markdown }) {
         ],
         rehypeStringifyStyles,
       ],
+      format: "mdx",
     },
   });
 
