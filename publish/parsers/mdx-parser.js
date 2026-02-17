@@ -48,6 +48,7 @@ export async function parseMarkdown({ markdown }) {
   const { content, data } = matter(markdown);
 
   const source = await serialize(content, {
+    blockJS: false,
     mdxOptions: {
       remarkPlugins: [
         remarkMath,
