@@ -112,6 +112,7 @@ export async function parseMarkdown({ markdown }) {
       ],
       format: "mdx",
     },
+    blockJS: false,
   });
 
   return { source, content, data };
