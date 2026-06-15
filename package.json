@@ -40,5 +40,22 @@
     "remark-preset-lint-consistent": "^6.0.1",
     "remark-preset-lint-recommended": "^7.0.1",
     "unist-util-visit": "^5.1.0"
+  },
+  "overrides": {
+    "@grpc/grpc-js": "1.12.7",
+    "@protobufjs/utf8": "1.1.1",
+    "@tootallnate/once": "2.0.1",
+    "diff": "5.2.2",
+    "fast-xml-parser": "5.7.0",
+    "form-data": "2.5.6",
+    "js-yaml": "3.14.2",
+    "jws": "4.0.1",
+    "jsonwebtoken": {
+      "jws": "3.2.3"
+    },
+    "lodash": "4.18.1",
+    "node-forge": "1.4.0",
+    "protobufjs": "7.6.4",
+    "yaml": "2.8.3"
   }
 }
