@@ -1,0 +1,274 @@
+title: Inside Codédex Builds v1
+description: Codédex Builds v1 turns one-file demos into real multi-file projects you can publish to your own .codedex.me subdomain. Here's how we built it.
+author: Dharma Jethva
+seoImageLink: 
+dateCreated: 2026-05-12
+published: false
+uid: HQImLPf2Tmel6kw8hCis3vcJnLo2
+tags:
+
+- Engineering
+- Product
+
+---
+
+Hey, **Dharma** here! Back with another update from the Codédex Engineering team.
+
+This time around, we're going to talk [Codédex Builds](https://www.codedex.io/builds) v1 launch.
+
+---
+
+## What's New
+
+Codédex Builds has been around for a while, but until now, "a build" meant one HTML file, one CSS file, and one JS file glued together inline. Fine for a quick demo. Not fine the moment you wanted folders, multiple stylesheets, image assets, or anything resembling a real project.
+
+That changes with this update.
+
+We rolled out **Builds v1**: a real multi-file editor with public hosting baked in.
+
+Meet the new Builds workspace.
+
+![Builds workspace](https://firebasestorage.googleapis.com/v0/b/codedex-io.appspot.com/o/blogs%2Fcodedex-builds-v1%2Fworkspace.png?alt=media&token=TODO)
+
+Here's what you can do:
+
+| Feature                | What it gives you                                                             |
+| ---------------------- | ----------------------------------------------------------------------------- |
+| 📁 Multi-file projects | Add HTML, CSS, JS files. Organize them in folders. Rename freely.             |
+| 🖼️ Asset uploads       | Drop images right in – referenced by relative path, just like a real project. |
+| ⚡ Live preview        | Edits show up in the iframe instantly. No save buttons, no refresh dance.     |
+| 🌐 Public URLs         | Publish to `your-build.codedex.me` and share the link with anyone.            |
+| 🎨 Custom subdomains   | Pick your own slug – or let us generate one from your build title.            |
+| 🔀 Remix               | Fork any public build into your own workspace and make it yours.              |
+
+<Quote text="The editor doesn't go to the server when you edit. A service worker installed at /preview/ pretends to be a tiny webserver. Your files live in its memory, and refreshing the iframe is just a regular HTTP request answered locally." />
+
+---
+
+## The Engineering Challenges
+
+Adding multi-file support sounds simple: throw all the files in a database, render them in an iframe, slap a URL on it. And you're done, right?
+
+Well, not quite. Here's what I actually had to figure out:
+
+### A Firestore document is not a filesystem
+
+The original Builds stored every file as a field on a single Firestore document. Easy to read, easy to write but less easy to scale, especially if there were too many files or too much content. Firestore caps documents at 1 MB, every save rewrites the entire blob, and there's no way to query "just this one file."
+
+### An iframe has no idea what your files are
+
+The new editor lets you write `<link rel="stylesheet" href="styles/theme.css">`, `fetch("./data.json")`, and `import "./utils.js"`, all relative paths that look perfectly normal. The problem is your files don't live on any web server. They live in the editor's memory. The iframe goes out to the network looking for `styles/theme.css`, finds nothing, and you get a 404.
+
+### Sharing a build should feel like sharing a website
+
+A URL like `codedex.io/dharma/build/my-cool-thing/view` works, but it doesn't feel like _your_ site, and it definitely doesn't feel like a place you'd send a friend. Public builds needed real subdomains. Wildcard DNS, edge routing, the whole thing.
+
+### Old builds shouldn't break overnight
+
+We had hundreds of thousands of existing single-file (`html-css`) builds in production. None of them have a file tree. None of them know about the new subcollection structure. They still had to load, edit, remix, and stay published, without anyone clicking a migration button.
+
+So here's what I did.
+
+---
+
+## The Solutions
+
+### 1. One Firestore document → a subcollection of files
+
+Files moved out of the parent `userBuilds/{buildId}` document and into a subcollection: `userBuilds/{buildId}/files/{fileDocId}`. The parent doc keeps the metadata (owner, title, slug, privacy). Each file is its own document.
+
+The interesting bit isn't the schema, it's the save. The editor sends the full file map every time you save, and the server does a diff so only the files that actually changed get written:
+
+```ts
+// firebase/user_builds/htmlCssJsBuilds.ts
+const currentFiles = await this.loadFiles(buildId);
+const batch = writeBatch(this.db);
+
+// Delete files that no longer exist
+for (const path of Object.keys(currentFiles)) {
+  if (!(path in files)) {
+    batch.delete(doc(filesCol, FileSystemUtils.pathToDocId(path)));
+  }
+}
+
+// Upsert files that are new or changed
+for (const [path, file] of Object.entries(files)) {
+  const current = currentFiles[path];
+  if (!current || current.code !== file.code) {
+    batch.set(doc(filesCol, FileSystemUtils.pathToDocId(path)), {
+      code: file.code,
+      path: file.path,
+      readOnly: file.readOnly || false,
+    });
+  }
+}
+
+await batch.commit();
+```
+
+Saving a build with 20 files where you only edited one costs 1 write, not 20(Firestore charges per document write). And we're no longer bumping against the 1 MB doc ceiling, or rewriting the whole project on every keystroke.
+
+### 2. The service worker that pretends to be a webserver
+
+This is the part I'm most excited about.
+
+When you open the editor, we register a service worker scoped to `/preview/`. The worker sits between the iframe and the network. When the iframe asks for any URL under `/preview/{buildId}/...`, the worker checks its in-memory file map and serves the file directly. No round trip. No fake server. The iframe genuinely believes it's loading from the web.
+
+![Build preview architecture](https://firebasestorage.googleapis.com/v0/b/codedex-io.appspot.com/o/blogs%2Fcodedex-builds-v1%2Fservice-worker-diagram.png?alt=media&token=TODO)
+
+Here's the heart of it:
+
+```js
+// public/build-preview-sw.js
+self.addEventListener("fetch", (event) => {
+  const req = event.request;
+  if (req.method !== "GET") return;
+
+  const parsed = parsePreviewUrl(req.url);
+  if (!parsed) return; // not a preview URL → let the network handle it
+
+  event.respondWith(
+    (async () => {
+      const files = buildFiles.get(parsed.buildId);
+      if (!files)
+        return new Response(notFoundHtml("No build loaded."), { status: 404 });
+
+      const file = files[parsed.path];
+      if (!file)
+        return new Response(notFoundHtml(`Not found: ${parsed.path}`), {
+          status: 404,
+        });
+
+      return new Response(file.code, {
+        status: 200,
+        headers: {
+          "Content-Type": file.contentType,
+          "Cache-Control": "no-store",
+        },
+      });
+    })(),
+  );
+});
+```
+
+The editor talks to the worker over a `MessageChannel`. Every edit posts a `PATCH_FILES` message with only the files that changed since the last edit. A small djb2 content hash per file decides what's new. The worker updates its in-memory map, and the next time the iframe refreshes, it gets fresh content.
+
+<Quote text="The whole preview pipeline never touches a server. Your code lives in the editor's memory, gets posted to the service worker over a port, and is served back to the iframe at the speed of a function call. Save buttons quietly stopped being a thing." />
+
+### 3. Wildcard subdomains, with a regex in the middleware
+
+`*.codedex.me` is wired up as a Vercel wildcard domain, with a CNAME pointing at `cname.vercel-dns.com`. Every subdomain ends up at the same Next.js app. The routing happens in middleware.
+
+![Subdomain request flow](https://firebasestorage.googleapis.com/v0/b/codedex-io.appspot.com/o/blogs%2Fcodedex-builds-v1%2Fsubdomain-flow.png?alt=media&token=TODO)
+
+The middleware uses a host-matching predicate so the subdomain code path stays isolated from the regular codedex.io routes:
+
+```js
+// middleware.js (matcher config)
+{
+  source:
+    "/((?!_next/static|_next/image|favicon.ico|.*\\.(?:png|jpg|jpeg|gif|svg|webp|ico|woff|woff2|ttf|otf|map)$).*)",
+  has: [
+    {
+      type: "host",
+      value:
+        "^(?<slug>[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?)\\.codedex\\.me(?::\\d+)?$",
+    },
+  ],
+},
+```
+
+That regex is the shape DNS labels are actually allowed to take: 1–63 characters, starts and ends alphanumeric, hyphens in the middle. Anything that matches gets handed to a tiny subdomain handler that rewrites the URL to an internal API route:
+
+```js
+// middlewares/subdomainHandler.js
+export function handleSubdomainRouting(req) {
+  const parsed = parseHost(req.headers.get("host"));
+  if (parsed.kind !== "subdomain") return null;
+
+  const tail =
+    req.nextUrl.pathname === "/" ? "/index.html" : req.nextUrl.pathname;
+  const target = new URL(
+    `/api/builds/by-slug/${parsed.slug}${tail}`,
+    req.nextUrl.origin,
+  );
+  return NextResponse.rewrite(target);
+}
+```
+
+The API route looks up the build by slug, loads its files from the subcollection, inlines the CSS and JS into the HTML, and returns a single response. No service worker on the public side, which keeps it simple, indexable, and working without JavaScript.
+
+### 4. Lazy migration: nothing breaks overnight
+
+The thousands of existing `html-css` builds still need to work. Rather than running a one-shot migration job and praying it didn't miss anyone, the new code does the conversion on read, once per build, the first time someone actually touches it.
+
+```ts
+// firebase/user_builds/htmlCssJsBuildsMigration.ts
+async ensureMigrated(buildId: string, docData: RawBuildDoc): Promise<void> {
+  if ((docData.type as string) !== "html-css") return;
+
+  if (typeof docData.code === "object" && docData.code !== null) {
+    await this.migrateHtmlCssBuild(buildId, docData);
+    return;
+  }
+
+  // Malformed legacy `code` field → seed an empty file shell so the
+  // in-progress write lands on a consistent doc.
+  await this.migrateMalformedHtmlCssBuild(buildId, docData);
+}
+```
+
+Every entry point (`getBuildBySlug`, `saveBuild`, `remixBuild`) calls this first. Migrated builds get `migratedFrom: "html-css"` and `migratedAt` stamped on their parent doc so we can audit later. The function is idempotent: if it's already a `html-css-js` build, it returns instantly.
+
+There's also a one-shot `POST /api/builds/migrate` admin route for bulk migration in chunks of 50, but in practice the lazy path has covered nearly every active build before we ever had to run it.
+
+---
+
+## Try It Out
+
+Ready to build something?
+
+1. Head to [codedex.io/builds](https://www.codedex.io/builds)
+2. Hit **+ New Build** to start with a blank `index.html`, `style.css`, and `script.js`
+3. Add files (and folders!) from the file tree on the left. Drop in images and reference them by relative path
+4. Watch the live preview on the right update as you type
+5. Hit **Publish** to make your build public and get your own `*.codedex.me` subdomain
+
+![A published build on its own subdomain](https://firebasestorage.googleapis.com/v0/b/codedex-io.appspot.com/o/blogs%2Fcodedex-builds-v1%2Fpublished-build.png?alt=media&token=TODO)
+
+<div
+  style={{
+    display: "flex",
+    justifyContent: "center",
+    marginBottom: "1.2rem",
+    transform: "scale(.9)",
+  }}
+>
+  <a
+    href="https://www.codedex.io/builds"
+    style={{ all: "unset" }}
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <Button variant="yellow">Start Building</Button>
+  </a>
+</div>
+
+---
+
+## Shoutouts
+
+Huge shoutout to our in-house Sr. Product Designer **Jackie Liu** for designing every screen of the new Builds experience and making the workspace feel like a real editor instead of a textbox with extra steps.
+
+And shoutout to **Asiqur**, the engineer who paired with me on the building out all the designs, and helping with integrating all the backend internals and hooks.
+
+---
+
+## Why This Matters
+
+The old Builds were perfect for the kind of one-file demos you write on day 1 of a JavaScript course. But the moment you wanted to ship something real (a portfolio, a small game, a hackathon project), you ran out of room fast.
+
+Builds v1 is my initial vision for original Builds. It's the difference between _"I made a thing in the sandbox"_ and _"I made a thing. Here, look at the URL."_
+
+Happy coding,
+Dharma
