@@ -50,21 +50,21 @@ Adding multi-file support sounds simple: throw all the files in a database, rend
 
 Well, not quite. Here's what I actually had to figure out:
 
-### A Firestore document is not a filesystem
+### A Firestore document is not a filesystem.
 
 The original Builds stored every file as a field on a single Firestore document. Easy to read, easy to write but less easy to scale, especially if there were too many files or too much content. Firestore caps documents at 1 MB, every save rewrites the entire blob, and there's no way to query "just this one file."
 
-### An iframe has no idea what your files are
+### An iframe has no idea what your files are.
 
 The new editor lets you write `<link rel="stylesheet" href="styles/theme.css">`, `fetch("./data.json")`, and `import "./utils.js"`, all relative paths that look perfectly normal. The problem is your files don't live on any web server. They live in the editor's memory. The iframe goes out to the network looking for `styles/theme.css`, finds nothing, and you get a 404.
 
-### Sharing a build should feel like sharing a website
+### Sharing a build should feel like sharing a website.
 
-A URL like `codedex.io/dharma/build/my-cool-thing/view` works, but it doesn't feel like _your_ site, and it definitely doesn't feel like a place you'd send a friend. Public builds needed real subdomains. Wildcard DNS, edge routing, the whole thing.
+A URL like `codedex.io/dharma/build/my-cool-thing/view` works, but it doesn't feel like _your_ site, and it definitely doesn't feel like a place you'd send a friend. Public Builds needed real subdomains. Wildcard DNS, edge routing, the whole thing.
 
-### Old builds shouldn't break overnight
+### Old Builds shouldn't break overnight.
 
-We had hundreds of thousands of existing single-file (`html-css`) builds in production. None of them have a file tree. None of them know about the new subcollection structure. They still had to load, edit, remix, and stay published, without anyone clicking a migration button.
+We had hundreds of thousands of existing single-file (`html-css`) Builds in production. None of them have a file tree. None of them know about the new subcollection structure. They still had to load, edit, remix, and stay published, without anyone clicking a migration button.
 
 So here's what I did.
 
@@ -199,7 +199,7 @@ The API route looks up the build by slug, loads its files from the subcollection
 
 ### 4. Lazy migration: nothing breaks overnight
 
-The thousands of existing `html-css` builds still need to work. Rather than running a one-shot migration job and praying it didn't miss anyone, the new code does the conversion on read, once per build, the first time someone actually touches it.
+The thousands of existing `html-css` Builds still need to work. Rather than running a one-shot migration job and praying it didn't miss anyone, the new code does the conversion on read, once per build, the first time someone actually touches it.
 
 ```ts
 // firebase/user_builds/htmlCssJsBuildsMigration.ts
@@ -217,7 +217,7 @@ async ensureMigrated(buildId: string, docData: RawBuildDoc): Promise<void> {
 }
 ```
 
-Every entry point (`getBuildBySlug`, `saveBuild`, `remixBuild`) calls this first. Migrated builds get `migratedFrom: "html-css"` and `migratedAt` stamped on their parent doc so we can audit later. The function is idempotent: if it's already a `html-css-js` build, it returns instantly.
+Every entry point (`getBuildBySlug`, `saveBuild`, `remixBuild`) calls this first. Migrated Builds get `migratedFrom: "html-css"` and `migratedAt` stamped on their parent doc so we can audit later. The function is idempotent: if it's already a `html-css-js` build, it returns instantly.
 
 There's also a one-shot `POST /api/builds/migrate` admin route for bulk migration in chunks of 50, but in practice the lazy path has covered nearly every active build before we ever had to run it.
 
