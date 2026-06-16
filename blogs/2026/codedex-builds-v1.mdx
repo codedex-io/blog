@@ -3,7 +3,7 @@ title: Inside Codédex Builds v1.0
 description: Codédex Builds v1 turns one-file demos into real multi-file projects you can publish to your own name.codedex.me subdomain. Here's how we built it.
 author: Dharma Jethva
 seoImageLink: https://firebasestorage.googleapis.com/v0/b/codedex-io.appspot.com/o/blogs%2F2026%2Fcodedex-builds-v1%2Fheader.gif?alt=media&token=cd623e97-e02b-4145-b50c-e91e28d424f2
-dateCreated: 2026-05-12
+dateCreated: 2026-06-16
 published: true
 uid: HQImLPf2Tmel6kw8hCis3vcJnLo2
 tags:
@@ -32,7 +32,7 @@ Meet your new Builds workspace... 🥁...
 
 Here's what you can do:
 
-| **Feature**                   | **What it gives you**                                                           |
+| **Feature**                | **What it gives you**                                                         |
 | -------------------------- | ----------------------------------------------------------------------------- |
 | 📁 **Multi-file projects** | Add HTML, CSS, JS files. Organize them in folders. Rename freely.             |
 | 🖼️ **Asset uploads**       | Drop images right in – referenced by relative path, just like a real project. |
@@ -61,7 +61,7 @@ The new editor lets you write `<link rel="stylesheet" href="styles/theme.css">`,
 
 ### Sharing a Build should feel like sharing a website.
 
-A URL like https://codedex.io/dharma/build/my-cool-thing/view works, but it doesn't feel like _your_ site, and it definitely doesn't feel like a place you'd send a friend. Public Builds needed real subdomains. Wildcard DNS, edge routing, the whole thing.
+A URL like https://codedex.io/@dharma/build/my-cool-thing/ works, but it doesn't feel like _your_ site, and it definitely doesn't feel like a place you'd send a friend. Public Builds needed real subdomains. Wildcard DNS, edge routing, the whole thing.
 
 ### Old Builds shouldn't break overnight.
 
@@ -229,7 +229,7 @@ There's also a one-shot `POST /api/builds/migrate` admin route for bulk migratio
 Tired of hearing me talk and ready to give Builds a shot?
 
 1. Head to [codedex.io/builds](https://www.codedex.io/builds)
-2. Hit **+ New Build** button and then "HTML/CSS/JS" to start with a blank: 
+2. Hit **+ New Build** button and then "HTML/CSS/JS" to start with a blank:
    - **index.html**
    - **style.css**
    - **script.js**
