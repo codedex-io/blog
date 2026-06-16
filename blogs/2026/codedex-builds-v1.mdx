@@ -114,7 +114,7 @@ This is the part I'm most excited about.
 
 When you open the editor, we register a service worker scoped to `/preview/`. The worker sits between the iframe and the network. When the iframe asks for any URL under `/preview/{buildId}/...`, the worker checks its in-memory file map and serves the file directly. No round trip. No fake server. The iframe genuinely believes it's loading from the web.
 
-![Build preview architecture](https://firebasestorage.googleapis.com/v0/b/codedex-io.appspot.com/o/blogs%2F2026%2Fcodedex-builds-v1%2Fgraphic.png?alt=media&token=32ea1c1c-486f-4ef1-a09d-04299415ac19)
+![Build preview architecture](https://firebasestorage.googleapis.com/v0/b/codedex-io.appspot.com/o/blogs%2F2026%2Fcodedex-builds-v1%2Farchitecture.png?alt=media&token=2817cab1-18b3-4772-be8f-ac15b70f39bd)
 
 Here's the heart of it:
 
