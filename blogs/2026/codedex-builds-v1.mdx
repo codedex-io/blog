@@ -56,9 +56,9 @@ The original Builds stored every file as a field on a single Firestore document.
 
 ### An iframe has no idea what your files are.
 
-The new editor lets you write `<link rel="stylesheet" href="styles/theme.css">`, `fetch("./data.json")`, and `import "./utils.js"`, all relative paths that look perfectly normal. The problem is your files don't live on any web server. They live in the editor's memory. The iframe goes out to the network looking for `styles/theme.css`, finds nothing, and you get a 404.
+The new editor lets you write `<link rel="stylesheet" href="styles/theme.css">`, `fetch("./data.json")`, and `import "./utils.js"`, all relative paths that look perfectly normal. The problem is your files don't live on any web server. They live in the editor's memory. The iframe goes out to the network looking for **styles/theme.css**, finds nothing, and you get a 404.
 
-### Sharing a build should feel like sharing a website.
+### Sharing a Build should feel like sharing a website.
 
 A URL like `codedex.io/dharma/build/my-cool-thing/view` works, but it doesn't feel like _your_ site, and it definitely doesn't feel like a place you'd send a friend. Public Builds needed real subdomains. Wildcard DNS, edge routing, the whole thing.
 
@@ -105,7 +105,7 @@ for (const [path, file] of Object.entries(files)) {
 await batch.commit();
 ```
 
-Saving a build with 20 files where you only edited one costs 1 write, not 20(Firestore charges per document write). And we're no longer bumping against the 1 MB doc ceiling, or rewriting the whole project on every keystroke.
+Saving a build with 20 files where you only edited one costs 1 write, not 20 (Firestore charges per document write). And we're no longer bumping against the 1 MB doc ceiling, or rewriting the whole project on every keystroke.
 
 ### 2. The service worker that pretends to be a webserver
 
@@ -228,7 +228,7 @@ There's also a one-shot `POST /api/builds/migrate` admin route for bulk migratio
 Ready to build something?
 
 1. Head to [codedex.io/builds](https://www.codedex.io/builds)
-2. Hit **+ New Build** to start with a blank `index.html`, `style.css`, and `script.js`
+2. Hit **+ New Build** and then "HTML/CSS/JS" to start with a blank **index.html**, **style.css**, and **script.js**
 3. Add files (and folders!) from the file tree on the left. Drop in images and reference them by relative path
 4. Watch the live preview on the right update as you type
 5. Hit **Publish** to make your build public and get your own `*.codedex.me` subdomain
@@ -267,7 +267,7 @@ And shoutout to **Asiqur**, the engineer who paired with me on the building out 
 
 The old Builds were perfect for the kind of one-file demos you write on day 1 of a JavaScript course. But the moment you wanted to ship something real (a portfolio, a small game, a hackathon project), you ran out of room fast.
 
-Builds v1 is my initial vision for original Builds. It's the difference between _"I made a thing in the sandbox"_ and _"I made a thing. Here, look at the URL."_
+Builds v1.o is my initial vision for original Builds. It's the difference between _"I made a thing in a sandbox."_ and _"I made a thing. Here, open this URL."_
 
 Happy coding,  
 Dharma
