@@ -178,7 +178,7 @@ The middleware uses a host-matching predicate so the subdomain code path stays i
 },
 ```
 
-That regex is the shape DNS labels are actually allowed to take: 1–63 characters, starts and ends alphanumeric, hyphens in the middle. Anything that matches gets handed to a tiny subdomain handler that rewrites the URL to an internal API route:
+That regex is the shape DNS labels are actually allowed to take: 1-63 characters, starts and ends alphanumeric, hyphens in the middle. Anything that matches gets handed to a tiny subdomain handler that rewrites the URL to an internal API route:
 
 ```js
 // middlewares/subdomainHandler.js
