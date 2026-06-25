@@ -38,8 +38,8 @@ Here's what you can do:
 | 🖼️ **Asset uploads**       | Drop images right in – referenced by relative path, just like a real project. |
 | ⚡ **Live preview**        | Edits show up in the iframe instantly. No save buttons, no refresh dance.     |
 | 🌐 **Public URLs**         | Publish to `your-build.codedex.me` and share the link with anyone.            |
-| 🎨 **Custom subdomains**   | Pick your own slug – or let us generate one from your build title.            |
-| 🔀 **Remix**               | Fork any public build into your own workspace and make it yours.              |
+| 🎨 **Custom subdomains**   | Pick your own slug – or let us generate one from your Build title.            |
+| 🔀 **Remix**               | Fork any public Build into your own workspace and make it yours.              |
 
 <Quote text="The editor doesn't go to the server when you edit. A service worker installed at /preview/ pretends to be a tiny webserver. Your files live in its memory, and refreshing the iframe is just a regular HTTP request answered locally." />
 
@@ -106,7 +106,7 @@ for (const [path, file] of Object.entries(files)) {
 await batch.commit();
 ```
 
-Saving a build with 20 files where you only edited one costs 1 write, not 20 (Firestore charges per document write). And we're no longer bumping against the 1 MB doc ceiling, or rewriting the whole project on every keystroke.
+Saving a Build with 20 files where you only edited one costs 1 write, not 20 (Firestore charges per document write). And we're no longer bumping against the 1 MB doc ceiling, or rewriting the whole project on every keystroke.
 
 ### 2. The service worker that pretends to be a webserver
 
@@ -219,9 +219,9 @@ async ensureMigrated(buildId: string, docData: RawBuildDoc): Promise<void> {
 }
 ```
 
-Every entry point (`getBuildBySlug`, `saveBuild`, `remixBuild`) calls this first. Migrated Builds get `migratedFrom: "html-css"` and `migratedAt` stamped on their parent doc so we can audit later. The function is idempotent: if it's already a `html-css-js` build, it returns instantly.
+Every entry point (`getBuildBySlug`, `saveBuild`, `remixBuild`) calls this first. Migrated Builds get `migratedFrom: "html-css"` and `migratedAt` stamped on their parent doc so we can audit later. The function is idempotent: if it's already a `html-css-js` Build, it returns instantly.
 
-There's also a one-shot `POST /api/builds/migrate` admin route for bulk migration in chunks of 50, but in practice the lazy path has covered nearly every active build before we ever had to run it.
+There's also a one-shot `POST /api/builds/migrate` admin route for bulk migration in chunks of 50, but in practice the lazy path has covered nearly every active Build before we ever had to run it.
 
 ---
 
@@ -236,7 +236,7 @@ Tired of hearing me talk and ready to give Builds a shot?
    - **script.js**
 3. Add files (and folders!) from the file tree. Drop in images and link them with relative path
 4. Watch the live preview on the right update as you type
-5. Hit **Publish** to make your build public and get your own `*.codedex.me` subdomain
+5. Hit **Publish** to make your Build public and get your own `*.codedex.me` subdomain
 
 ![A published build on its own subdomain](https://firebasestorage.googleapis.com/v0/b/codedex-io.appspot.com/o/blogs%2F2026%2Fcodedex-builds-v1%2Fbuilds_2.png?alt=media&token=384d3906-74c7-4462-b5c8-3b0468aa9287)
 
