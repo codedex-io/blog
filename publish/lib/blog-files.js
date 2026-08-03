@@ -23,18 +23,29 @@ export function getBlogsFileNames() {
 
           if (entry.isDirectory()) {
             const blogDir = path.join(yearDir, entry.name);
-            const mdxFile = fs
-              .readdirSync(blogDir)
-              .find((file) => file.endsWith(".mdx"));
+            const files = fs.readdirSync(blogDir);
 
-            if (!mdxFile) {
+            // The .mdx filename becomes the Firestore doc ID, so it must
+            // match the directory slug exactly — publishing a stray file
+            // under a wrong ID could overwrite an unrelated blog.
+            const expectedMdxFile = `${entry.name}.mdx`;
+            if (!files.includes(expectedMdxFile)) {
               console.warn(
-                `No .mdx file found in blogs/${yearDirent.name}/${entry.name}, skipping`,
+                `No ${expectedMdxFile} found in blogs/${yearDirent.name}/${entry.name}, skipping`,
               );
               return [];
             }
 
-            return [path.join(yearDirent.name, entry.name, mdxFile)];
+            const extraMdxFiles = files.filter(
+              (file) => file.endsWith(".mdx") && file !== expectedMdxFile,
+            );
+            if (extraMdxFiles.length > 0) {
+              console.warn(
+                `Ignoring extra .mdx files in blogs/${yearDirent.name}/${entry.name}: ${extraMdxFiles.join(", ")}`,
+              );
+            }
+
+            return [path.join(yearDirent.name, entry.name, expectedMdxFile)];
           }
 
           return [];
