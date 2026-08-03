@@ -13,9 +13,10 @@ async function sortBlogsPerYearIntoDirectories() {
       const markdown = fs.readFileSync(filePath, "utf-8");
       const { content, data } = matter(markdown);
 
-      const newDir = `${blogsDir}/${data.dateCreated.getFullYear()}`;
+      const blogSlug = file.replace(/\.mdx$/, "");
+      const newDir = `${blogsDir}/${data.dateCreated.getFullYear()}/${blogSlug}`;
       if (!fs.existsSync(newDir)) {
-        fs.mkdirSync(newDir);
+        fs.mkdirSync(newDir, { recursive: true });
       }
       const newFilePath = `${newDir}/${file}`;
       fs.renameSync(filePath, newFilePath);
