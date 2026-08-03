@@ -3,20 +3,8 @@ import path from "path";
 
 import { firestore } from "./lib/firebase.js";
 import { client } from "./lib/meilisearch.js";
+import { getBlogsFileNames } from "./lib/blog-files.js";
 import { parseMarkdown } from "./parsers/mdx-parser.js";
-
-function getBlogsFileNames() {
-  return fs
-    .readdirSync(path.resolve(process.cwd(), "blogs"), { withFileTypes: true })
-    .filter((dirent) => dirent.isDirectory())
-    .flatMap((dirent) => {
-      const yearDir = path.resolve(process.cwd(), "blogs", dirent.name);
-      return fs
-        .readdirSync(yearDir)
-        .filter((file) => file.endsWith(".mdx"))
-        .map((file) => path.join(dirent.name, file));
-    });
-}
 
 function getBlogFileContent(filename) {
   return fs.readFileSync(

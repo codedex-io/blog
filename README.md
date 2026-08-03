@@ -4,6 +4,27 @@ This repository contains all the Codédex blog posts.
 
 www.codedex.io/blog
 
+## Structure
+
+Each blog post lives in its own directory, grouped by year:
+
+```text
+blogs/
+└── <year>/
+    └── <blog-slug>/
+        └── <blog-slug>.mdx
+```
+
+To add a new blog, create `blogs/<year>/<blog-slug>/<blog-slug>.mdx` — the
+directory and `.mdx` filename must match, or publishing skips the post with
+a warning. The slug becomes the blog's URL (`codedex.io/blog/<blog-slug>`),
+so it must be unique across all years, lowercase kebab-case, and contain no
+dots. Assets for a post (images, GIFs) can live alongside the `.mdx` file
+in the same directory.
+
+Merging to `main` publishes every blog to Firestore and Meilisearch via
+`.github/workflows/publish.yaml` (`npm run publish`).
+
 The supported tags in the frontmatter for the blogs are:
 
 - `News`
