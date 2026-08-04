@@ -1,0 +1,124 @@
+---
+title: "My Intro to Creative Coding"
+description:
+author: Hong Anh Vu 
+seoImageLink: 
+uid: 
+dateCreated: 2026-08-07
+published: true
+tags:
+  - Community
+  - Resources
+---
+
+## What Is Creative Coding
+Programming has so many different domains and niches, but one I kept hearing about was "creative coding".
+
+Sooo… what exactly is creative coding?
+
+My first attempt at figuring it out was typing "creative coding" into the Google search. What I got back were these images:
+
+![image]()
+
+I stared at them for a while and thought: _There is no way I'm ever making that_. 
+
+Then, I came across this definition on [Wikipedia](https://en.wikipedia.org/wiki/Creative_coding), and it began to seem like something I could actually do: 
+
+<Quote text="Creative coding is a type of computer programming in which the goal is to create something expressive instead of something functional." />
+
+So there it is. It doesn't need to be mindblowingly beautiful. It doesn't have to make sense to anyone (which is great!). It just needs to tell some kind of story that resonates with you and that you want to share with the world.
+
+The beauty of creative coding is that there are no boundaries on _what_ you create (a game, a web app, a generative poem, a weird little button that screams when you click it), or _where_ it lives (terminal, browser, a tiny pixel on your phone screen, VR/AR glasses, a physical space, whatever you can think of!).
+
+![image]()
+
+## Learning By Building
+
+To get myself acquainted with creative coding, I built two projects!
+
+### Fractal Trees
+The first project I built was a [Fractal Trees](https://www.codedex.io/community/project-showcase/nhUGGv04gRl2p4tiuklK), each representing a different emotion. When the user hits the plant button, the tree grows in the shape of the emotion it represents. 
+
+The calm tree has neat, rounded fractals that are almost _too_ symmetrical, while the hopeful tree leans to the right as if blown by the wind. The anxious tree is made of jagged, sparse branches which appear to be fighting each other, and the tired tree collapses in on itself. Finally, the focused tree grows perfectly upward, reaching for the sky.
+
+![image]()
+
+### Thank You for Applying
+
+The next project I built was **[Thank You for Applying](https://honganhvu278.github.io/thank-you-for-applying-game/)**, a little pixel game about being between jobs. 
+
+The player gets four bars: Hope, Skill, Savings, and Progress. Each day, the player can only pick one action: Apply, Build Skills, or Take Care of Yourself. 
+
+The clock ticks, savings drain, and rejections pile up in your inbox. I made it like 8 months into my own job search, so… yeah. It's a little too real. 
+
+![image]()
+
+Both **Fractal Trees** and **Thank You for Applying** live in the browser, and you can play them and read the write-ups on my Codédex post [here](https://www.google.com/url?q=https://www.codedex.io/community/main/3NPpBeL9Ydr4dRNT1n0C&sa=D&source=docs&ust=1785442763598001&usg=AOvVaw3q_DKw-KP0s5S8fBsZlrgA)!
+
+## Creating Your First Project
+
+Now, how do you actually come up with a project for the first time?
+
+I'm a big advocate of learning by building, so here's the framework I've been using. I'll walk you through how I came up with mine and the resources I used along the way!
+
+### Step 1: How are you feeling right now?
+
+I've found a pattern in myself: if I feel "negative" about something, I create something out of it. And it makes me feel so much better about the situation.
+
+For the fractal trees, I was a whole tangle of emotions around New Year's. I had just rewatched _Inside Out_ and couldn't stop thinking: what if different feelings had different shapes?
+
+![image]()
+
+For “Thank you for Applying”, I was 8 months deep into a job search with rejections piling up.. 
+
+![image]()
+
+Both times, the feeling came first, and the project emerged from it!
+
+It doesn't have to be negative, btw! It can be something fun or joyful. The point is just to make something tangible out of a feeling you want to express and the mood you’re experiencing.
+
+### Step 2: Where do you want to build it?
+
+Now that you have inspiration, figure out where. What medium fits?
+
+I know a bit about web development, so for both of my creative projects, I decided to build in the browser:
+- **Fractal Trees**: A generative art piece / emotional simulator
+- **Thank You for Applying**: A game that runs on the web
+
+### Step 3: What do I need to know to build it?
+
+Once you know the what and the where, let’s figure out the tech.
+
+Honestly, I was a little scared of this part. I knew that executing these ideas would require new frameworks, and I didn't want to spend months learning a whole new language before I could get started.
+
+Luckily, I found a middle ground. I'm most comfortable in JavaScript, so I typed "creative coding with JavaScript" into the search bar and found [p5.js](https://p5js.org/). Did the same for the game, and [phaser.js](http://phaser.js) came up!
+- Making generative art in the browser → [p5.js](https://p5js.org/)
+- Building a game in the browser → [phaser.js](http://phaser.js)
+- Build a VR/AR project in the browser → [A-Frame](https://aframe.io/)
+- Creating a Song → [Tone.js](https://tonejs.github.io/)
+
+### Step 4: BUILD!
+
+![image]()
+
+What I actually learned from making both of these projects is that you don't really know what you need to learn until you start building it. 
+For example, for **Fractal Trees**, I started with the [Codédex p5.js Course](https://www.codedex.io/p5js) to get `setup()` and `draw()` into my head. Then, I looked up how fractal trees actually work, copied a basic recursive function, and spent way too long going back and forth between the p5.js docs and my code, tweaking the branching angle and depth until the trees accurately represented each feeling.
+
+For **Thank You for Applying**, I dove into Phaser's [Getting Started](https://phaser.io/tutorials/getting-started-phaser3) documentation to figure out how the game loop works. Phaser's docs were great resources, but if you're looking for a more guided, project-based way to learn, you can also check out the [Codédex Phaser Course](https://www.codedex.io/phaser)!.
+
+I spent a long time trying to understand Interactive Zones vs Collision Zones. Interactive Zones stop the player from walking through a wall, while Collision Zones trigger when the player walks into a spot. They sound similar, but they're set up totally differently. I didn't fully grasp the difference until I had a bug where a character could either walk through desks or get stuck on invisible squares, with no in-between.
+
+## Final Thoughts
+
+Throughout this process, my motto became: Learning by Building. Pick a project, figure out the minimum you need to know, and learn the rest as you hit walls. The project pulls the learning out of you!
+
+If you're looking for inspiration, two resources I keep coming back to:
+- [Codédex Monthly Challenge](https://www.codedex.io/community/monthly-challenge): Monthly coding/design/misc. prompts that give you a starting point when you're feeling stuck
+- [The Coding Train](https://thecodingtrain.com): Daniel Shiffman's YouTube channel. His p5.js videos are how I first got into generative coding
+- [p5.js Examples](https://p5js.org/examples/): Explore the possibilities of p5.js with short examples.
+- [Phaser Games on itch.io](https://itch.io/games/made-with-phaser): A gallery of games made with Phaser!
+- [p5.js Tools on itch.io](https://itch.io/tools/made-with-p5js): A gallery of tools made with p5.js!
+
+Go make something weird!
+
+Button to p5.course
